@@ -63,7 +63,7 @@ $newConn->createConnection();
                 <!-- Start Category -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Ingreso de data</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Ingreso de datos</h6>
                     </div>
                     <div class="card-body">
 
@@ -271,7 +271,7 @@ $newConn->createConnection();
                                      <?php
                                         }
                                         }else{
-                                        echo "<h3>Error en consulta contacte a soporte</h3>";
+                                        echo "<h5>Error en consulta contacte a soporte</h3>";
                                         }
                                      ?>
 

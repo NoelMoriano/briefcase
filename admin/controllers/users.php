@@ -11,18 +11,19 @@ $newConn->createConnection();
 //////////////////////////////
 // DATOS POST
 //////////////////////////////
-$path="C:/xampp/htdocs/portafolio/admin/uploads/users";
+
+/*$path="/Users/noelmoriano/.bitnami/stackman/machines/xampp/htdocs/portafolio/admin/uploads/users";
 // firstPicture
-$fileUserPhotoPath=$_FILES['userPhoto']['tmp_name'];
-$userPhoto=$_FILES['userPhoto']['name'];
+$fileUserPhotoPath = $_FILES['userPhoto']['tmp_name'];
+$userPhoto = $_FILES['userPhoto']['name'];
 
 
 for ($i=0; $i <=2 ; $i++) {
   move_uploaded_file($fileUserPhotoPath,$path."/".$userPhoto);
-}
+}*/
 
 $names = $_POST['names'];
-$lastNames = $_POST['lastName'];
+$lastName = $_POST['lastName'];
 $email = $_POST['email'];
 $password= $_POST['password'];
 $age = $_POST['age'];
@@ -31,17 +32,6 @@ $direction = $_POST['direction'];
 $profession = $_POST['profession'];
 $interests = $_POST['interests'];
 $phone = $_POST['phone'];
-
-echo $names;
-echo $lastNames;
-echo $email;
-echo $password;
-echo $age;
-echo $birthdayDate;
-echo $direction;
-echo $interests;
-echo $userPhoto;
-echo $phone;
 
 //////////////////////////////
 // INSERTAR users
@@ -53,8 +43,8 @@ if (isset($_POST['saveUser']) && $names == '') {
           </script>";
 
 }elseif (isset($_POST['saveUser'])) {
-  $queryUser = "INSERT INTO users(names,lastName,email,password,userPhoto,age,birthdayDate,direction,profession,interests,phone)
-  VALUES ('$names', '$lastNames', '$password', '$email', '$userPhoto', '$age', '$birthdayDate','$direction','$profession','$interests','$phone')";
+  $queryUser = "INSERT INTO users(names,lastName,email,password,age,birthdayDate,direction,profession,interests,phone)
+  VALUES ('$names', '$lastName', '$email', '$password','$age', '$birthdayDate','$direction','$profession','$interests','$phone')";
     $resultUser = $newConn->ExecuteQuery($queryUser);
     if($resultUser){
         $rowCount =  $newConn->GetCountAffectedRows();

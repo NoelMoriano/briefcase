@@ -31,12 +31,12 @@ if (substr($userEmail,0,1)=="'" || empty($userEmail) || empty($password))
     exit();
     }
 
-$query = "SELECT * FROM users WHERE userEmail = '$userEmail' AND password = '$password'";
+$query = "SELECT * FROM users WHERE email = '$userEmail' AND password = '$password'";
 $result = $newConn->ExecuteQuery($query);
 $rows = mysqli_num_rows($result);
 
 if ($rows>0){
-      $_SESSION['userEmail']=$userEmail;
+      $_SESSION['userEmail'] = $userEmail;
        echo "<script>
        alert('Bienvenido');
        window.location='../index.php';

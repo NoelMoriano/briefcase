@@ -36,7 +36,7 @@ $phone = $_POST['phone'];
 //////////////////////////////
 // INSERTAR users
 //////////////////////////////
-if (isset($_POST['saveUser']) && $names == '') {
+if (isset($_POST['saveUser']) && $names.isEmpty) {
     echo "<script>
      alert('Todos los campos son importantes');
      window.location = '';

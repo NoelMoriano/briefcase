@@ -31,7 +31,7 @@ if (substr($userEmail,0,1)=="'" || empty($userEmail) || empty($password))
     exit();
     }
 
-$query = "SELECT * FROM users WHERE email = '$userEmail' AND password = '$password'";
+$query = "SELECT * FROM users WHERE userEmail = '$userEmail' AND password = '$password'";
 $result = $newConn->ExecuteQuery($query);
 $rows = mysqli_num_rows($result);
 
@@ -45,7 +45,7 @@ if ($rows>0){
 }else{
       echo "<script>
        alert('Datos Incorrectos');
-       window.location='../index.html';
+       window.location='../login.php';
      </script>";
      }
  mysqli_free_result($result);

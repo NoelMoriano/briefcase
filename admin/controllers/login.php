@@ -45,7 +45,7 @@ if ($rows>0){
 }else{
       echo "<script>
        alert('Datos Incorrectos');
-       window.location='../../index.html';
+       window.location='../index.html';
      </script>";
      }
  mysqli_free_result($result);

@@ -14,8 +14,7 @@ require_once "config_db.php";
 $this->host=HOST;
 $this->user=USER;
 $this->password=PASSWORD;
-$this->database=DATABASE;
-  
+$this->database=DATABASE;  
 }
   
 public function createConnection(){

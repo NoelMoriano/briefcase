@@ -1,4 +1,5 @@
 <?php
+require("../control/constant.php");
 require("../control/classConnectionMySQL.php");
 
 // Creamos una nueva instancion
@@ -12,15 +13,14 @@ $newConn->createConnection();
 // DATOS POST
 //////////////////////////////
 
-/*$path="/Users/noelmoriano/.bitnami/stackman/machines/xampp/htdocs/portafolio/admin/uploads/users";
 // firstPicture
 $fileUserPhotoPath = $_FILES['userPhoto']['tmp_name'];
 $userPhoto = $_FILES['userPhoto']['name'];
 
 
 for ($i=0; $i <=2 ; $i++) {
-  move_uploaded_file($fileUserPhotoPath,$path."/".$userPhoto);
-}*/
+  move_uploaded_file($fileUserPhotoPath,$pathMac."/".$userPhoto);
+}
 
 $names = $_POST['names'];
 $lastName = $_POST['lastName'];
@@ -31,20 +31,22 @@ $birthdayDate = $_POST['birthdayDate'];
 $direction = $_POST['direction'];
 $profession = $_POST['profession'];
 $interests = $_POST['interests'];
-$phone = $_POST['phone'];
+$phone = $_POST['phone']; 
 
 //////////////////////////////
 // INSERTAR users
 //////////////////////////////
-if (isset($_POST['saveUser']) && $names.isEmpty) {
+if (isset($_POST['saveUser']) && $names == '') {
     echo "<script>
      alert('Todos los campos son importantes');
-     window.location = '';
+     
           </script>";
 
 }elseif (isset($_POST['saveUser'])) {
-  $queryUser = "INSERT INTO users(names,lastName,email,password,age,birthdayDate,direction,profession,interests,phone)
-  VALUES ('$names', '$lastName', '$email', '$password','$age', '$birthdayDate','$direction','$profession','$interests','$phone')";
+
+  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, `userPhoto`, `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`) 
+  VALUES ('$email','$password','$names' ,'$userPhoto','$lastName','$age', '$birthdayDate','$direction','$profession','$interests','$phone')";
+
     $resultUser = $newConn->ExecuteQuery($queryUser);
     if($resultUser){
         $rowCount =  $newConn->GetCountAffectedRows();

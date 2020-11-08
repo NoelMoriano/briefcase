@@ -16,6 +16,7 @@ $newConn = new connectionMySQL();
 // Creamos una nueva conexion
 $newConn->createConnection();
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -195,7 +196,7 @@ $newConn->createConnection();
                                                      id="thirdPicture" placeholder="Imagen Producto" name="thirdPicture">
                                           </div>
                                         </div>-->
-                                        <button class="btn btn-primary btn-category btn-block btn-small" name="saveUser">Guardar</button>
+                                        <input type="submit" class="btn btn-primary btn-category btn-block btn-small" name="saveUser" value="Guardar"/>
                                     </form>
                                 </div>
                             </div>
@@ -225,6 +226,8 @@ $newConn->createConnection();
                                         <th>Profesion</th>
                                         <th>Teléfono</th>
                                         <th>Intereses</th>
+                                        <th>CreateAt</th>
+                                        <th>Opciones</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
@@ -240,13 +243,14 @@ $newConn->createConnection();
                                         <th>Profesion</th>
                                         <th>Teléfono</th>
                                         <th>Intereses</th>
+                                        <th>CreateAt</th>
+                                        <th>Opciones</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
 
                                         <?php
-
-                                         $queryProduct = "SELECT names,lastName,email,password,userPhoto,age,birthdayDate,direction,profession,interests,phone,createAt FROM users
+                                         $queryProduct = "SELECT names,lastName,userEmail,password,userPhoto,age,birthdayDate,direction,profession,interests,phone,createAt FROM users
                                          ORDER BY createAt DESC";
                                         $resultUsers = $newConn->ExecuteQuery($queryProduct);
                                          if ($resultUsers) {
@@ -254,19 +258,19 @@ $newConn->createConnection();
 
                                         ?>
                                         <tr>
-                                        <td><?=$rowUser[1]?></td>
-                                        <td><?=$rowUser[2]?></td>
-                                        <td><?=$rowUser[3]?></td>
-                                        <td><?=$rowUser[4]?></td>
-                                        <td><img src="uploads/users/<?=$rowUser[5]?>" class="img-fluid"></td>
-                                        <td><?=$rowUser[6]?></td>
-                                        <td><?=$rowUser[7]?></td>
-                                        <td><?=$rowUser[8]?></td>
-                                        <td><?=$rowUser[9]?></td>
-                                        <td><?=$rowUser[10]?></td>
-                                        <td><?=$rowUser[11]?></td>
-                                        <td><?=$rowUser[12]?></td>
-                                        <td><a href="controllers/users.php?idUser=<?=$rowUser[0]?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                                        <td><img src="./uploads/users/<?=$rowUser["userPhoto"]?>" class="img-fluid"></td>
+                                        <td><?=$rowUser["names"]?></td>
+                                        <td><?=$rowUser["lastName"]?></td>
+                                        <td><?=$rowUser["userEmail"]?></td>
+                                        <td><?=$rowUser["password"]?></td>
+                                        <td><?=$rowUser["age"]?></td>
+                                        <td><?=$rowUser["birthdayDate"]?></td>
+                                        <td><?=$rowUser["direction"]?></td>
+                                        <td><?=$rowUser["profession"]?></td>
+                                        <td><?=$rowUser["interests"]?></td>
+                                        <td><?=$rowUser["phone"]?></td>
+                                        <td><?=$rowUser["createAt"]?></td>
+                                        <td><a href="controllers/users.php?idUser=<?=$rowUser["id"]?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
                                         </tr>
                                      <?php
                                         }

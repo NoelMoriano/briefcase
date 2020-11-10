@@ -19,7 +19,7 @@ $userPhoto = $_FILES['userPhoto']['name'];
 
 
 for ($i=0; $i <=2 ; $i++) {
-  move_uploaded_file($fileUserPhotoPath,$pathMac."/".$userPhoto);
+  move_uploaded_file($fileUserPhotoPath,$pathWindows."/".$userPhoto);
 }
 
 $names = $_POST['names'];

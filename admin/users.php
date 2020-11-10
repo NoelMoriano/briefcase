@@ -221,7 +221,7 @@ $newConn->createConnection();
                                         <th>Email</th>
                                         <th>password</th>
                                         <th>Edad</th>
-                                        <th>Fecha cumpleaños</th>
+                                        <th>F.Cumpleaños</th>
                                         <th>Dirección</th>
                                         <th>Profesion</th>
                                         <th>Teléfono</th>
@@ -238,7 +238,7 @@ $newConn->createConnection();
                                         <th>Email</th>
                                         <th>password</th>
                                         <th>Edad</th>
-                                        <th>Fecha cumpleaños</th>
+                                        <th>F.Cumpleaños</th>
                                         <th>Dirección</th>
                                         <th>Profesion</th>
                                         <th>Teléfono</th>

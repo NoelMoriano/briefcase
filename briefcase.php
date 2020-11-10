@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-<<<<<<< HEAD
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -1506,24 +1505,5 @@
 		<script src="assets/js/wow.js"></script>
 		<!-- main -->
 		<script src="assets/js/main.js"></script>
-=======
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link src="./sass/index.css">	
-		<title>Our team</title>
-	</head>
-	<body>
-
-	<section class="container-general-team">
-
-	</section>
-	
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<a href="./briefcase.php?idUser=1">Ir a detalle de tecnico</a>
->>>>>>> 6520d144260f635386490930746408228957dec5
 	</body>
 </html>

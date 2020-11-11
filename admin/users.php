@@ -24,7 +24,7 @@ $newConn->createConnection();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Panel - Productos</title>
+    <title>Panel - users</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -114,10 +114,15 @@ $newConn->createConnection();
                                                        name="lastName">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Foto perfil</label>
                                             <input type="file"
                                                      class="form-control form-control-category input-form-small"
                                                      id="userPhoto" placeholder="Imagen User" name="userPhoto">
-                                            </div>
+                                            <label for="">Imagen portada</label>
+                                            <input type="file"
+                                                     class="form-control form-control-category input-form-small"
+                                                     id="coverPhoto" placeholder="Imagen Portada" name="coverPhoto">  
+                                            </div>                                            
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -170,12 +175,42 @@ $newConn->createConnection();
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-12">
-                                                <label for="">Separe sus intereses por giones (-)</label>
+                                                <label for="">Separe sus intereses por giones (,)</label>
                                               <textarea class="form-control"
                                                         style="color: #444"
                                                         placeholder="Intereses"
                                                         name="interests">
                                               </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label for="">Descripción profesional</label>
+                                              <textarea class="form-control"
+                                                        style="color: #444"
+                                                        placeholder="Ingrese descripción"
+                                                        name="description">
+                                              </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                                <input type="text"
+                                                       class="form-control input-form-small"
+                                                       placeholder="Ingrese su FB"
+                                                       name="userFb">
+                                            </div>
+                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                                <input type="text"
+                                                       class="form-control input-form-small"
+                                                       placeholder="Ingrese su Twitter"
+                                                       name="userTwitter">
+                                            </div>
+                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                                <input type="text"
+                                                       class="form-control input-form-small"
+                                                       placeholder="Ingrese su Linkedin"
+                                                       name="userLinkedin">
                                             </div>
                                         </div>
                                         <!--

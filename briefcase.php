@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require("./admin/control/classConnectionMySQL.php");
+
+// Creamos una nueva instancion
+$newConn = new connectionMySQL();
+
+// Creamos una nueva conexion
+$newConn->createConnection();
+?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keyword" content="resume,cv,portfolio,vcard" />
-		<title>GFolio - CV/Resume/Portfolio</title>
+		<title>Servitec - CV/Resume/Portfolio</title>
 		<!-- favicon -->
 		<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
 		<!-- bootstrap -->
@@ -21,7 +30,34 @@
 		<!-- responsive -->
 		<link rel="stylesheet" href="assets/css/responsive.css" />
 	</head>
+	<?php
+	$userId = $_GET["userId"];
 
+        $queryProduct = "SELECT * FROM users WHERE id = $userId";
+        $resultUsers = $newConn->ExecuteQuery($queryProduct);
+         if ($resultUsers) {
+            while ($rowUser = mysqli_fetch_array($resultUsers)) {
+				$userPhoto = $rowUser['userPhoto'];
+				$names = $rowUser['names'];
+				$lastName = $rowUser['lastName'];
+				$userEmail = $rowUser['userEmail'];
+				$password= $rowUser['password'];
+				$age = $rowUser['age'];
+				$birthdayDate = $rowUser['birthdayDate'];
+				$direction = $rowUser['direction'];
+				$profession = $rowUser['profession'];
+				$interests = $rowUser['interests'];
+				$phone = $rowUser['phone']; 
+				$description = $rowUser['description']; 
+				$userFb = $rowUser['userFb']; 
+				$userTwitter = $rowUser['userTwitter']; 
+				$userLinkedin = $rowUser['userLinkedin']; 
+				$coverPhoto = $rowUser['coverPhoto']; 
+			 }
+        }else{
+            echo "<h5>Error en consulta contacte a soporte</h3>";
+        }
+        ?>
 	<body>
 		<!-- preloader area start -->
 		<div class="preloader" id="preloader">
@@ -44,49 +80,49 @@
 			</div>
 			<div class="side-menu">
 				<div class="heading-area">
-					<a href="index.html" class="profile-photo">
+					<a href="briefcase.php" class="profile-photo">
 						<img
-							src="assets/images/about3.jpg"
+							src="./admin/uploads/users/<?=$userPhoto?>"
 							alt=""
 							class="wow zoomIn"
 							data-wow-delay="0.2s"
 						/>
 					</a>
-					<div class="name wow fadeInUp" data-wow-delay="0.3s">Megan Fox</div>
+					<div class="name wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)?></div>
 				</div>
 				<ul id="mainmenu-area">
 					<li class="current">
-						<a href="index.html#home" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#home" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-home"></i>Inicio</a
 						>
 					</li>
 					<li>
-						<a href="index.html#about" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#about" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-user"></i>Sobre Mi</a
 						>
 					</li>
 					<li>
-						<a href="index.html#service" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#service" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-briefcase"></i>Servicios</a
 						>
 					</li>
 					<li>
-						<a href="index.html#resume" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#resume" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-file-alt"></i>Resumen</a
 						>
 					</li>
 					<!--<li>
-						<a href="index.html#project-gallery" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#project-gallery" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-layer-group"></i>Portfolio</a
 						>
 					</li>
 					<li>
-						<a href="index.html#blog" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#blog" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fab fa-blogger"></i>Blog</a
 						>
 					</li>-->
 					<li>
-						<a href="index.html#contact" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="briefcase.php#contact" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fab fa-whatsapp"></i>Contacto</a
 						>
 					</li>
@@ -99,63 +135,64 @@
 		<div class="main-content">
 			<div class="main-content-inner">
 				<!-- About div Start -->
-				<div class="home-section" id="home">
+				<div class="home-section" id="home" style="background-image:url('./admin/uploads/users/<?=$coverPhoto?>')">
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-6">
 								<div class="home-content">
 									<div class="home-image">
 										<img
-											src="assets/images/about.jpg"
+											src="./admin/uploads/users/<?=$userPhoto?>"
 											alt=""
 											class="wow zoomIn"
 											data-wow-delay="0.2s"
 										/>
 									</div>
 									<div class="home-main-content">
-										<h4 class="heading wow fadeInUp" data-wow-delay="0.3s">Megan Fox</h4>
+										<h4 class="heading wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)." ".ucfirst($lastName)?></h4>
 										<div class="designation wow zoomIn" data-wow-delay="0.4s">
-											<span> Soy Developer Full Stack <span class="typed"></span> </span>
+											<span> Soy <span class="typed"></span> </span>
 										</div>
 										<div class="social-info wow fadeInUp" data-wow-delay="0.5s">
 											<ul>
-												<li>
-													<a href="index.html#">
-														<i class="fab fa-facebook-f"></i>
+												<?php echo $userFb
+												? "<li>
+													<a href='$userFb' target='_blank'>
+														<i class='fab fa-facebook-f'></i>
 													</a>
-												</li>
-												<li>
-													<a href="index.html#">
-														<i class="fab fa-twitter"></i>
+												</li>"
+												: ""
+												?>
+												
+												<?php echo $userTwitter
+												? "<li>
+													<a href='$userTwitter' target='_blank'>
+														<i class='fab fa-twitter'></i>
 													</a>
-												</li>
-												<li>
-													<a href="index.html#">
-														<i class="fab fa-linkedin-in"></i>
+												</li>"
+												: ""
+												?>
+
+												<?php echo $userLinkedin
+												? "<li>
+													<a href='$userLinkedin' target='_blank'>
+														<i class='fab fa-linkedin-in'></i>
 													</a>
-												</li>
-												<li>
-													<a href="index.html#">
-														<i class="fab fa-instagram"></i>
-													</a>
-												</li>
-												<li>
-													<a href="index.html#">
-														<i class="fab fa-pinterest-p"></i>
-													</a>
-												</li>
+												</li>"
+												: ""
+												?>								
 											</ul>
 										</div>
 										<div class="about-links wow fadeInUp" data-wow-delay="0.6s">
-											<a href="index.html#contact" class="mybtn3 mybtn-bg">
+											<a href="mailto:<?=$userEmail?>" class="mybtn3 mybtn-bg">
 												<span>Contáctame</span></a
 											>
-											<a
+											<!--<a
 												href="https://www.youtube.com/watch?v=6zM4p_A0ISk"
 												class="mybtn3 mybtn-bg video-play mfp-iframe"
 											>
 												<span> <i class="fas fa-play"></i> Intro</span>
-											</a>
+											</a>-->
 										</div>
 									</div>
 								</div>
@@ -184,26 +221,17 @@
 									<div class="row">
 										<div class="col-lg-4">
 											<div class="about-image wow fadeInUp" data-wow-delay="0.3s">
-												<img src="assets/images/about2.jpg" alt="" />
+												<img src="./admin/uploads/users/<?=$userPhoto?>" alt="" />
 											</div>
 										</div>
 										<div class="col-lg-8 align-self-center">
 											<div class="short-description wow fadeInUp">
 												<p>
-													Randon Text Received shutters expenses ye he pleasant. Drift as blind above
-													at up. No up simple county stairs do should praise as. Drawings sir gay
-													together landlord had law smallest. Formerly welcomed attended declared met
-													say unlocked. Jennings outlived no dwelling denoting in peculiar as he
-													believed.
+												<?=$description?>
 												</p>
-												<p>
-													Left till here away at to whom past. Feelings laughing at no wondered
-													repeated provided finished. It acceptance thoroughly my advantages everything
-													as.
-												</p>
-												<div class="about-links">
-													<a href="index.html#" class="mybtn3 mybtn-bg"> <span>Descargar CV</span> </a>
-												</div>
+												<!--<div class="about-links">
+													<a href="briefcase.php#" class="mybtn3 mybtn-bg"> <span>Descargar CV</span> </a>
+												</div>-->
 											</div>
 										</div>
 									</div>
@@ -213,35 +241,30 @@
 												<div class="personal-info">
 													<ul>
 														<li>
-															<span><label>Cumpleaños:</label> 01.07.1990</span>
+															<span><label>Cumpleaños: &nbsp</label><?=$birthdayDate?></span>
 														</li>
 														<li>
-															<span><label>Edad:</label> 28</span>
+															<span><label>Edad:</label><?=$age?></span>
 														</li>
 														<li>
-															<span><label>Dirección:</label> New York, USA</span>
+															<span><label>Dirección:</label><?=$direction?></span>
 														</li>
 														<li>
-															<span><label>Intereses:</label> Soccer, UFC</span>
+															<span><label>Intereses:</label><?=$interests?></span>
 														</li>
 														<li>
-															<span><label>Profesion:</label> Tecnico</span>
-														</li>
-														<li>
-															<span
-																><label>Website:</label> <a href="index.html#">www.mywebsite.com</a></span
-															>
+															<span><label>Profesion:</label><?=$profession?></span>
 														</li>
 														<li>
 															<span
 																><label>Email:</label>
-																<a href="mailto:example@gmail.com">mymail@gmail.com</a></span
+																<a href="mailto:<?=$userEmail?>"><?=$userEmail?></a></span
 															>
 														</li>
 														<li>
 															<span
 																><label>Teléfono:</label>
-																<a href="index.html#">+77 022 177 05 05</a></span
+																<a href="briefcase.php#"><?=$phone?></a></span
 															>
 														</li>
 													</ul>
@@ -258,7 +281,7 @@
 
 
 				<!-- Counter Area Start -->
-				<div class="counter-area">
+				<!--<div class="counter-area">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-3 col-md-6">
@@ -303,11 +326,11 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<!-- Counter Area End -->
 
 				<!-- My service Start -->
-				<div class="service-wrapper" id="service">
+				<!--<div class="service-wrapper" id="service">
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-12">
@@ -394,12 +417,17 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 
 				<!-- My service End -->
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 
 				<!-- Resume Area Start -->
-				<div class="resume-wrapper" id="resume">
+				<!--<div class="resume-wrapper" id="resume">
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-12">
@@ -586,7 +614,7 @@
 									</div>
 								</div>
 							</div>
-							<!--<div class="col-lg-6">
+							<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Professional Skills</h4>
@@ -640,10 +668,10 @@
 										</div>
 									</div>
 								</div>
-							</div>-->
+							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<!-- Resume Area End -->
 
 				<!-- My Client Area Area Strat -->
@@ -662,52 +690,52 @@
 						<div class="row">
 							<div class="partners-slider wow fadeInUp" data-wow-delay="0.3s">
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/1.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/2.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/3.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/4.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/5.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/6.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/7.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/8.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/9.png" alt="" />
 									</a>
 								</div>
 								<div class="slider-item">
-									<a href="index.html#">
+									<a href="briefcase.php#">
 										<img src="assets/images/partner/10.png" alt="" />
 									</a>
 								</div>
@@ -1118,7 +1146,7 @@
 										</ul>
 									</div>
 									<div class="buy-btn-wrapper">
-										<a class="mybtn3 mybtn-bg" href="index.html#"
+										<a class="mybtn3 mybtn-bg" href="briefcase.php#"
 											><span>Start Now <i class="fas fa-shopping-cart"></i></span
 										></a>
 									</div>
@@ -1163,7 +1191,7 @@
 										</ul>
 									</div>
 									<div class="buy-btn-wrapper">
-										<a class="mybtn3 mybtn-bg" href="index.html#"
+										<a class="mybtn3 mybtn-bg" href="briefcase.php#"
 											><span>Start Now <i class="fas fa-shopping-cart"></i></span
 										></a>
 									</div>
@@ -1208,7 +1236,7 @@
 										</ul>
 									</div>
 									<div class="buy-btn-wrapper">
-										<a class="mybtn3 mybtn-bg" href="index.html#"
+										<a class="mybtn3 mybtn-bg" href="briefcase.php#"
 											><span>Start Now <i class="fas fa-shopping-cart"></i></span
 										></a>
 									</div>
@@ -1352,7 +1380,7 @@
 									</div>
 									<div class="info-content">
 										<h5>Mi dirección:</h5>
-										<p>Chorrillos av huaylas</p>
+										<p><?=$direction?></p>
 									</div>
 								</div>
 							</div>
@@ -1364,7 +1392,7 @@
 									</div>
 									<div class="info-content">
 										<h5>Teléfono:</h5>
-										<p>+0123 123 856</p>
+										<p><?=$phone?></p>
 									</div>
 								</div>
 							</div>
@@ -1376,7 +1404,7 @@
 									</div>
 									<div class="info-contentr">
 										<h5>Email:</h5>
-										<p>demomail@gmail.com</p>
+										<p><?=$userEmail?></p>
 									</div>
 								</div>
 							</div>
@@ -1464,7 +1492,7 @@
 							<div class="col-lg-6">
 								<div class="google_map_wrapper">
 									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.12937357728!2d-104.99519427659213!3d39.76451867231318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf:0x118ef4f8278a36d6!2sDenver,%20CO,%20USA!5e0!3m2!1sen!2sbd!4v1592721407423!5m2!1sen!2sbd"
+										src="https://www.google.com/maps/embed?pb=chorrillos"
 										frameborder="0"
 										style="border: 0"
 										allowfullscreen=""
@@ -1507,4 +1535,5 @@
 		<!-- main -->
 		<script src="assets/js/main.js"></script>
 	</body>
+
 </html>

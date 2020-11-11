@@ -3,7 +3,8 @@ require("../control/constant.php");
 require("../control/classConnectionMySQL.php");
 require("../control/detectPlatform.php");
 
-echo dirname (__FILE__);
+//pathName
+//echo dirname (__FILE__);
 
 // Creamos una nueva instancion
 $newConn = new connectionMySQL();
@@ -18,10 +19,18 @@ $newConn->createConnection();
 
 // firstPicture
 $userPhoto = $_FILES["userPhoto"]["name"];
-$destination_path = getcwd().DIRECTORY_SEPARATOR;
-$target_path = $destination_path . '../uploads/users/'. basename($userPhoto);
-move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path);
+$coverPhoto = $_FILES["coverPhoto"]["name"];
 
+  $destination_path_1 = getcwd().DIRECTORY_SEPARATOR;
+  $target_path_1 = $destination_path_1 . '../uploads/users/'. basename($userPhoto);
+
+  $destination_path_2 = getcwd().DIRECTORY_SEPARATOR;
+  $target_path_2 = $destination_path_2 . '../uploads/users/'. basename($coverPhoto);
+
+  for ($i=0; $i <=2 ; $i++) {
+    move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path_1);
+    move_uploaded_file($_FILES['coverPhoto']['tmp_name'], $target_path_2);
+  }
 
 $names = $_POST['names'];
 $lastName = $_POST['lastName'];
@@ -33,6 +42,10 @@ $direction = $_POST['direction'];
 $profession = $_POST['profession'];
 $interests = $_POST['interests'];
 $phone = $_POST['phone']; 
+$description = $_POST['description']; 
+$userFb = $_POST['userFb']; 
+$userTwitter = $_POST['userTwitter']; 
+$userLinkedin = $_POST['userLinkedin']; 
 
 //////////////////////////////
 // INSERTAR users
@@ -45,8 +58,8 @@ if (isset($_POST['saveUser']) && $names == '') {
 
 }elseif (isset($_POST['saveUser'])) {
 
-  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, `userPhoto`, `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`) 
-  VALUES ('$email','$password','$names' ,'$userPhoto','$lastName','$age', '$birthdayDate','$direction','$profession','$interests','$phone')";
+  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, `userPhoto`,`coverPhoto`, `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,`userFb`,`userTwitter`,`userLinkedin`) 
+  VALUES ('$email','$password','$names' ,'$userPhoto','$coverPhoto','$lastName','$age', '$birthdayDate','$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin')";
 
     $resultUser = $newConn->ExecuteQuery($queryUser);
     if($resultUser){

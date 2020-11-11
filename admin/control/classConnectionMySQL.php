@@ -20,6 +20,7 @@ $this->database=DATABASE;
 public function createConnection(){
 	// Metodo que crea y retorna la conexion a la BD.
 	$this->conn = new mysqli($this->host, $this->user, $this->password, $this->database);
+	$this->conn->set_charset("utf8");
 	 if($this->conn->connect_errno) {
 	  die("Error al conectarse a MySQL: (" . $this->conn->connect_errno . ") " . $this->conn->connect_error);
 	 }

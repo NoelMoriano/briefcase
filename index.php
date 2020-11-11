@@ -18,6 +18,6 @@
 		<br />
 		<br />
 		<br />
-		<a href="./briefcase.php?idUser=1">Ir a detalle de tecnico</a>
+		<a href="./briefcase.php?userId=38">Ir a detalle de tecnico</a>
 	</body>
 </html>

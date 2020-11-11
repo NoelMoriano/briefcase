@@ -250,7 +250,7 @@ $newConn->createConnection();
                                     <tbody>
 
                                         <?php
-                                         $queryProduct = "SELECT names,lastName,userEmail,password,userPhoto,age,birthdayDate,direction,profession,interests,phone,createAt FROM users
+                                         $queryProduct = "SELECT * FROM users
                                          ORDER BY createAt DESC";
                                         $resultUsers = $newConn->ExecuteQuery($queryProduct);
                                          if ($resultUsers) {

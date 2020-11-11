@@ -1,6 +1,9 @@
 <?php
 require("../control/constant.php");
 require("../control/classConnectionMySQL.php");
+require("../control/detectPlatform.php");
+
+echo dirname (__FILE__);
 
 // Creamos una nueva instancion
 $newConn = new connectionMySQL();
@@ -14,13 +17,11 @@ $newConn->createConnection();
 //////////////////////////////
 
 // firstPicture
-$fileUserPhotoPath = $_FILES['userPhoto']['tmp_name'];
-$userPhoto = $_FILES['userPhoto']['name'];
+$userPhoto = $_FILES["userPhoto"]["name"];
+$destination_path = getcwd().DIRECTORY_SEPARATOR;
+$target_path = $destination_path . '../uploads/users/'. basename($userPhoto);
+move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path);
 
-
-for ($i=0; $i <=2 ; $i++) {
-  move_uploaded_file($fileUserPhotoPath,$pathWindows."/".$userPhoto);
-}
 
 $names = $_POST['names'];
 $lastName = $_POST['lastName'];
@@ -39,7 +40,7 @@ $phone = $_POST['phone'];
 if (isset($_POST['saveUser']) && $names == '') {
     echo "<script>
      alert('Todos los campos son importantes');
-     
+     window.location = '../users.php';
           </script>";
 
 }elseif (isset($_POST['saveUser'])) {
@@ -59,7 +60,7 @@ if (isset($_POST['saveUser']) && $names == '') {
     }else{
         echo "<script>
      alert('Error en registro');
-     window.location = '';
+     window.location = '../users.php';
           </script>";
   }
 }

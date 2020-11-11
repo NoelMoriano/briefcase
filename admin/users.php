@@ -136,43 +136,58 @@ $newConn->createConnection();
                                             </div>
                                         </div>-->
                                         <div class="form-group row">
-                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <div class="col-sm-8 mb-8 mb-sm-0">
                                             <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese nombres"
                                                        hidden
                                                        name="userId" value="<?=$userIdIsset ? $userId : ''?>">
-
-                                                       <input type="text"
-                                                       class="form-control input-form-small"
-                                                       placeholder="Ingrese nombres"
-                                                       name="names" value="<?=$userIdIsset ? $names : ''?>">
+                                                        <div>
+                                                            <label for="">Nombres:</label>
+                                                                <input type="text"
+                                                            class="form-control input-form-small"
+                                                            placeholder="Ingrese nombres"
+                                                            name="names" value="<?=$userIdIsset ? $names : ''?>">
+                                                        </div><br/>
+                                                        <div>
+                                                            <label for="">Apellidos:</label>
+                                                            <input type="text"
+                                                            class="form-control input-form-small"
+                                                            placeholder="Ingrese apellidos"
+                                                            name="lastName" value="<?=$userIdIsset ? $lastName : ''?>">
+                                                        </div> 
                                             </div>
-                                            <div class="col-sm-4 mb-3 mb-sm-0">
-                                                <input type="text"
-                                                       class="form-control input-form-small"
-                                                       placeholder="Ingrese apellidos"
-                                                       name="lastName" value="<?=$userIdIsset ? $lastName : ''?>">
-                                            </div>
-                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <div class="col-sm-4 mb-4 mb-sm-0">
                                             <label for="">Foto perfil</label>
-                                            <input type="file"
+                                                        <input type="file"
                                                      class="form-control form-control-category input-form-small"
                                                      id="userPhoto" placeholder="Imagen User" name="userPhoto">
+                                                     <br/>
                                             <label for="">Imagen portada</label>
                                             <input type="file"
                                                      class="form-control form-control-category input-form-small"
-                                                     id="coverPhoto" placeholder="Imagen Portada" name="coverPhoto">  
+                                                     id="coverPhoto" placeholder="Imagen Portada" name="coverPhoto"> 
+                                            
+                                                     <input type="text"
+                                                            class="form-control input-form-small"
+                                                            hidden
+                                                            name="userPhotoGET" value="<?=$userIdIsset ? $userPhoto : ''?>">
+                                                    <input type="text"
+                                                            class="form-control input-form-small"
+                                                            hidden
+                                                            name="coverPhotoGET" value="<?=$userIdIsset ? $coverPhoto : ''?>">
                                             </div>                                            
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="">Email:</label>
                                                 <input type="email"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese email"
                                                        name="email" value="<?=$userIdIsset ? $userEmail : ''?>">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="">Contraseña:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese password"
@@ -181,18 +196,21 @@ $newConn->createConnection();
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Edad:</label>
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su edad"
                                                        name="age" value="<?=$userIdIsset ? $age : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Fecha cumpleaños:</label>
                                                 <input type="date"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese fecha de cumpleaños"
                                                        name="birthdayDate" value="<?=$userIdIsset ? $birthdayDate : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Dirección:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su dirección"
@@ -202,12 +220,14 @@ $newConn->createConnection();
 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="">Profesion:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su profesion"
                                                        name="profession" value="<?=$userIdIsset ? $profession : ''?>">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="">Telefono:</label>
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese teléfono"
@@ -215,14 +235,13 @@ $newConn->createConnection();
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                        <label for="">Intereses:</label>
                                             <div class="col-sm-12">
                                                 <label for="">Separe sus intereses por giones (,)</label>
-                                              <textarea class="form-control"
-                                                        style="color: #444"
-                                                        placeholder="Intereses"
-                                                        name="interests">
-                                                        <?=$userIdIsset ? $interests : ''?>
-                                              </textarea>
+                                                <input type="text"
+                                                       class="form-control input-form-small"
+                                                       placeholder="Ingrese Intereses"
+                                                       name="interests" value="<?=$userIdIsset ? $interests : ''?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -238,18 +257,21 @@ $newConn->createConnection();
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Facebook:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su FB"
                                                        name="userFb" value="<?=$userIdIsset ? $userFb : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Twitter:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su Twitter"
                                                        name="userTwitter" value="<?=$userIdIsset ? $userTwitter : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="">Linkedin:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su Linkedin"

@@ -24,10 +24,10 @@ $userPhoto = $_FILES["userPhoto"]["name"];
 $coverPhoto = $_FILES["coverPhoto"]["name"];
 
   $destination_path_1 = getcwd().DIRECTORY_SEPARATOR;
-  $target_path_1 = $destination_path_1 . '../uploads/users/'. basename($userPhoto);
+  $target_path_1 = $destination_path_1 . '../uploads/users/'. basename(isset($_POST['saveUser']) ? $userPhoto : $_POST['userPhotoGET']);
 
   $destination_path_2 = getcwd().DIRECTORY_SEPARATOR;
-  $target_path_2 = $destination_path_2 . '../uploads/users/'. basename($coverPhoto);
+  $target_path_2 = $destination_path_2 . '../uploads/users/'. basename(isset($_POST['saveUser']) ? $coverPhoto : $_POST['coverPhotoGET']);
 
   move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path_1);
   move_uploaded_file($_FILES['coverPhoto']['tmp_name'], $target_path_2);

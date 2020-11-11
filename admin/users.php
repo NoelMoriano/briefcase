@@ -67,7 +67,42 @@ $newConn->createConnection();
                         <h6 class="m-0 font-weight-bold text-primary">Ingreso de datos</h6>
                     </div>
                     <div class="card-body">
+                    
+                    <?php
+                        $userIdIsset = isset($_GET["idUser"]);
 
+                        if(isset($_GET["idUser"]) && $_GET["idUser"] !== null ){
+
+                            $userId = $_GET["idUser"];
+                            $queryProduct = "SELECT * FROM users WHERE id = $userId";
+                            $resultUsers = $newConn->ExecuteQuery($queryProduct);
+
+                            if ($resultUsers) {
+                                while ($rowUser = mysqli_fetch_array($resultUsers)) {
+                                    $userId = $rowUser['id'] ? $rowUser['id'] : '';
+                                    $userPhoto = $rowUser['userPhoto'] ? $rowUser['userPhoto'] : '';
+                                    $names = $rowUser['names'] ? $rowUser['names'] : '';
+                                    $lastName = $rowUser['lastName'] ? $rowUser['lastName'] : '';
+                                    $userEmail = $rowUser['userEmail'] ? $rowUser['userEmail'] : '';
+                                    $password= $rowUser['password'] ? $rowUser['password'] : '';
+                                    $age = $rowUser['age'] ? $rowUser['age'] : '';
+                                    $birthdayDate = $rowUser['birthdayDate'] ? $rowUser['birthdayDate'] : '';
+                                    $direction = $rowUser['direction'] ? $rowUser['direction'] : '';
+                                    $profession = $rowUser['profession'] ? $rowUser['profession'] : '';
+                                    $interests = $rowUser['interests'] ? $rowUser['interests'] : '';
+                                    $phone = $rowUser['phone'] ? $rowUser['phone'] : ''; 
+                                    $description = $rowUser['description'] ? $rowUser['description'] : ''; 
+                                    $userFb = $rowUser['userFb'] ? $rowUser['userFb'] : ''; 
+                                    $userTwitter = $rowUser['userTwitter'] ? $rowUser['userTwitter'] : ''; 
+                                    $userLinkedin = $rowUser['userLinkedin'] ? $rowUser['userLinkedin'] : ''; 
+                                    $coverPhoto = $rowUser['coverPhoto'] ? $rowUser['coverPhoto'] : ''; 
+                                }
+                            }else{
+                                echo "<h5>Error en consulta contacte a soporte</h3>";
+                            }
+                        }
+                        
+                    ?>
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-12">
@@ -102,16 +137,22 @@ $newConn->createConnection();
                                         </div>-->
                                         <div class="form-group row">
                                             <div class="col-sm-4 mb-3 mb-sm-0">
-                                                <input type="text"
+                                            <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese nombres"
-                                                       name="names">
+                                                       hidden
+                                                       name="userId" value="<?=$userIdIsset ? $userId : ''?>">
+
+                                                       <input type="text"
+                                                       class="form-control input-form-small"
+                                                       placeholder="Ingrese nombres"
+                                                       name="names" value="<?=$userIdIsset ? $names : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese apellidos"
-                                                       name="lastName">
+                                                       name="lastName" value="<?=$userIdIsset ? $lastName : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="">Foto perfil</label>
@@ -129,13 +170,13 @@ $newConn->createConnection();
                                                 <input type="email"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese email"
-                                                       name="email">
+                                                       name="email" value="<?=$userIdIsset ? $userEmail : ''?>">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese password"
-                                                       name="password">
+                                                       name="password" value="<?=$userIdIsset ? $password : ''?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -143,19 +184,19 @@ $newConn->createConnection();
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su edad"
-                                                       name="age">
+                                                       name="age" value="<?=$userIdIsset ? $age : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                                 <input type="date"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese fecha de cumpleaños"
-                                                       name="birthdayDate">
+                                                       name="birthdayDate" value="<?=$userIdIsset ? $birthdayDate : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su dirección"
-                                                       name="direction">
+                                                       name="direction" value="<?=$userIdIsset ? $direction : ''?>">
                                             </div>
                                         </div>
 
@@ -164,13 +205,13 @@ $newConn->createConnection();
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su profesion"
-                                                       name="profession">
+                                                       name="profession" value="<?=$userIdIsset ? $profession : ''?>">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese teléfono"
-                                                       name="phone">
+                                                       name="phone" value="<?=$userIdIsset ? $phone : ''?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -180,6 +221,7 @@ $newConn->createConnection();
                                                         style="color: #444"
                                                         placeholder="Intereses"
                                                         name="interests">
+                                                        <?=$userIdIsset ? $interests : ''?>
                                               </textarea>
                                             </div>
                                         </div>
@@ -190,6 +232,7 @@ $newConn->createConnection();
                                                         style="color: #444"
                                                         placeholder="Ingrese descripción"
                                                         name="description">
+                                                        <?=$userIdIsset ? $description : ''?>
                                               </textarea>
                                             </div>
                                         </div>
@@ -198,19 +241,19 @@ $newConn->createConnection();
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su FB"
-                                                       name="userFb">
+                                                       name="userFb" value="<?=$userIdIsset ? $userFb : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su Twitter"
-                                                       name="userTwitter">
+                                                       name="userTwitter" value="<?=$userIdIsset ? $userTwitter : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su Linkedin"
-                                                       name="userLinkedin">
+                                                       name="userLinkedin" value="<?=$userIdIsset ? $userLinkedin : ''?>">
                                             </div>
                                         </div>
                                         <!--
@@ -231,7 +274,7 @@ $newConn->createConnection();
                                                      id="thirdPicture" placeholder="Imagen Producto" name="thirdPicture">
                                           </div>
                                         </div>-->
-                                        <input type="submit" class="btn btn-primary btn-category btn-block btn-small" name="saveUser" value="Guardar"/>
+                                        <input type="submit" class="<?=$userIdIsset ? 'btn btn-category btn-block btn-small btn-success' : 'btn btn-category btn-block btn-small btn-primary'?>" name="<?=$userIdIsset ? 'updateUser' : 'saveUser'?>" value="<?=$userIdIsset ? 'Actualizar' : 'Guardar'?>"/>
                                     </form>
                                 </div>
                             </div>
@@ -305,7 +348,10 @@ $newConn->createConnection();
                                         <td><?=$rowUser["interests"]?></td>
                                         <td><?=$rowUser["phone"]?></td>
                                         <td><?=$rowUser["createAt"]?></td>
-                                        <td><a href="controllers/users.php?idUser=<?=$rowUser["id"]?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                                        <td>
+                                        <a href="users.php?idUser=<?=$rowUser["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                        <a href="controllers/users.php?idUser=<?=$rowUser["id"]?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        </td>
                                         </tr>
                                      <?php
                                         }

@@ -5,6 +5,8 @@ require("../control/detectPlatform.php");
 
 //pathName
 //echo dirname (__FILE__);
+date_default_timezone_set("America/Bogota");
+setlocale(LC_ALL,"es_ES");
 
 // Creamos una nueva instancion
 $newConn = new connectionMySQL();
@@ -27,10 +29,8 @@ $coverPhoto = $_FILES["coverPhoto"]["name"];
   $destination_path_2 = getcwd().DIRECTORY_SEPARATOR;
   $target_path_2 = $destination_path_2 . '../uploads/users/'. basename($coverPhoto);
 
-  for ($i=0; $i <=2 ; $i++) {
-    move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path_1);
-    move_uploaded_file($_FILES['coverPhoto']['tmp_name'], $target_path_2);
-  }
+  move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path_1);
+  move_uploaded_file($_FILES['coverPhoto']['tmp_name'], $target_path_2);
 
 $names = $_POST['names'];
 $lastName = $_POST['lastName'];
@@ -79,6 +79,34 @@ if (isset($_POST['saveUser']) && $names == '') {
 }
 
 
+//////////////////////////////
+// UPDATE users
+//////////////////////////////
+if (isset($_POST['updateUser'])) {
+
+$userId = $_POST['userId'];
+$dateUpdate = date('Y-m-d H:i:s');
+
+$queryUser =  "UPDATE `users` 
+SET `userEmail`='$email',`password`='$password',`names`='$names',`userPhoto`='$userPhoto',`coverPhoto`='$coverPhoto',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',`direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',`description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate' 
+WHERE id = $userId";
+
+  $resultUser = $newConn->ExecuteQuery($queryUser);
+  if($resultUser){
+      $rowCount =  $newConn->GetCountAffectedRows();
+      if($rowCount > 0){
+          echo "<script>
+          alert('Actualizado Existosamente');
+          window.location = '../users.php';
+        </script>";
+      }
+  }else{
+      echo "<script>
+   alert('Error al actualizar');
+   window.location = '../users.php';
+        </script>";
+  }
+}
 ///////////////////////////////
 // ELIMINAR
 ///////////////////////////////

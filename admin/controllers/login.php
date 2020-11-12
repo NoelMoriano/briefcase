@@ -35,8 +35,15 @@ $query = "SELECT * FROM users WHERE userEmail = '$userEmail' AND password = '$pa
 $result = $newConn->ExecuteQuery($query);
 $rows = mysqli_num_rows($result);
 
+while ($rowUser = mysqli_fetch_array($result)) {
+  $userId = $rowUser['id'];
+}
+
 if ($rows>0){
+
       $_SESSION['userEmail'] = $userEmail;
+      $_SESSION['userId'] = $userId;
+
        echo "<script>
        alert('Bienvenido');
        window.location='../index.php';
@@ -47,7 +54,8 @@ if ($rows>0){
        alert('Datos Incorrectos');
        window.location='../login.php';
      </script>";
-     }
+}
+
  mysqli_free_result($result);
 
  // Cerramos la Conexion a la BD

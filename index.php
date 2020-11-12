@@ -31,40 +31,27 @@ $newConn->createConnection();
         </div>
 
         <div class="container-boxes">
-
             <div class="grid-items">
             <?php
             $queryProduct = "SELECT * FROM users ORDER BY createAt DESC";
             $resultUsers = $newConn->ExecuteQuery($queryProduct);
 
-
             if ($resultUsers) {
-
-
             while ($rowUser = mysqli_fetch_array($resultUsers)) {
-
-           ?>
-
-
+            ?>
                 <div class="box-item">
-                    <img class="user"   src="./admin/uploads/users/<?=$rowUser['userPhoto']?>"  alt="">
+                    <img class="img-user"   src="./admin/uploads/users/<?=$rowUser['userPhoto'] ? $rowUser['userPhoto'] : 'user-nofound.png'?>"  alt="">
                     <p class="name">  <?=$rowUser["names"]?>  <?=$rowUser["lastName"]?>  </p>
                     <a class="btn" href="briefcase.php?userId=<?=$rowUser['id']?>">Ver màs</a>
                   
-                  </div>
+                </div>
 
                   <?php
-                }
+                    }
                 }else{
-                echo "<h5>Error en consulta contacte a soporte</h3>";
+                 echo "<h5>Error en consulta contacte a soporte</h3>";
                 }
                 ?>
-       
-
-
-
-
-                
             </div>
         </div>
 

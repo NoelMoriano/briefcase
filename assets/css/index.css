@@ -1170,8 +1170,8 @@ select:focus {
   margin-bottom: 16px;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  -webkit-box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
-          box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+  -webkit-box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+          box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
   -webkit-transition: -webkit-box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   transition: -webkit-box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   transition: box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
@@ -2887,7 +2887,8 @@ textarea.form-control {
 
 #container-general-team .container-boxes .grid-items .box-item {
   width: auto;
-  height: 350px;
+  min-width: 300px;
+  height: auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -2895,10 +2896,12 @@ textarea.form-control {
           box-shadow: 3px 3px 3px grey;
 }
 
-#container-general-team .container-boxes .grid-items .box-item .user {
-  width: 230px;
+#container-general-team .container-boxes .grid-items .box-item .img-user {
+  width: 95%;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin: auto;
-  display: block;
 }
 
 #container-general-team .container-boxes .grid-items .box-item .name {

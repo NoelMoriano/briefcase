@@ -52,15 +52,17 @@
 
 			.box-item {
 				width: auto;
-				height: 350px;
+				min-width: 300px;
+				height: auto;
 				padding: 20px;
 				background-color: #ffffff;
 				border-radius: 10px;
 				box-shadow: 3px 3px 3px grey;
-				.user {
-					width: 230px;
+				.img-user {
+					width: 95%;
+					height: 400px;
+					object-fit: cover;
 					margin: auto;
-					display: block;
 				}
 				.name {
 					font-size: 18px;

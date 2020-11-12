@@ -82,7 +82,7 @@ $newConn->createConnection();
 				<div class="heading-area">
 					<a href="briefcase.php" class="profile-photo">
 						<img
-							src="./admin/uploads/users/<?=$userPhoto?>"
+							src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
 							alt=""
 							class="wow zoomIn"
 							data-wow-delay="0.2s"
@@ -135,14 +135,14 @@ $newConn->createConnection();
 		<div class="main-content">
 			<div class="main-content-inner">
 				<!-- About div Start -->
-				<div class="home-section" id="home" style="background-image:url('./admin/uploads/users/<?=$coverPhoto?>')">
+				<div class="home-section" id="home" style="background-image:url('./admin/uploads/users/<?=$coverPhoto ? $coverPhoto : 'bg-default.jpg' ?>')">
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-6">
 								<div class="home-content">
 									<div class="home-image">
 										<img
-											src="./admin/uploads/users/<?=$userPhoto?>"
+											src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
 											alt=""
 											class="wow zoomIn"
 											data-wow-delay="0.2s"
@@ -221,7 +221,7 @@ $newConn->createConnection();
 									<div class="row">
 										<div class="col-lg-4">
 											<div class="about-image wow fadeInUp" data-wow-delay="0.3s">
-												<img src="./admin/uploads/users/<?=$userPhoto?>" alt="" />
+												<img src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>" alt="" />
 											</div>
 										</div>
 										<div class="col-lg-8 align-self-center">
@@ -427,7 +427,7 @@ $newConn->createConnection();
 				<br>
 
 				<!-- Resume Area Start -->
-				<!--<div class="resume-wrapper" id="resume">
+				<div class="resume-wrapper" id="resume">
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-12">
@@ -446,31 +446,33 @@ $newConn->createConnection();
 										<h4 class="title">Educación</h4>
 									</div>
 									<div class="education-list">
-										<div class="single-education wow fadeInUp">
-											<div class="year">
-												<span>2006-2008</span>
-											</div>
-											<h4 class="university-name">Envato University</h4>
-											<p class="degree">MSC in Computer Engineer</p>
-										</div>
-										<div class="single-education wow fadeInUp">
-											<div class="year">
-												<span>2003-205</span>
-											</div>
-											<h4 class="university-name">Envato University</h4>
-											<p class="degree">BSC in Computer Engineer</p>
-										</div>
-										<div class="single-education wow fadeInUp">
-											<div class="year">
-												<span>2000-2002</span>
-											</div>
-											<h4 class="university-name">Envato University</h4>
-											<p class="degree">HSC in Computer Engineer</p>
-										</div>
+									<?php
+									 if(isset($_GET["userId"]) && $_GET["userId"] !== null ){
+
+										$queryEducation = "SELECT * FROM educations WHERE userId = $userId";
+										$resultEducations = $newConn->ExecuteQuery($queryEducation);
+			
+										if ($resultEducations) {
+											while ($rowEducation = mysqli_fetch_array($resultEducations)) {
+												?>
+												<div class="single-education wow fadeInUp">
+													<div class="year">
+														<span><?=$rowEducation['startYear']?>-<?=$rowEducation['endYear']?></span>
+													</div>
+													<h4 class="university-name"><?=$rowEducation['institutionName']?></h4>
+													<p class="degree"><?=$rowEducation['educationTitle']?></p>
+												</div>
+												<?php
+											}
+										}else{
+											echo "<h5>Error en consulta contacte a soporte</h3>";
+										}
+									}
+									 ?>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<!-- <div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Experiencia</h4>
@@ -499,8 +501,8 @@ $newConn->createConnection();
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-lg-6">
+							</div> -->
+						<!-- 	<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Habilidades técnicos</h4>
@@ -613,8 +615,8 @@ $newConn->createConnection();
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-lg-6">
+							</div> -->
+							<!-- <div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Professional Skills</h4>
@@ -668,10 +670,10 @@ $newConn->createConnection();
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
-				</div>-->
+				</div>
 				<!-- Resume Area End -->
 
 				<!-- My Client Area Area Strat -->

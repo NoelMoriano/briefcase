@@ -42,7 +42,8 @@ $newConn->createConnection();
                 <div class="box-item">
                     <img class="img-user"   src="./admin/uploads/users/<?=$rowUser['userPhoto'] ? $rowUser['userPhoto'] : 'user-nofound.png'?>"  alt="">
                     <p class="name">  <?=$rowUser["names"]?>  <?=$rowUser["lastName"]?>  </p>
-                    <a class="btn" href="briefcase.php?userId=<?=$rowUser['id']?>">Ver màs</a>
+                    <a class="btn " href="briefcase.php?userId=<?=$rowUser['id']?>">
+                     <span>Ver más</span></a>
                   
                 </div>
 

@@ -1170,8 +1170,8 @@ select:focus {
   margin-bottom: 16px;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  -webkit-box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
-          box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+  -webkit-box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+          box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
   -webkit-transition: -webkit-box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   transition: -webkit-box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   transition: box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
@@ -2876,8 +2876,8 @@ textarea.form-control {
   width: calc(100% - 1.5rem);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  -ms-grid-columns: (minmax(350px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-flow: dense;
   grid-auto-rows: -webkit-max-content;
   grid-auto-rows: max-content;
@@ -2919,7 +2919,7 @@ textarea.form-control {
   margin: auto;
   display: block;
   color: #ffffff;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 2px solid #7280ff;
   background-color: #7280ff;
 }
@@ -2928,5 +2928,11 @@ textarea.form-control {
   color: #7280ff;
   background-color: #ffffff;
   border: 2px solid #7280ff;
+}
+
+#container-general-team .container-boxes .grid-items .box-item .btn:active {
+  color: #ffffff;
+  background-color: #7280ff;
+  border: 2px solid #ffffff;
 }
 /*# sourceMappingURL=index.css.map */

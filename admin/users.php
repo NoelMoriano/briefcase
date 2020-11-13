@@ -74,8 +74,8 @@ $newConn->createConnection();
                         if(isset($_GET["idUser"]) && $_GET["idUser"] !== null ){
 
                             $userId = $_GET["idUser"];
-                            $queryProduct = "SELECT * FROM users WHERE id = $userId";
-                            $resultUsers = $newConn->ExecuteQuery($queryProduct);
+                            $queryUser = "SELECT * FROM users WHERE id = $userId";
+                            $resultUsers = $newConn->ExecuteQuery($queryUser);
 
                             if ($resultUsers) {
                                 while ($rowUser = mysqli_fetch_array($resultUsers)) {
@@ -167,15 +167,6 @@ $newConn->createConnection();
                                             <input type="file"
                                                      class="form-control form-control-category input-form-small"
                                                      id="coverPhoto" placeholder="Imagen Portada" name="coverPhoto"> 
-                                            
-                                                     <input type="text"
-                                                            class="form-control input-form-small"
-                                                            hidden
-                                                            name="userPhotoGET" value="<?=$userIdIsset ? $userPhoto : ''?>">
-                                                    <input type="text"
-                                                            class="form-control input-form-small"
-                                                            hidden
-                                                            name="coverPhotoGET" value="<?=$userIdIsset ? $coverPhoto : ''?>">
                                             </div>                                            
                                         </div>
                                         <div class="form-group row">
@@ -324,8 +315,8 @@ $newConn->createConnection();
                                         <th>F.Cumpleaños</th>
                                         <th>Dirección</th>
                                         <th>Profesion</th>
-                                        <th>Teléfono</th>
                                         <th>Intereses</th>
+                                        <th>Teléfono</th>
                                         <th>CreateAt</th>
                                         <th>Opciones</th>
                                     </tr>
@@ -341,8 +332,8 @@ $newConn->createConnection();
                                         <th>F.Cumpleaños</th>
                                         <th>Dirección</th>
                                         <th>Profesion</th>
-                                        <th>Teléfono</th>
                                         <th>Intereses</th>
+                                        <th>Teléfono</th>
                                         <th>CreateAt</th>
                                         <th>Opciones</th>
                                     </tr>
@@ -350,15 +341,14 @@ $newConn->createConnection();
                                     <tbody>
 
                                         <?php
-                                         $queryProduct = "SELECT * FROM users
+                                         $queryUsers = "SELECT * FROM users
                                          ORDER BY createAt DESC";
-                                        $resultUsers = $newConn->ExecuteQuery($queryProduct);
+                                        $resultUsers = $newConn->ExecuteQuery($queryUsers);
                                          if ($resultUsers) {
                                              while ($rowUser = mysqli_fetch_array($resultUsers)) {
-
                                         ?>
                                         <tr>
-                                        <td><img src="./uploads/users/<?=$rowUser["userPhoto"]?>" class="img-fluid"></td>
+                                        <td><img src="./uploads/users/<?=$rowUser["userPhoto"] ? $rowUser["userPhoto"] : 'user-nofound.png'?>" class="img-fluid"></td>
                                         <td><?=$rowUser["names"]?></td>
                                         <td><?=$rowUser["lastName"]?></td>
                                         <td><?=$rowUser["userEmail"]?></td>
@@ -373,9 +363,9 @@ $newConn->createConnection();
                                         <td>
                                         <a href="users.php?idUser=<?=$rowUser["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
 
-                                        <button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
+                                        <button" data-toggle="modal" data-target="#exampleModal<?=$rowUser["id"]?>" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
 
-                                        <div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+                                        <div  class="modal fade" id="exampleModal<?=$rowUser["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                             <div class="modal-header">
@@ -397,7 +387,7 @@ $newConn->createConnection();
                                         </td>
                                         </tr>
                                      <?php
-                                        }
+                                            }
                                         }else{
                                         echo "<h5>Error en consulta contacte a soporte</h3>";
                                         }

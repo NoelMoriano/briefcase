@@ -19,18 +19,28 @@ $newConn->createConnection();
 // DATOS POST
 //////////////////////////////
 
-// firstPicture
+//FUNCTION MOVE IMG
+function moveImage($dataImg){
+  $nameImg = $dataImg["name"];
+  $destination_path_1 = getcwd().DIRECTORY_SEPARATOR;
+  $target_path_1 = $destination_path_1 . '../uploads/users/'. basename($nameImg);
+  move_uploaded_file($dataImg['tmp_name'], $target_path_1);
+}
+
+function fetchUser($field){
+  $queryUser = "SELECT $field FROM users WHERE id = $userId";
+  $resultQuery = $newConn->ExecuteQuery($queryUser);
+  while($userRow->mysqli_fetch_array($resultQuery)){
+    return $userRow["id"];
+  }
+}
+
+moveImage($_FILES['userPhoto']);
+moveImage($_FILES['coverPhoto']);
+
+
 $userPhoto = $_FILES["userPhoto"]["name"];
 $coverPhoto = $_FILES["coverPhoto"]["name"];
-
-  $destination_path_1 = getcwd().DIRECTORY_SEPARATOR;
-  $target_path_1 = $destination_path_1 . '../uploads/users/'. basename(isset($_POST['saveUser']) ? $userPhoto : $_POST['userPhotoGET']);
-
-  $destination_path_2 = getcwd().DIRECTORY_SEPARATOR;
-  $target_path_2 = $destination_path_2 . '../uploads/users/'. basename(isset($_POST['saveUser']) ? $coverPhoto : $_POST['coverPhotoGET']);
-
-  move_uploaded_file($_FILES['userPhoto']['tmp_name'], $target_path_1);
-  move_uploaded_file($_FILES['coverPhoto']['tmp_name'], $target_path_2);
 
 $names = $_POST['names'];
 $lastName = $_POST['lastName'];
@@ -58,8 +68,11 @@ if (isset($_POST['saveUser']) && $names == '') {
 
 }elseif (isset($_POST['saveUser'])) {
 
-  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, `userPhoto`,`coverPhoto`, `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,`userFb`,`userTwitter`,`userLinkedin`) 
-  VALUES ('$email','$password','$names' ,'$userPhoto','$coverPhoto','$lastName','$age', '$birthdayDate','$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin')";
+  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, `userPhoto`,`coverPhoto`, 
+  `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
+  `userFb`,`userTwitter`,`userLinkedin`) 
+  VALUES ('$email','$password','$names' ,'$userPhoto','$coverPhoto','$lastName','$age', '$birthdayDate',
+  '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin')";
 
     $resultUser = $newConn->ExecuteQuery($queryUser);
     if($resultUser){
@@ -88,7 +101,11 @@ $userId = $_POST['userId'];
 $dateUpdate = date('Y-m-d H:i:s');
 
 $queryUser =  "UPDATE `users` 
-SET `userEmail`='$email',`password`='$password',`names`='$names',`userPhoto`='$userPhoto',`coverPhoto`='$coverPhoto',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',`direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',`description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate' 
+SET `userEmail`='$email',`password`='$password',`names`='$names',`userPhoto`='$userPhoto',
+`coverPhoto`='$coverPhoto',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
+`direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
+`description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
+`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate' 
 WHERE id = $userId";
 
   $resultUser = $newConn->ExecuteQuery($queryUser);

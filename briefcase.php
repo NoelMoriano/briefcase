@@ -459,8 +459,8 @@ $newConn->createConnection();
 													<div class="year">
 														<span><?=$rowEducation['startYear']?>-<?=$rowEducation['endYear']?></span>
 													</div>
-													<h4 class="university-name"><?=$rowEducation['institutionName']?></h4>
-													<p class="degree"><?=$rowEducation['educationTitle']?></p>
+													<h4 class="university-name"><?=ucfirst($rowEducation['institutionName'])?></h4>
+													<p class="degree"><?=ucfirst($rowEducation['educationTitle'])?></p>
 												</div>
 												<?php
 											}
@@ -472,36 +472,34 @@ $newConn->createConnection();
 									</div>
 								</div>
 							</div>
-							<!-- <div class="col-lg-6">
+							<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Experiencia</h4>
 									</div>
 									<div class="education-list">
+									<?php
+                                        $query = "SELECT * FROM experiences WHERE userId = $userId";
+                                        $result = $newConn->ExecuteQuery($query);
+                                         if ($result) {
+                                             while ($rowExperience = mysqli_fetch_array($result)) {
+                                        ?>
 										<div class="single-education wow fadeInUp">
 											<div class="year">
-												<span>2018-2020</span>
+												<span><?=$rowExperience["startYear"]?>-<?=$rowExperience["endYear"]?></span>
 											</div>
-											<h4 class="university-name">Peru hop</h4>
-											<p class="degree">Full Stack Web Developer</p>
+											<h4 class="university-name"><?=ucfirst($rowExperience["employerName"])?></h4>
+											<p class="degree"><?=ucfirst($rowExperience["position"])?></p>
 										</div>
-										<div class="single-education wow fadeInUp">
-											<div class="year">
-												<span>2014-2018</span>
-											</div>
-											<h4 class="university-name">Servitec</h4>
-											<p class="degree">Frontend Web Developer</p>
-										</div>
-										<div class="single-education wow fadeInUp">
-											<div class="year">
-												<span>2009-2011</span>
-											</div>
-											<h4 class="university-name">Envato Company</h4>
-											<p class="degree">Web Designer</p>
-										</div>
+										<?php
+                                        }
+                                        }else{
+                                        echo "<h5>Error en consulta contacte a soporte</h3>";
+                                        }
+                                     ?>
 									</div>
 								</div>
-							</div> -->
+							</div> 
 						<!-- 	<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">

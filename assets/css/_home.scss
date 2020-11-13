@@ -32,7 +32,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 2rem 0rem;
-		margin: 0;
+		margin-top: -2px;
 		position: relative;
 		background-color: #7280ff;
 
@@ -44,7 +44,7 @@
 			align-items: center;
 			width: calc(100% - 1.5rem);
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
 			grid-auto-flow: dense;
 			grid-auto-rows: max-content;
 			grid-gap: 1.1rem;
@@ -52,7 +52,6 @@
 
 			.box-item {
 				width: auto;
-				min-width: 300px;
 				height: auto;
 				padding: 20px;
 				background-color: #ffffff;
@@ -88,12 +87,11 @@
 						border: 2px solid #7280ff;
 					}
 
-					&:active{
+					&:active {
 						color: #ffffff;
 						background-color: #7280ff;
 						border: 2px solid #ffffff;
 					}
-
 				}
 			}
 		}

@@ -71,21 +71,21 @@ $userIdGlobal = $_SESSION['userId'];
                     <div class="card-body">
                     
                     <?php
-                        $educationIdIsset = isset($_GET["educationId"]);
+                        $experienceIdIsset = isset($_GET["experienceId"]);
 
-                        if(isset($_GET["educationId"]) && $_GET["educationId"] !== null ){
+                        if(isset($_GET["experienceId"]) && $_GET["experienceId"] !== null ){
 
-                            $educationId = $_GET["educationId"];
-                            $queryEducation = "SELECT * FROM educations WHERE id = $educationId";
-                            $resultEducations = $newConn->ExecuteQuery($queryEducation);
+                            $experienceId = $_GET["experienceId"];
+                            $query = "SELECT * FROM experiences WHERE id = $experienceId";
+                            $result = $newConn->ExecuteQuery($query);
 
-                            if ($resultEducations) {
-                                while ($rowEducation = mysqli_fetch_array($resultEducations)) {
-                                    $educationId = $rowEducation['id'] ? $rowEducation['id'] : '';
-                                    $institutionName = $rowEducation['institutionName'] ? $rowEducation['institutionName'] : '';
-                                    $educationTitle = $rowEducation['educationTitle'] ? $rowEducation['educationTitle'] : '';
-                                    $startYear = $rowEducation['startYear'] ? $rowEducation['startYear'] : '';
-                                    $endYear = $rowEducation['endYear'] ? $rowEducation['endYear'] : '';
+                            if ($result) {
+                                while ($rowExperience = mysqli_fetch_array($result)) {
+                                    $experienceId = $rowExperience['id'] ? $rowExperience['id'] : '';
+                                    $employerName = $rowExperience['employerName'] ? $rowExperience['employerName'] : '';
+                                    $position = $rowExperience['position'] ? $rowExperience['position'] : '';
+                                    $startYear = $rowExperience['startYear'] ? $rowExperience['startYear'] : '';
+                                    $endYear = $rowExperience['endYear'] ? $rowExperience['endYear'] : '';
                                 }
                             }else{
                                 echo "<h5>Error en consulta contacte a soporte</h3>";
@@ -97,31 +97,31 @@ $userIdGlobal = $_SESSION['userId'];
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="p-1">
-                                    <form class="category" action="controllers/educations.php" method="post" enctype="multipart/form-data">                                 
+                                    <form class="category" action="controllers/experiences.php" method="post" enctype="multipart/form-data">                                 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="">Instituto:</label>
+                                            <label for="">Nombre empleador:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
-                                                       placeholder="Ingrese nombre de instituto"
-                                                       name="institutionName" value="<?=$educationIdIsset ? $institutionName : ''?>">
+                                                       placeholder="Ingrese su titulo"
+                                                       name="employerName" value="<?=$experienceIdIsset ? $employerName : ''?>">
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        hidden
                                                        name="userId" 
                                                        value="<?=$userIdGlobal?>">
-                                                       <input type="number"
+                                                <input type="number"
                                                        class="form-control input-form-small"
                                                        hidden
-                                                       name="educationId" 
-                                                       value="<?=$educationIdIsset ? $educationId : ''?>">
+                                                       name="experienceId" 
+                                                       value="<?=$experienceIdIsset ? $experienceId : ''?>">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="">Titulo:</label>
+                                            <label for="">Cargo ocupado:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
-                                                       placeholder="Ingrese su titulo"
-                                                       name="educationTitle" value="<?=$educationIdIsset ? $educationTitle : ''?>">
+                                                       placeholder="Ingrese el cargo"
+                                                       name="position" value="<?=$experienceIdIsset ? $position : ''?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -130,14 +130,14 @@ $userIdGlobal = $_SESSION['userId'];
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese año inicio"
-                                                       name="startYear" value="<?=$educationIdIsset ? $startYear : ''?>">
+                                                       name="startYear" value="<?=$experienceIdIsset ? $startYear : ''?>">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="">Año fin:</label>
                                             <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese año fin"
-                                                       name="endYear" value="<?=$educationIdIsset ? $endYear : ''?>">
+                                                       name="endYear" value="<?=$experienceIdIsset ? $endYear : ''?>">
                                             </div>
                                         </div>
                                         <!--
@@ -159,9 +159,9 @@ $userIdGlobal = $_SESSION['userId'];
                                           </div>
                                         </div>-->
                                         <input type="submit" 
-                                        class="<?=$educationIdIsset ? 'btn btn-category btn-block btn-small btn-success' : 'btn btn-category btn-block btn-small btn-primary'?>" 
-                                        name="<?=$educationIdIsset ? 'updateEducation' : 'saveEducation'?>" 
-                                        value="<?=$educationIdIsset ? 'Actualizar' : 'Guardar'?>"/>
+                                        class="<?=$experienceIdIsset ? 'btn btn-category btn-block btn-small btn-success' : 'btn btn-category btn-block btn-small btn-primary'?>" 
+                                        name="<?=$experienceIdIsset ? 'updateExperience' : 'saveExperience'?>" 
+                                        value="<?=$experienceIdIsset ? 'Actualizar' : 'Guardar'?>"/>
                                     </form>
                                 </div>
                             </div>
@@ -173,15 +173,15 @@ $userIdGlobal = $_SESSION['userId'];
                             <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista de Educación</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de Experiencia</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
-                                        <th>Instituto</th>
-                                        <th>Titulo</th>
+                                        <th>Nombre empleador</th>
+                                        <th>Cargo ocupado</th>
                                         <th>Año Inicio</th>
                                         <th>Año Fin</th>
                                         <th>CreateAt</th>
@@ -190,8 +190,8 @@ $userIdGlobal = $_SESSION['userId'];
                                     </thead>
                                     <tfoot>
                                     <tr>
-                                        <th>Instituto</th>
-                                        <th>Titulo</th>
+                                        <th>Nombre empleador</th>
+                                        <th>Cargo ocupado</th>
                                         <th>Año Inicio</th>
                                         <th>Año Fin</th>
                                         <th>CreateAt</th>
@@ -202,25 +202,25 @@ $userIdGlobal = $_SESSION['userId'];
 
                                     <?php
 
-                                         $queryEducations = "SELECT * FROM educations
+                                         $query = "SELECT * FROM experiences
                                          WHERE userId = '$userIdGlobal'";
-                                        $resultEducations = $newConn->ExecuteQuery($queryEducations);
-                                         if ($resultEducations) {
-                                             while ($rowEducation = mysqli_fetch_array($resultEducations)) {
+                                        $result = $newConn->ExecuteQuery($query);
+                                         if ($result) {
+                                             while ($rowExperience = mysqli_fetch_array($result)) {
 
                                         ?>
                                         <tr>
-                                        <td><?=$rowEducation["institutionName"]?></td>
-                                        <td><?=$rowEducation["educationTitle"]?></td>
-                                        <td><?=$rowEducation["startYear"]?></td>
-                                        <td><?=$rowEducation["endYear"]?></td>
-                                        <td><?=$rowEducation["createAt"]?></td>
+                                        <td><?=$rowExperience["employerName"]?></td>
+                                        <td><?=$rowExperience["position"]?></td>
+                                        <td><?=$rowExperience["startYear"]?></td>
+                                        <td><?=$rowExperience["endYear"]?></td>
+                                        <td><?=$rowExperience["createAt"]?></td>
                                         <td>
-                                        <a href="educations.php?educationId=<?=$rowEducation["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                        <a href="experiences.php?experienceId=<?=$rowExperience["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
 
-                                        <button" data-toggle="modal" data-target="#exampleModal<?=$rowEducation["id"]?>" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
+                                        <button" data-toggle="modal" data-target="#exampleModal<?=$rowExperience["id"]?>" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
 
-                                        <div  class="modal fade" id="exampleModal<?=$rowEducation["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel">
+                                        <div  class="modal fade" id="exampleModal<?=$rowExperience["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                             <div class="modal-header">
@@ -234,7 +234,7 @@ $userIdGlobal = $_SESSION['userId'];
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <a href="controllers/educations.php?educationId=<?=$rowEducation["id"]?>" type="button" class="btn btn-danger">Si</a>
+                                                <a href="controllers/experiences.php?experienceId=<?=$rowExperience["id"]?>" type="button" class="btn btn-danger">Si</a>
                                             </div>
                                             </div>
                                         </div>

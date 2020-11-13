@@ -101,11 +101,11 @@ $newConn->createConnection();
 							><i class="fas fa-user"></i>Sobre Mi</a
 						>
 					</li>
-					<li>
+					<!--<li>
 						<a href="briefcase.php#service" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-briefcase"></i>Servicios</a
 						>
-					</li>
+					</li>-->
 					<li>
 						<a href="briefcase.php#resume" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-file-alt"></i>Resumen</a

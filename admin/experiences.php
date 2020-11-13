@@ -61,7 +61,7 @@ $userIdGlobal = $_SESSION['userId'];
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Educación</h1>
+                <h1 class="h3 mb-4 text-gray-800">Experiencia</h1>
 
                 <!-- Start Category -->
                 <div class="card shadow mb-4">
@@ -201,13 +201,11 @@ $userIdGlobal = $_SESSION['userId'];
                                     <tbody>
 
                                     <?php
-
-                                         $query = "SELECT * FROM experiences
-                                         WHERE userId = '$userIdGlobal'";
+                                        $query = "SELECT * FROM experiences
+                                        WHERE userId = '$userIdGlobal'";
                                         $result = $newConn->ExecuteQuery($query);
                                          if ($result) {
                                              while ($rowExperience = mysqli_fetch_array($result)) {
-
                                         ?>
                                         <tr>
                                         <td><?=$rowExperience["employerName"]?></td>

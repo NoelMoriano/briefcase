@@ -87,8 +87,7 @@ $userId = $_POST['userId'];
 $dateUpdate = date('Y-m-d H:i:s');
 
 $queryUser =  "UPDATE `users` 
-SET `userEmail`='$email',`password`='$password',`names`='$names',`userPhoto`='$userPhoto',
-`coverPhoto`='$coverPhoto',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
+SET `userEmail`='$email',`password`='$password',`names`='$names',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
 `direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
 `description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
 `userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate' 

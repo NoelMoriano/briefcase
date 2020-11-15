@@ -268,7 +268,24 @@ $newConn->createConnection();
                                                      id="thirdPicture" placeholder="Imagen Producto" name="thirdPicture">
                                           </div>
                                         </div>-->
-                                        <input type="submit" class="<?=$userIdIsset ? 'btn btn-category btn-block btn-small btn-success' : 'btn btn-category btn-block btn-small btn-primary'?>" name="<?=$userIdIsset ? 'updateUser' : 'saveUser'?>" value="<?=$userIdIsset ? 'Actualizar' : 'Guardar'?>"/>
+                                        <?php
+                                            if($_SESSION['userEmail'] == "admin@admin.com"){
+                                                ?>
+                                                    <input type="submit" class="<?=$userIdIsset 
+                                                    ? 'btn btn-category btn-block btn-small btn-success' 
+                                                    : 'btn btn-category btn-block btn-small btn-primary'?>" 
+                                                    name="<?=$userIdIsset 
+                                                    ? 'updateUser' 
+                                                    : 'saveUser'?>" 
+                                                    value="<?=$userIdIsset ? 'Actualizar' : 'Guardar'?>"/>        
+                                                <?php
+                                            }else{
+                                                ?>
+                                                <input type="submit" class="btn btn-category btn-block btn-small btn-success"
+                                                name="updateUser" value="Guardar">
+                                                <?php
+                                            }
+                                        ?>
                                     </form>
                                 </div>
                             </div>

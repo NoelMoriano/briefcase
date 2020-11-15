@@ -19,28 +19,13 @@ $newConn->createConnection();
 // DATOS POST
 //////////////////////////////
 
-//FUNCTION MOVE IMG
-function moveImage($dataImg){
-  $nameImg = $dataImg["name"];
-  $destination_path_1 = getcwd().DIRECTORY_SEPARATOR;
-  $target_path_1 = $destination_path_1 . '../uploads/users/'. basename($nameImg);
-  move_uploaded_file($dataImg['tmp_name'], $target_path_1);
-}
-
-function fetchUser($field){
+/* function fetchUser($field){
   $queryUser = "SELECT $field FROM users WHERE id = $userId";
   $resultQuery = $newConn->ExecuteQuery($queryUser);
   while($userRow->mysqli_fetch_array($resultQuery)){
     return $userRow["id"];
   }
-}
-
-moveImage($_FILES['userPhoto']);
-moveImage($_FILES['coverPhoto']);
-
-
-$userPhoto = $_FILES["userPhoto"]["name"];
-$coverPhoto = $_FILES["coverPhoto"]["name"];
+} */
 
 $names = $_POST['names'];
 $lastName = $_POST['lastName'];
@@ -56,6 +41,7 @@ $description = $_POST['description'];
 $userFb = $_POST['userFb']; 
 $userTwitter = $_POST['userTwitter']; 
 $userLinkedin = $_POST['userLinkedin']; 
+$userType = $_POST['userType']; 
 
 //////////////////////////////
 // INSERTAR users
@@ -68,11 +54,11 @@ if (isset($_POST['saveUser']) && $names == '') {
 
 }elseif (isset($_POST['saveUser'])) {
 
-  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, `userPhoto`,`coverPhoto`, 
+  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, 
   `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
-  `userFb`,`userTwitter`,`userLinkedin`) 
-  VALUES ('$email','$password','$names' ,'$userPhoto','$coverPhoto','$lastName','$age', '$birthdayDate',
-  '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin')";
+  `userFb`,`userTwitter`,`userLinkedin`,`userType`) 
+  VALUES ('$email','$password','$names','$lastName','$age', '$birthdayDate',
+  '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin','$userType')";
 
     $resultUser = $newConn->ExecuteQuery($queryUser);
     if($resultUser){

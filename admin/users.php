@@ -52,7 +52,7 @@ $newConn->createConnection();
         <div id="content">
 
             <!-- Topbar -->
-            <?php require("sections/header.html") ?>
+            <?php require("sections/header.php") ?>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
@@ -73,13 +73,13 @@ $newConn->createConnection();
 
                         if(isset($_GET["idUser"]) && $_GET["idUser"] !== null ){
 
-                            $userId = $_GET["idUser"];
-                            $queryUser = "SELECT * FROM users WHERE id = $userId";
+                            $userId_ = $_GET["idUser"];
+                            $queryUser = "SELECT * FROM users WHERE id = $userId_";
                             $resultUsers = $newConn->ExecuteQuery($queryUser);
 
                             if ($resultUsers) {
                                 while ($rowUser = mysqli_fetch_array($resultUsers)) {
-                                    $userId = $rowUser['id'] ? $rowUser['id'] : '';
+                                    $userId_ = $rowUser['id'] ? $rowUser['id'] : '';
                                     $userPhoto = $rowUser['userPhoto'] ? $rowUser['userPhoto'] : '';
                                     $names = $rowUser['names'] ? $rowUser['names'] : '';
                                     $lastName = $rowUser['lastName'] ? $rowUser['lastName'] : '';
@@ -96,6 +96,7 @@ $newConn->createConnection();
                                     $userTwitter = $rowUser['userTwitter'] ? $rowUser['userTwitter'] : ''; 
                                     $userLinkedin = $rowUser['userLinkedin'] ? $rowUser['userLinkedin'] : ''; 
                                     $coverPhoto = $rowUser['coverPhoto'] ? $rowUser['coverPhoto'] : ''; 
+                                    $userType = $rowUser['userType'] ? $rowUser['userType'] : ''; 
                                 }
                             }else{
                                 echo "<h5>Error en consulta contacte a soporte</h3>";
@@ -108,47 +109,23 @@ $newConn->createConnection();
                             <div class="col-lg-12">
                                 <div class="p-1">
                                     <form class="category" action="controllers/users.php" method="post" enctype="multipart/form-data">
-                                        <!--<div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text"
-                                                       class="form-control input-form-small"
-                                                       placeholder="Producto"
-                                                       name="productName">
-                                            </div>
-
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <select class="form-control input-form-small" name="idCategory">
-                                                    <option value="default">[Seleccine Categoria]</option>
-                                                <?php
-                                                /*$queryCategory = "SELECT * FROM users";
-                                                $resultCategory = $newConn->ExecuteQuery($queryCategory);
-                                                if ($resultCategory) {
-                                                    while ($rowCategory = $newConn->GetRows($resultCategory)) {
-                                                            ?>
-                                                    <option value="<?=$rowCategory[0]?>"><?=$rowCategory[1]?></option>
-                                                <?php
-                                                    }
-                                                  }else{
-                                                            echo "<h3>Error select category</h3>";
-                                                        }*/
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>-->
                                         <div class="form-group row">
-                                            <div class="col-sm-8 mb-8 mb-sm-0">
+                                            <div class="col-sm-4 mb-4 mb-sm-0">
                                             <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese nombres"
                                                        hidden
-                                                       name="userId" value="<?=$userIdIsset ? $userId : ''?>">
+                                                       name="userId" value="<?=$userIdIsset ? $userId_ : ''?>">
                                                         <div>
                                                             <label for="">Nombres:</label>
                                                                 <input type="text"
                                                             class="form-control input-form-small"
                                                             placeholder="Ingrese nombres"
                                                             name="names" value="<?=$userIdIsset ? $names : ''?>">
-                                                        </div><br/>
+                                                        </div>
+                                                       
+                                            </div>
+                                            <div class="col-sm-4 mb-4 mb-sm-0">
                                                         <div>
                                                             <label for="">Apellidos:</label>
                                                             <input type="text"
@@ -157,17 +134,21 @@ $newConn->createConnection();
                                                             name="lastName" value="<?=$userIdIsset ? $lastName : ''?>">
                                                         </div> 
                                             </div>
-                                            <div class="col-sm-4 mb-4 mb-sm-0">
-                                            <label for="">Foto perfil</label>
-                                                        <input type="file"
-                                                     class="form-control form-control-category input-form-small"
-                                                     id="userPhoto" placeholder="Imagen User" name="userPhoto">
-                                                     <br/>
-                                            <label for="">Imagen portada</label>
-                                            <input type="file"
-                                                     class="form-control form-control-category input-form-small"
-                                                     id="coverPhoto" placeholder="Imagen Portada" name="coverPhoto"> 
-                                            </div>                                            
+                                            <div class='col-sm-4 mb-4 mb-sm-0'>
+                                            <?php
+                                            if($_SESSION['userEmail'] == "admin@admin.com") {
+                                                ?>
+                                                    <div>
+                                                        <label for="">Tipo usuario:</label>
+                                                        <select class="form-control input-form-small" name="userType">
+                                                            <option value="user">User</option>
+                                                            <option value="admin">Admin</option>
+                                                        </select>
+                                                    </div>
+                                            <?php
+                                            }
+                                            ?>    
+                                            </div>                                    
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -341,11 +322,14 @@ $newConn->createConnection();
                                     <tbody>
 
                                         <?php
-                                         $queryUsers = "SELECT * FROM users
-                                         ORDER BY createAt DESC";
-                                        $resultUsers = $newConn->ExecuteQuery($queryUsers);
-                                         if ($resultUsers) {
-                                             while ($rowUser = mysqli_fetch_array($resultUsers)) {
+
+                                        $userId_ = $_SESSION['userId'];
+
+                                         $queryUsers = "SELECT * FROM users ORDER BY createAt DESC";
+                                         $queryUser = "SELECT * FROM users WHERE id = $userId_";
+                                        $result = $newConn->ExecuteQuery(($_SESSION['userEmail'] == "admin@admin.com" ) ? $queryUsers : $queryUser);
+                                         if ($result) {
+                                             while ($rowUser = mysqli_fetch_array($result)) {
                                         ?>
                                         <tr>
                                         <td><img src="./uploads/users/<?=$rowUser["userPhoto"] ? $rowUser["userPhoto"] : 'user-nofound.png'?>" class="img-fluid"></td>
@@ -392,7 +376,6 @@ $newConn->createConnection();
                                         echo "<h5>Error en consulta contacte a soporte</h3>";
                                         }
                                      ?>
-
                                     </tbody>
                                 </table>
                             </div>

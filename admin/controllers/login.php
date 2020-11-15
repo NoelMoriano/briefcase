@@ -37,12 +37,16 @@ $rows = mysqli_num_rows($result);
 
 while ($rowUser = mysqli_fetch_array($result)) {
   $userId = $rowUser['id'];
+  $userNames = $rowUser['names'];
+  $userType = $rowUser['userType'];
 }
 
 if ($rows>0){
 
       $_SESSION['userEmail'] = $userEmail;
       $_SESSION['userId'] = $userId;
+      $_SESSION['userNames'] = $$userNames;
+      $_SESSION['userType'] = $$userType;
 
        echo "<script>
        alert('Bienvenido');

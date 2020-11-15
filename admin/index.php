@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Maisen Panel - Dashboard</title>
+  <title>Panel - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,7 +42,7 @@
       <div id="content">
 
 <!-- Header -->
-<?php require("sections/header.html"); ?>
+<?php require("sections/header.php"); ?>
       <!-- End of Header -->
 
         <!-- Begin Page Content -->

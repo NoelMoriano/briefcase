@@ -54,7 +54,7 @@ $userIdGlobal = $_SESSION['userId'];
         <div id="content">
 
             <!-- Topbar -->
-            <?php require("sections/header.html") ?>
+            <?php require("sections/header.php") ?>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->

@@ -39,9 +39,9 @@ $dateUpdate = date('Y-m-d H:i:s');
 $jsonQuery = [
     1=> "UPDATE `users` SET `userPhoto`='$userPhoto', `coverPhoto`='$coverPhoto', `updateAt`='$dateUpdate' 
             WHERE id = '$userId'",
-    2=>"UPDATE `users` SET `userPhoto`='$userPhoto',`updateAt`='$dateUpdate' 
+    2=> "UPDATE `users` SET `userPhoto`='$userPhoto',`updateAt`='$dateUpdate' 
             WHERE id = '$userId'",
-    3=>"UPDATE `users` SET `coverPhoto`='$coverPhoto',`updateAt`='$dateUpdate' 
+    3=> "UPDATE `users` SET `coverPhoto`='$coverPhoto',`updateAt`='$dateUpdate' 
             WHERE id = '$userId'"];
 
 if(isset($_POST['saveImages']) && empty($userPhoto) && empty($coverPhoto)){
@@ -51,12 +51,12 @@ if(isset($_POST['saveImages']) && empty($userPhoto) && empty($coverPhoto)){
          </script>";
 }elseif(isset($_POST['saveImages'])){
 
-     if(isset($userPhoto) && isset($coverPhoto)){
-        $queryUser = $jsonQuery[1];
-    }elseif (isset($userPhoto) && empty($coverPhoto)){
-        $queryUser = $jsonQuery[2];
-    }elseif(isset($coverPhoto) && empty($userPhoto)){
+     if($coverPhoto !== ""){
         $queryUser = $jsonQuery[3];
+    }elseif ($userPhoto !== ""){
+        $queryUser = $jsonQuery[2];
+    }elseif($userPhoto !== "" && $coverPhoto !== ""){
+        $queryUser = $jsonQuery[1];
     }
       
     $resultUser = $newConn->ExecuteQuery($queryUser);

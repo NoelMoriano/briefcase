@@ -1,6 +1,6 @@
 let btnSendMessage = document.querySelector("#btn-send-message");
 let warningMessage = document.querySelector("#warning-message");
-let phoneNumberUser = document.querySelector("#phone-number-user");
+let phoneNumberUser = document.querySelector("#phone-number-user").value;
 
 let inputName = document.querySelector("#input-names");
 let inputLastname = document.querySelector("#input-lastNames");
@@ -75,8 +75,8 @@ function setClassNameAll(value) {
 }
 
 function defaultValueItems() {
-	const names_ = sessionStorage.getItem("nameAndLastname");
-	const lastnames_ = sessionStorage.getItem("nameAndLastname");
+	const names_ = sessionStorage.getItem("names");
+	const lastnames_ = sessionStorage.getItem("lastNames");
 	const phone_ = sessionStorage.getItem("phone");
 	const email_ = sessionStorage.getItem("email");
 	const message_ = sessionStorage.getItem("message");

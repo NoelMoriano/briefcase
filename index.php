@@ -22,7 +22,7 @@ $newConn->createConnection();
 
 	<section id="container-general-team">
         <h1>
-            TÉCNICOS
+            NUESTROS TÉCNICOS
         </h1>
 
         <div class="item">
@@ -40,13 +40,11 @@ $newConn->createConnection();
             while ($rowUser = mysqli_fetch_array($resultUsers)) {
             ?>
                 <div class="box-item">
-                    <img class="img-user"   src="./admin/uploads/users/<?=$rowUser['userPhoto'] ? $rowUser['userPhoto'] : 'user-nofound.png'?>"  alt="">
-                    <p class="name">  <?=$rowUser["names"]?>  <?=$rowUser["lastName"]?>  </p>
+                    <img class="img-user" src="./admin/uploads/users/<?=$rowUser['userPhoto'] ? $rowUser['userPhoto'] : 'user-nofound.png'?>"  alt="<?=$rowUser["names"]?>">
+                    <p class="name">  <?=ucfirst($rowUser["names"]." ".$rowUser["lastName"])?></p>
                     <a class="btn " href="briefcase.php?userId=<?=$rowUser['id']?>">
                      <span>Ver más</span></a>
-                  
                 </div>
-
                   <?php
                     }
                 }else{

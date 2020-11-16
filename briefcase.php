@@ -34,29 +34,34 @@ $newConn->createConnection();
 	$userId = $_GET["userId"];
 
         $queryProduct = "SELECT * FROM users WHERE id = $userId";
-        $resultUsers = $newConn->ExecuteQuery($queryProduct);
-         if ($resultUsers) {
-            while ($rowUser = mysqli_fetch_array($resultUsers)) {
-				$userPhoto = $rowUser['userPhoto'];
-				$names = $rowUser['names'];
-				$lastName = $rowUser['lastName'];
-				$userEmail = $rowUser['userEmail'];
-				$password= $rowUser['password'];
-				$age = $rowUser['age'];
-				$birthdayDate = $rowUser['birthdayDate'];
-				$direction = $rowUser['direction'];
-				$profession = $rowUser['profession'];
-				$interests = $rowUser['interests'];
-				$phone = $rowUser['phone']; 
-				$description = $rowUser['description']; 
-				$userFb = $rowUser['userFb']; 
-				$userTwitter = $rowUser['userTwitter']; 
-				$userLinkedin = $rowUser['userLinkedin']; 
-				$coverPhoto = $rowUser['coverPhoto']; 
-			 }
-        }else{
-            echo "<h5>Error en consulta contacte a soporte</h3>";
-        }
+		$resultUsers = $newConn->ExecuteQuery($queryProduct);
+		$numRows = mysqli_num_rows($resultUsers);
+         if($numRows > 0){
+			if ($resultUsers) {
+				while ($rowUser = mysqli_fetch_array($resultUsers)) {
+					$userPhoto = $rowUser['userPhoto'];
+					$names = $rowUser['names'];
+					$lastName = $rowUser['lastName'];
+					$userEmail = $rowUser['userEmail'];
+					$password= $rowUser['password'];
+					$age = $rowUser['age'];
+					$birthdayDate = $rowUser['birthdayDate'];
+					$direction = $rowUser['direction'];
+					$profession = $rowUser['profession'];
+					$interests = $rowUser['interests'];
+					$phone = $rowUser['phone']; 
+					$description = $rowUser['description']; 
+					$userFb = $rowUser['userFb']; 
+					$userTwitter = $rowUser['userTwitter']; 
+					$userLinkedin = $rowUser['userLinkedin']; 
+					$coverPhoto = $rowUser['coverPhoto']; 
+				 }
+			}else{
+				echo "<h5>Error en consulta contacte a soporte</h3>";
+			}
+		 }else{
+			echo "<script>window.location = './index.php';</script>";
+		 }
         ?>
 	<body>
 		<!-- preloader area start -->
@@ -83,17 +88,23 @@ $newConn->createConnection();
 					<a href="briefcase.php" class="profile-photo">
 						<img
 							src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
-							alt=""
+							alt="<?=$names?>"
 							class="wow zoomIn"
 							data-wow-delay="0.2s"
+							style="object-fit: cover;"
 						/>
 					</a>
 					<div class="name wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)?></div>
 				</div>
 				<ul id="mainmenu-area">
 					<li class="current">
-						<a href="briefcase.php#home" class="wow fadeInUp" data-wow-delay="0.4s"
+						<a href="./index.php" class="wow fadeInUp" data-wow-delay="0.4s"
 							><i class="fas fa-home"></i>Inicio</a
+						>
+					</li>
+					<li class="current">
+						<a href="briefcase.php#home" class="wow fadeInUp" data-wow-delay="0.4s"
+							><i class="fas fa-image"></i>Portada</a
 						>
 					</li>
 					<li>
@@ -145,6 +156,7 @@ $newConn->createConnection();
 											alt=""
 											class="wow zoomIn"
 											data-wow-delay="0.2s"
+											style="object-fit: cover;"
 										/>
 									</div>
 									<div class="home-main-content">
@@ -453,7 +465,7 @@ $newConn->createConnection();
 
 										$queryEducation = "SELECT * FROM educations WHERE userId = $userId";
 										$resultEducations = $newConn->ExecuteQuery($queryEducation);
-			
+										
 										if ($resultEducations) {
 											while ($rowEducation = mysqli_fetch_array($resultEducations)) {
 												?>
@@ -1367,7 +1379,7 @@ $newConn->createConnection();
 							<div class="col-lg-12">
 								<div class="section-heading wow fadeInUp" data-wow-delay="0.2s">
 									<h2 class="title">
-										PONTE EN<span class="color">CONTACTO</span>
+										PONTE EN <span class="color">CONTACTO</span>
 										<span class="bg-text">CONTACTO</span>
 									</h2>
 								</div>
@@ -1427,7 +1439,6 @@ $newConn->createConnection();
 																name="input-name-fo"
 																class="form-control"
 																placeholder="Ingrese nombres*"
-																
 																data-error="Name is required."
 															/>
 															<div class="help-block with-errors"></div>
@@ -1441,7 +1452,6 @@ $newConn->createConnection();
 																name="input-lastName-fo"
 																class="form-control"
 																placeholder="Ingrese apellidos*"
-																
 																data-error="Valid lastName is required."
 															/>
 															<div class="help-block with-errors"></div>
@@ -1458,7 +1468,6 @@ $newConn->createConnection();
 																name="input-email-fo"
 																class="form-control"
 																placeholder="Ingrese email*"
-																
 																data-error="Valid email is required."
 															/>
 															<div class="help-block with-errors"></div>
@@ -1476,7 +1485,6 @@ $newConn->createConnection();
 																name="input-phone-fo"
 																class="form-control"
 																placeholder="Ingrese teléfono*"
-																
 																min="0"
 																data-error="Phone is required."
 															/>
@@ -1493,7 +1501,6 @@ $newConn->createConnection();
 																class="form-control"
 																placeholder="Ingrese mensaje*"
 																rows="7"
-																
 																data-error="Please,leave us a message."
 															></textarea>
 															<div class="help-block with-errors"></div>
@@ -1501,7 +1508,7 @@ $newConn->createConnection();
 													</div>
 													<div class="col-md-12">
 														<p><div id="warning-message" style="color:red;"></div></p>
-														<button type="submit" class="mybtn3 mybtn-bg" id="btn-send-message">
+														<button type="submit" class="mybtn3 mybtn-bg" id="btn-send-message" name="userEmailToSend">
 															<span>Enviar Mensaje</span>
 														</button>
 													</div>
@@ -1514,7 +1521,11 @@ $newConn->createConnection();
 									</div>
 								</div>
 							</div>
-
+							
+							<div class="alert alert-success" id="alert-success-status-form-contact" role="alert" style="display: none;">
+								<!--Message status-->
+							</div>
+							
 							<!--<div class="col-lg-6">
 								<div class="google_map_wrapper">
 									<iframe
@@ -1543,6 +1554,78 @@ $newConn->createConnection();
 		</div>
 		<!-- Back to Top End -->
 
+		<!--FORM FIXED-->
+		
+	<!--**************** start FIXED FORM CONTACT *********************-->
+		
+		  <!--START ADD CODE External-->
+				  <!--START ADD CODE External-->
+			<div class="form-contact-container">
+			<form class="needs-validation-form form-contact" novalidate  method="post" action="./admin/controllers/contactForm.php" onsubmit="return validateForm()">
+				 <div class="content-item-image">
+					<div class="item-icon-close-form"><i class="fas fa-times"></i></div>
+				  </div>
+				  <span class="element-bg-color">
+				  <div class="form-item-row" style="width:100%">
+					<div class="item-form-input column-secondary">
+					  <!-- <label for="validationCustom01">Nombres:</label> -->
+						  <input type="text" id="input-names-fixed" name="userName" placeholder="NOMBRES" required>
+					</div>
+					<div class="item-form-input column-secondary">
+					  <!-- <label for="validationCustom02">Apellidos:</label> -->
+					  <input type="text" id="input-lastNames-fixed" name="userLastName" placeholder="APELLIDOS" required>
+					</div>
+				  </div>
+				  <div class="form-item-row">
+					<div class="item-form-input column-12">
+					  <!-- <label for="validationCustom04 exampleFormControlTextarea1">Email:</label> -->
+					  <input type="email" min="0" id="input-email-fixed" name="userEmail" placeholder="EMAIL" required>
+					</div>
+					<div class="item-form-input column-12">
+					  <!-- <label for="validationCustom03 exampleFormControlTextarea1">Teléfono:</label> -->
+					  <input type="number" min="0" id="input-phone-fixed" name="userPhone" placeholder="TELÉFONO" required>
+					</div>
+					<div class="item-form-select column-12">
+					  <!-- <label for="validationCustom05 exampleFormControlTextarea1">Servicio:</label> -->
+					  <div class="form-group">
+							<textarea
+									id="text-area-description"
+									name="input-message-fo"
+									class="form-control"
+									placeholder="INGRESE SU MENSAJE"
+									rows="7"	
+									data-error="Please,leave us a message."></textarea>
+									<div class="help-block with-errors"></div>
+							</div>
+					</div>
+				  </div>
+				  <span id="state-message"></span>
+				  <div class="form-item-row" style="width: 100%;">
+					  <div class="item-form-button column-12">
+						<button class="btn-customer-form-contact" name="btn-send-message-fixed" type="submit">Enviar</button>
+					  </div>
+				  </div>
+				</span>
+			</form>
+		</div>  
+
+	    <!---BTN OPEN FORM--->
+		<div class="item-open-form">
+		<div>
+			<i id="icon-form-contact" class="fa fa-sort-up"></i> 
+		</div>
+		<div>Contáctanos</div>
+	</div>
+
+	<div class="alert alert-success" id="alert-success-status-form-contact" role="alert" style="display: none;">
+		  <!--Message status-->
+	</div>
+	  <!--END ADD CODE External-->
+										
+	  <!-- CUSTOM JS -->
+		<script src="./assets/js/contactFormValidate.js"></script>
+		<script src="./assets/js/validateFormContactFixed.js"></script>
+
 		<!-- jquery -->
 		<script src="assets/js/jquery.js"></script>
 		<!-- popper -->
@@ -1560,8 +1643,6 @@ $newConn->createConnection();
 		<script src="assets/js/wow.js"></script>
 		<!-- main -->
 		<script src="assets/js/main.js"></script>
-		<!-- CUSTOM JS -->
-		<script src="assets/js/contactFormValidate.js"></script>
 	</body>
 
 </html>

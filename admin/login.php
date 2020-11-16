@@ -61,7 +61,7 @@
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Recuérdame</label>
                       </div>-->
-                      <a href="./register.php" class="custom-control">Recuérdame</a>
+                      <a href="./register.php" class="custom-control">Registrarme</a>
                     </div>
                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Iniciar sesión" name="logout">
                   </form>

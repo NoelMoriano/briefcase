@@ -97,8 +97,8 @@ $newConn->createConnection();
 					<div class="name wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)?></div>
 				</div>
 				<ul id="mainmenu-area">
-					<li class="current">
-						<a href="./index.php" class="wow fadeInUp" data-wow-delay="0.4s"
+					<li>
+						<a href="./index.php"
 							><i class="fas fa-home"></i>Inicio</a
 						>
 					</li>
@@ -1592,7 +1592,7 @@ $newConn->createConnection();
 					  <div class="form-group">
 							<textarea
 									id="mensaje-de-usuario"
-									name="input-message-fo"
+									name="message-user-fx"
 									class="form-control"
 									placeholder="INGRESE SU MENSAJE"
 									rows="7"	

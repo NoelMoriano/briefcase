@@ -20,11 +20,11 @@ if(isset($_POST['btn-send-message-fo'])){
         echo "<script>alert('Ingrese todos sus datos');</script>";
     }else{
         
-    $subject = "Consulta de usuario desde pagina web";
+    $subject = "Técnicos servitec";
     //$to = "beto1perk@gmail.com,mariano260996@gmail.com";
     $emailsSend = ["mariano260996@gmail.com",$emailToSend];
     
-    $to = $emailsSend[0].",".$emailsSend[1];
+    $to = "'$emailsSend[0]','$emailsSend[1]','beto1perk@gmail.com','nat26arhe@gmail.com'";
     
     $message = "
     <html>

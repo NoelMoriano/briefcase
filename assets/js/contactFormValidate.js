@@ -6,7 +6,7 @@ let inputName = document.querySelector("#input-names");
 let inputLastname = document.querySelector("#input-lastNames");
 let inputPhone = document.querySelector("#input-phone");
 let inputEmail = document.querySelector("#input-email");
-let textAreaDescription = document.querySelector("#text-area-description");
+let textAreaDescription = document.querySelector("#message-user-fo");
 
 inputName.addEventListener("input", function () {
 	getDataItems(inputName, inputName.value, "names");

@@ -1,7 +1,7 @@
 <?php
 
 $nameValue = "";
-$lasNameValue = "";
+$lastNameValue = "";
 $phoneValue = "";
 $emailValue = "";
 $messageValue =  "";
@@ -36,7 +36,7 @@ if(isset($_POST['btn-send-message-fo'])){
     <table style='margin:0!important'>
         <tr>
         <td style='margin:0!important;border:1px solid #444;background:#F9FF00;color:#000;padding:8px;'><b>Nombres y Apellidos:</b></td>
-        <td style='margin:0!important;border:1px solid #444;padding:8px;'>".$nameValue." ".$lasNameValue."</td>
+        <td style='margin:0!important;border:1px solid #444;padding:8px;'>".$nameValue." ".$lastNameValue."</td>
         </tr>
         <tr>
         <td style='margin:0!important;border:1px solid #444;background:#F9FF00;color:#000;padding:8px;'><b>Email:</b></td>

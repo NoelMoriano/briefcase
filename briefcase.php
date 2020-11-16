@@ -1496,7 +1496,7 @@ $newConn->createConnection();
 													<div class="col-md-12">
 														<div class="form-group">
 															<textarea
-																id="text-area-description"
+																id="message-user-fo"
 																name="input-message-fo"
 																class="form-control"
 																placeholder="Ingrese mensaje*"
@@ -1569,32 +1569,34 @@ $newConn->createConnection();
 				  <div class="form-item-row" style="width:100%">
 					<div class="item-form-input column-secondary">
 					  <!-- <label for="validationCustom01">Nombres:</label> -->
-						  <input type="text" id="input-names-fixed" name="userName" placeholder="NOMBRES" required>
+						  <input type="text" id="input-names-fixed" name="input-name-fo" placeholder="NOMBRES" required>
 					</div>
 					<div class="item-form-input column-secondary">
 					  <!-- <label for="validationCustom02">Apellidos:</label> -->
-					  <input type="text" id="input-lastNames-fixed" name="userLastName" placeholder="APELLIDOS" required>
+					  <input type="text" id="input-lastNames-fixed" name="input-lastName-fo" placeholder="APELLIDOS" required>
 					</div>
 				  </div>
 				  <div class="form-item-row">
 					<div class="item-form-input column-12">
 					  <!-- <label for="validationCustom04 exampleFormControlTextarea1">Email:</label> -->
-					  <input type="email" min="0" id="input-email-fixed" name="userEmail" placeholder="EMAIL" required>
+					  <input type="email" name="userEmailToSend" hidden value="<?=$userEmail?>">
+					  <input type="email" min="0" id="input-email-fixed" name="input-email-fo" placeholder="EMAIL" required>
 					</div>
 					<div class="item-form-input column-12">
 					  <!-- <label for="validationCustom03 exampleFormControlTextarea1">Teléfono:</label> -->
-					  <input type="number" min="0" id="input-phone-fixed" name="userPhone" placeholder="TELÉFONO" required>
+					  <input type="text" hidden  id="phone-number-user" value="<?=$phone?>">
+					  <input type="number" min="0" id="input-phone-fixed" name="input-phone-fo" placeholder="TELÉFONO" required>
 					</div>
 					<div class="item-form-select column-12">
 					  <!-- <label for="validationCustom05 exampleFormControlTextarea1">Servicio:</label> -->
 					  <div class="form-group">
 							<textarea
-									id="text-area-description"
+									id="mensaje-de-usuario"
 									name="input-message-fo"
 									class="form-control"
 									placeholder="INGRESE SU MENSAJE"
 									rows="7"	
-									data-error="Please,leave us a message."></textarea>
+									></textarea>
 									<div class="help-block with-errors"></div>
 							</div>
 					</div>

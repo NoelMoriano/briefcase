@@ -9,9 +9,9 @@ let iconFormContact = document.querySelector("#icon-form-contact");
 let alertSuccessMessage = document.querySelector("#alert-success-status-form-contact");
 let phoneNumberUserFixed = document.querySelector("#phone-number-user").value;
 
-let activeFormOpen;
+let messageValue = document.getElementById("mensaje-de-usuario").value;
 
-let resultContactType_ = "";
+let activeFormOpen;
 
 //ADD EVENTS ITEMS
 itemIconCloseForm.addEventListener("click", function () {
@@ -68,7 +68,7 @@ function validateForm() {
 	let lastNameValue = document.querySelector("#input-lastNames-fixed").value;
 	let emailValue = document.querySelector("#input-email-fixed").value;
 	let phoneValue = document.querySelector("#input-phone-fixed").value;
-	let messageValue = document.querySelector("#text-area-description").value;
+	let messageValue = document.querySelector("#message-user-fx").value;
 
 	let stateMessage = document.querySelector("#state-message");
 
@@ -96,7 +96,7 @@ function validateForm() {
 		setLocalStorage("activeAlert", {isVisibleAlert: true});
 		isVisibleItem(stateMessage, "none");
 
-		const refMessage = `https://api.whatsapp.com/send?phone=+51${phoneNumberUserFixed}&text=*_MENSAJE DESDE WEB TÉCNICOS SERVITEC*%0A%0A*Nombres:*%0A${names_}%0A%0A*Apellidos:*%0A${lastNames_}%0A%0A*Télefono:*%0A${phone_}%0A%0A*Email:*%0A${email_}%0A%0A*Mensaje:*%0A${message_}`;
+		const refMessage = `https://api.whatsapp.com/send?phone=+51${phoneNumberUserFixed}&text=*MENSAJE DESDE WEB TÉCNICOS SERVITEC*%0A%0A*Nombres:*%0A${names_}%0A%0A*Apellidos:*%0A${lastNames_}%0A%0A*Télefono:*%0A${phone_}%0A%0A*Email:*%0A${email_}%0A%0A*Mensaje:*%0A${message_}`;
 
 		window.open(refMessage);
 
@@ -105,7 +105,6 @@ function validateForm() {
 		emailValue = "";
 		phoneValue = "";
 		messageValue = "";
-		resultContactType_ = "";
 
 		return true;
 	}

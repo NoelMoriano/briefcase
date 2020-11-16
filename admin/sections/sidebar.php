@@ -4,9 +4,8 @@
 	id="accordionSidebar"
 >
 	<!-- Sidebar - Brand -->
-	<a
-		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="index.php"
+	<a class="sidebar-brand d-flex align-items-center justify-content-center"
+		href="<?=$_SESSION['userType'] == "admin" ? "index.php" : "users.php" ?>"
 	>
 		<div class="sidebar-brand-icon rotate-n-15">
 			<i class="fas fa-laugh-wink"></i>
@@ -40,14 +39,20 @@
 	<li class="nav-item">
 		<a class="nav-link" href="users.php">
 			<i class="fas fa-fw fa-table"></i>
-			<span>Users</span></a
+			<span><?=$_SESSION['userType'] == "admin" ? "Usuarios" : "Perfil" ?></span></a
 		>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="userImages.php">
+			<i class="fas fa-fw fa-image"></i>
+			<span>Fotos</span>
+		</a>
 	</li>
 	<!-- Nav Item - Educations -->
 	<li class="nav-item">
 		<a class="nav-link" href="educations.php">
-			<i class="fas fa-fw fa-chart-area"></i>
-			<span>Educations</span>
+			<i class="fas fa-fw fa-book"></i>
+			<span>Educación</span>
 		</a>
 	</li>
 

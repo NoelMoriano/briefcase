@@ -53,9 +53,9 @@ if(isset($_POST['saveImages']) && empty($userPhoto) && empty($coverPhoto)){
 
      if(isset($userPhoto) && isset($coverPhoto)){
         $queryUser = $jsonQuery[1];
-    }elseif (isset($userPhoto)){
+    }elseif (isset($userPhoto) && empty($coverPhoto)){
         $queryUser = $jsonQuery[2];
-    }elseif(isset($coverPhoto)){
+    }elseif(isset($coverPhoto) && empty($userPhoto)){
         $queryUser = $jsonQuery[3];
     }
       

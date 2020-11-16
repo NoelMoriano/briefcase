@@ -47,7 +47,7 @@
               <div class="col-lg-6 d-flex align-items-center justify-content-center">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Bienvenido administrador</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Iniciar sesión</h1>
                   </div>
                   <form class="user" action="controllers/login.php" method="POST">
                     <div class="form-group">
@@ -56,12 +56,13 @@
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ingrese la contraseña" name="InputPassword">
                     </div>
-                    <!--<div class="form-group">
-                      <div class="custom-control custom-checkbox small">
+                    <div class="form-group">
+                      <!--<div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Recuérdame</label>
-                      </div>
-                    </div>-->
+                      </div>-->
+                      <a href="./register.php" class="custom-control">Recuérdame</a>
+                    </div>
                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Iniciar sesión" name="logout">
                   </form>
                   <hr>

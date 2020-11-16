@@ -39,14 +39,16 @@ while ($rowUser = mysqli_fetch_array($result)) {
   $userId = $rowUser['id'];
   $userNames = $rowUser['names'];
   $userType = $rowUser['userType'];
+  $userPhoto = $rowUser['userPhoto'];
 }
 
 if ($rows>0){
 
       $_SESSION['userEmail'] = $userEmail;
       $_SESSION['userId'] = $userId;
-      $_SESSION['userNames'] = $$userNames;
-      $_SESSION['userType'] = $$userType;
+      $_SESSION['userNames'] = $userNames;
+      $_SESSION['userType'] = $userType;
+      $_SESSION['userPhoto'] = $userPhoto;
 
        echo "<script>
        alert('Bienvenido');

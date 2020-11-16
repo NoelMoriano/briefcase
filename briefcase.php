@@ -150,7 +150,10 @@ $newConn->createConnection();
 									<div class="home-main-content">
 										<h4 class="heading wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)." ".ucfirst($lastName)?></h4>
 										<div class="designation wow zoomIn" data-wow-delay="0.4s">
-											<span> Soy <span class="typed"></span> </span>
+											<span>
+												<!--<span class="typed"></span>-->
+												<strong><?=$profession?></strong> 
+											</span>
 										</div>
 										<div class="social-info wow fadeInUp" data-wow-delay="0.5s">
 											<ul>
@@ -1412,18 +1415,19 @@ $newConn->createConnection();
 							<div class="col-lg-6">
 								<div class="home-page-form">
 									<div class="contact-form">
-										<form id="contact-form" action="#">
+
+										<form id="contact-form" action="./admin/controllers/contactForm.php" method="post" onsubmit="return validateFormContact()">
 											<div class="controls">
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
 															<input
-																id="name"
+																id="input-names"
 																type="text"
-																name="name"
+																name="input-name-fo"
 																class="form-control"
-																placeholder="Name*"
-																required="required"
+																placeholder="Ingrese nombres*"
+																
 																data-error="Name is required."
 															/>
 															<div class="help-block with-errors"></div>
@@ -1432,13 +1436,13 @@ $newConn->createConnection();
 													<div class="col-md-6">
 														<div class="form-group">
 															<input
-																id="email"
-																type="email"
-																name="email"
+																id="input-lastNames"
+																type="text"
+																name="input-lastName-fo"
 																class="form-control"
-																placeholder="Email*"
-																required="required"
-																data-error="Valid email is required."
+																placeholder="Ingrese apellidos*"
+																
+																data-error="Valid lastName is required."
 															/>
 															<div class="help-block with-errors"></div>
 														</div>
@@ -1446,15 +1450,35 @@ $newConn->createConnection();
 												</div>
 												<div class="row">
 													<div class="col-md-12">
-														<div class="form-group">
+													<div class="form-group">
+														<input type="email" name="userEmailToSend" hidden value="<?=$userEmail?>">
 															<input
-																id="subject"
-																type="text"
-																name="subject"
+																id="input-email"
+																type="email"
+																name="input-email-fo"
 																class="form-control"
-																placeholder="Subject*"
-																required="required"
-																data-error="Subject is required."
+																placeholder="Ingrese email*"
+																
+																data-error="Valid email is required."
+															/>
+															<div class="help-block with-errors"></div>
+															<label for="warning" id="warning-message" style="display: none;">Email Invalido</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+														<input type="text" hidden id="phone-number-user" value="<?=$phone?>">
+															<input
+																id="input-phone"
+																type="number"
+																name="input-phone-fo"
+																class="form-control"
+																placeholder="Ingrese teléfono*"
+																
+																min="0"
+																data-error="Phone is required."
 															/>
 															<div class="help-block with-errors"></div>
 														</div>
@@ -1464,31 +1488,34 @@ $newConn->createConnection();
 													<div class="col-md-12">
 														<div class="form-group">
 															<textarea
-																id="message"
-																name="message"
+																id="text-area-description"
+																name="input-message-fo"
 																class="form-control"
-																placeholder="Message*"
+																placeholder="Ingrese mensaje*"
 																rows="7"
-																required="required"
+																
 																data-error="Please,leave us a message."
 															></textarea>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
 													<div class="col-md-12">
-														<button type="submit" class="mybtn3 mybtn-bg">
+														<p><div id="warning-message" style="color:red;"></div></p>
+														<button type="submit" class="mybtn3 mybtn-bg" id="btn-send-message">
 															<span>Enviar Mensaje</span>
 														</button>
 													</div>
 												</div>
 											</div>
 										</form>
+
+
 										<!-- End Contact From -->
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-6">
+							<!--<div class="col-lg-6">
 								<div class="google_map_wrapper">
 									<iframe
 										src="https://www.google.com/maps/embed?pb=chorrillos"
@@ -1499,7 +1526,7 @@ $newConn->createConnection();
 										tabindex="0"
 									></iframe>
 								</div>
-							</div>
+							</div>-->
 						</div>
 						<!--/.row-->
 					</div>
@@ -1533,6 +1560,8 @@ $newConn->createConnection();
 		<script src="assets/js/wow.js"></script>
 		<!-- main -->
 		<script src="assets/js/main.js"></script>
+		<!-- CUSTOM JS -->
+		<script src="assets/js/contactFormValidate.js"></script>
 	</body>
 
 </html>

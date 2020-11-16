@@ -42,7 +42,7 @@ $newConn->createConnection();
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php require("sections/sidebar.html") ?>
+    <?php require("sections/sidebar.php") ?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -136,7 +136,7 @@ $newConn->createConnection();
                                             </div>
                                             <div class='col-sm-4 mb-4 mb-sm-0'>
                                             <?php
-                                            if($_SESSION['userEmail'] == "admin@admin.com") {
+                                            if($_SESSION['userType'] == "admin") {
                                                 ?>
                                                     <div>
                                                         <label for="">Tipo usuario:</label>
@@ -346,7 +346,7 @@ $newConn->createConnection();
 
                                          $queryUsers = "SELECT * FROM users ORDER BY createAt DESC";
                                          $queryUser = "SELECT * FROM users WHERE id = $userId_";
-                                        $result = $newConn->ExecuteQuery(($_SESSION['userEmail'] == "admin@admin.com" ) ? $queryUsers : $queryUser);
+                                        $result = $newConn->ExecuteQuery(($_SESSION['userType'] == "admin" ) ? $queryUsers : $queryUser);
                                          if ($result) {
                                              while ($rowUser = mysqli_fetch_array($result)) {
                                         ?>
@@ -367,7 +367,13 @@ $newConn->createConnection();
                                         <td>
                                         <a href="users.php?idUser=<?=$rowUser["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
 
-                                        <button" data-toggle="modal" data-target="#exampleModal<?=$rowUser["id"]?>" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
+                                        <?php
+                                            if($_SESSION['userType'] == "admin"){
+                                                ?>
+                                                <button data-toggle="modal" data-target="#exampleModal<?=$rowUser["id"]?>" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
+                                            <?php
+                                            }
+                                        ?>
 
                                         <div  class="modal fade" id="exampleModal<?=$rowUser["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel">
                                         <div class="modal-dialog">

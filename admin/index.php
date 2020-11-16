@@ -32,7 +32,7 @@
   <div id="wrapper">
 
       <!-- Sidebar -->
-<?php require("sections/sidebar.html"); ?>
+<?php require("sections/sidebar.php"); ?>
       <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->

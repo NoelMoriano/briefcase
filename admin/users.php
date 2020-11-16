@@ -309,6 +309,7 @@ $newConn->createConnection();
                                         <th>Apellidos</th>
                                         <th>Email</th>
                                         <th>password</th>
+                                        <th>Tipo usuario</th>
                                         <th>Edad</th>
                                         <th>F.Cumpleaños</th>
                                         <th>Dirección</th>
@@ -326,6 +327,7 @@ $newConn->createConnection();
                                         <th>Apellidos</th>
                                         <th>Email</th>
                                         <th>password</th>
+                                        <th>Tipo usuario</th>
                                         <th>Edad</th>
                                         <th>F.Cumpleaños</th>
                                         <th>Dirección</th>
@@ -354,6 +356,7 @@ $newConn->createConnection();
                                         <td><?=$rowUser["lastName"]?></td>
                                         <td><?=$rowUser["userEmail"]?></td>
                                         <td><?=$rowUser["password"]?></td>
+                                        <td><?=$rowUser["userType"]?></td>
                                         <td><?=$rowUser["age"]?></td>
                                         <td><?=$rowUser["birthdayDate"]?></td>
                                         <td><?=$rowUser["direction"]?></td>

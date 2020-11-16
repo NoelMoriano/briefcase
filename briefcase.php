@@ -123,8 +123,7 @@ $newConn->createConnection();
 					</li>-->
 					<li>
 						<a href="briefcase.php#contact" class="wow fadeInUp" data-wow-delay="0.4s"
-							><i class="fab fa-whatsapp"></i>Contacto</a
-						>
+							><i class="fab fa-whatsapp"></i>Contacto</a>
 					</li>
 				</ul>
 			</div>
@@ -184,7 +183,7 @@ $newConn->createConnection();
 											</ul>
 										</div>
 										<div class="about-links wow fadeInUp" data-wow-delay="0.6s">
-											<a href="mailto:<?=$userEmail?>" class="mybtn3 mybtn-bg">
+											<a href="briefcase.php?userId=<?=$userId?>#contact" class="mybtn3 mybtn-bg">
 												<span>Contáctame</span></a
 											>
 											<!--<a

@@ -90,7 +90,7 @@ $queryUser =  "UPDATE `users`
 SET `userEmail`='$email',`password`='$password',`names`='$names',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
 `direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
 `description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
-`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate' 
+`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate',`userType`='$userType' 
 WHERE id = $userId";
 
   $resultUser = $newConn->ExecuteQuery($queryUser);

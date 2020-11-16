@@ -29,28 +29,49 @@ function moveImage($dataImg){
   $coverPhoto = $_FILES["coverPhoto"]["name"];
 
   $userId = $_POST['userId'];
+
   //////////////////////////////
 // INSERTAR users
 //////////////////////////////
-if (isset($_POST['saveImages'])) {
 
-  $dateUpdate = date('Y-m-d H:i:s');
+$dateUpdate = date('Y-m-d H:i:s');
 
-  $queryUser =  "UPDATE `users` SET `userPhoto`='$userPhoto', `coverPhoto`='$coverPhoto', `updateAt`='$dateUpdate' WHERE id = '$userId'";
-    
-  $resultUser = $newConn->ExecuteQuery($queryUser);
-  if($resultUser){
-      $rowCount =  $newConn->GetCountAffectedRows();
-      if($rowCount > 0){
-          echo "<script>
-          alert('Guardado existosamente');
-          window.location = '../userImages.php';
-        </script>";
-      }
-  }else{
-      echo "<script>
-   alert('Error al guardar');
-   window.location = '../userImages.php';
-        </script>";
-  }
+$jsonQuery = [
+    1=> "UPDATE `users` SET `userPhoto`='$userPhoto', `coverPhoto`='$coverPhoto', `updateAt`='$dateUpdate' 
+            WHERE id = '$userId'",
+    2=>"UPDATE `users` SET `userPhoto`='$userPhoto',`updateAt`='$dateUpdate' 
+            WHERE id = '$userId'",
+    3=>"UPDATE `users` SET `coverPhoto`='$coverPhoto',`updateAt`='$dateUpdate' 
+            WHERE id = '$userId'"];
+
+if(isset($_POST['saveImages']) && empty($userPhoto) && empty($coverPhoto)){
+    echo "<script>
+    alert('Campos vacios');
+    window.location = '../userImages.php';
+         </script>";
+}elseif(isset($_POST['saveImages'])){
+
+     if(isset($userPhoto) && isset($coverPhoto)){
+        $queryUser = $jsonQuery[1];
+    }elseif (isset($userPhoto)){
+        $queryUser = $jsonQuery[2];
+    }elseif(isset($coverPhoto)){
+        $queryUser = $jsonQuery[3];
+    }
+      
+    $resultUser = $newConn->ExecuteQuery($queryUser);
+    if($resultUser){
+        $rowCount =  $newConn->GetCountAffectedRows();
+        if($rowCount > 0){
+            echo "<script>
+            alert('Guardado existosamente');
+            window.location = '../userImages.php';
+          </script>";
+        }
+    }else{
+        echo "<script>
+     alert('Error al guardar');
+     window.location = '../userImages.php';
+          </script>";
+    }
 }

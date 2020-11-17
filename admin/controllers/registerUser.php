@@ -54,27 +54,37 @@ if (isset($_POST['saveUser']) && $names == '') {
 
 }elseif (isset($_POST['saveUser'])) {
 
-  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, 
-  `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
-  `userFb`,`userTwitter`,`userLinkedin`,`userType`) 
-  VALUES ('$email','$password','$names','$lastName','$age', '$birthdayDate',
-  '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin','$userType')";
-
-    $resultUser = $newConn->ExecuteQuery($queryUser);
-    if($resultUser){
-        $rowCount =  $newConn->GetCountAffectedRows();
-        if($rowCount > 0){
-            echo "<script>
-            alert('Registro Guardado Existosamente, puede iniciar sesión');
-            window.location = '../login.php';
-          </script>";
-        }
+  $queryEmails = "SELECT * FROM users WHERE userEmail = '$email'";
+  $resultEmails = $newConn->ExecuteQuery($queryEmails);
+  $rowsEmails = mysqli_num_rows($resultEmails);
+    if ($rowsEmails > 0) {
+      echo "<script>
+      alert('El email ya existe, intenta con otro por favor');
+      window.location = '../register.php';
+           </script>";
     }else{
-        echo "<script>
-     alert('Error en registro');
-     window.location = '../register.php';
-          </script>";
-  }
+      $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, 
+      `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
+      `userFb`,`userTwitter`,`userLinkedin`,`userType`) 
+      VALUES ('$email','$password','$names','$lastName','$age', '$birthdayDate',
+      '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin','$userType')";
+    
+        $resultUser = $newConn->ExecuteQuery($queryUser);
+        if($resultUser){
+            $rowCount =  $newConn->GetCountAffectedRows();
+            if($rowCount > 0){
+                echo "<script>
+                alert('Registro Guardado Existosamente, puede iniciar sesión');
+                window.location = '../login.php';
+              </script>";
+            }
+        }else{
+            echo "<script>
+         alert('Error en registro');
+         window.location = '../register.php';
+              </script>";
+      }
+    }
 }
 
 

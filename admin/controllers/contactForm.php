@@ -21,10 +21,10 @@ if(isset($_POST['btn-send-message-fo'])){
     }else{
         
     $subject = "Técnicos servitec";
-    $to = "mariano260996@gmail.com";
-    $emailsSend = ["mariano260996@gmail.com",$emailToSend];
     
-    $to2 = "'$emailsSend[0]','$emailsSend[1]','beto1perk@gmail.com','nat26arhe@gmail.com'";
+    $emailsSend = ["mariano260996@gmail.com",$emailToSend,"beto1perk@gmail.com","nat26arhe@gmail.com"];
+    
+    $to2 = "$emailsSend[0],$emailsSend[1],$emailsSend[2],$emailsSend[3]";
     
     echo $to2;
 

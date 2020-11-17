@@ -1592,10 +1592,10 @@ $newConn->createConnection();
 					  <div class="form-group">
 							<textarea
 									id="mensaje-de-usuario"
-									name="message-user-fx"
+									name="input-message-fo"
 									class="form-control"
 									placeholder="INGRESE SU MENSAJE"
-									rows="7"	
+									style="width:95%"	
 									></textarea>
 									<div class="help-block with-errors"></div>
 							</div>

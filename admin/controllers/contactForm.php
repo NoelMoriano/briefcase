@@ -69,11 +69,9 @@ if(isset($_POST['btn-send-message-fo'])){
     echo `<script>
                 if ( window.history.replaceState ) {
                 window.history.replaceState( null, null, window.location.href );
+                window.history.back();
             }
             </script>`; 
-
-    echo `<script>window.history.back();</script>`;
-
     }
 }
 ?>

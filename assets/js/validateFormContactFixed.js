@@ -7,7 +7,6 @@ let openFormMobile = document.querySelector(".item-open-form-mobile");
 let formContact = document.querySelector(".needs-validation-form");
 let iconFormContact = document.querySelector("#icon-form-contact");
 let alertSuccessMessage = document.querySelector("#alert-success-status-form-contact");
-let phoneNumberUserFixed = document.querySelector("#phone-number-user-fx").value;
 
 let activeFormOpen;
 
@@ -67,6 +66,8 @@ function validateForm() {
 	let emailValue = document.querySelector("#input-email-fixed").value;
 	let phoneValue = document.querySelector("#input-phone-fixed").value;
 	let messageValue = document.querySelector("#mensaje-de-usuario").value;
+
+	let phoneNumberUserFixed = document.querySelector("#phone-number-user-fx").value;
 
 	let stateMessage = document.querySelector("#state-message");
 

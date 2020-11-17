@@ -140,9 +140,10 @@ $newConn->createConnection();
                                                 ?>
                                                     <div>
                                                         <label for="">Tipo usuario:</label>
-                                                        <select class="form-control input-form-small" name="userType">
-                                                            <option value="user">User</option>
-                                                            <option value="admin">Admin</option>
+                                                        <select class="form-control input-form-small" name="userType" required>
+                                                            <option value="">Seleccione el rol</option>
+                                                            <option value="user" <?php if($userType == 'user'){echo("selected");}?>>User</option>
+                                                            <option value="admin" <?php if($userType == 'admin'){echo("selected");}?>>Admin</option>
                                                         </select>
                                                     </div>
                                             <?php

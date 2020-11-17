@@ -41,7 +41,6 @@ $description = $_POST['description'];
 $userFb = $_POST['userFb']; 
 $userTwitter = $_POST['userTwitter']; 
 $userLinkedin = $_POST['userLinkedin']; 
-$userType = $_POST['userType']; 
 
 //////////////////////////////
 // INSERTAR users
@@ -59,15 +58,15 @@ if (isset($_POST['saveUser']) && $names == '') {
   $rowsEmails = mysqli_num_rows($resultEmails);
     if ($rowsEmails > 0) {
       echo "<script>
-      alert('El email ya existe, intenta con otro por favor');
+      alert('El email ya esta registrado, intenta con otro por favor');
       window.location = '../register.php';
            </script>";
     }else{
       $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, 
       `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
-      `userFb`,`userTwitter`,`userLinkedin`,`userType`) 
+      `userFb`,`userTwitter`,`userLinkedin`) 
       VALUES ('$email','$password','$names','$lastName','$age', '$birthdayDate',
-      '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin','$userType')";
+      '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin')";
     
         $resultUser = $newConn->ExecuteQuery($queryUser);
         if($resultUser){

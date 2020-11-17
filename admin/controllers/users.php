@@ -54,26 +54,37 @@ if (isset($_POST['saveUser']) && $names == '') {
 
 }elseif (isset($_POST['saveUser'])) {
 
-  $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, 
-  `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
-  `userFb`,`userTwitter`,`userLinkedin`,`userType`) 
-  VALUES ('$email','$password','$names','$lastName','$age', '$birthdayDate',
-  '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin','$userType')";
+  $queryEmails = "SELECT * FROM users WHERE userEmail = '$email'";
+  $resultEmails = $newConn->ExecuteQuery($queryEmails);
+  $rowsEmails = mysqli_num_rows($resultEmails);
 
-    $resultUser = $newConn->ExecuteQuery($queryUser);
-    if($resultUser){
-        $rowCount =  $newConn->GetCountAffectedRows();
-        if($rowCount > 0){
-            echo "<script>
-            alert('Registro Guardado Existosamente');
-            window.location = '../users.php';
-          </script>";
-        }
-    }else{
-        echo "<script>
-     alert('Error en registro');
-     window.location = '../users.php';
-          </script>";
+  if($rowsEmails > 0){
+    echo "<script>
+      alert('El email ya esta registrado, intenta con otro por favor');
+      window.location = '../users.php';
+           </script>";
+  }else{
+    $queryUser =  "INSERT INTO `users`(`userEmail`, `password`, `names`, 
+    `lastName`, `age`, `birthdayDate`, `direction`, `profession`, `interests`, `phone`,`description`,
+    `userFb`,`userTwitter`,`userLinkedin`,`userType`) 
+    VALUES ('$email','$password','$names','$lastName','$age', '$birthdayDate',
+    '$direction','$profession','$interests','$phone','$description','$userFb','$userTwitter','$userLinkedin','$userType')";
+  
+      $resultUser = $newConn->ExecuteQuery($queryUser);
+      if($resultUser){
+          $rowCount =  $newConn->GetCountAffectedRows();
+          if($rowCount > 0){
+              echo "<script>
+              alert('Registro Guardado Existosamente');
+              window.location = '../users.php';
+            </script>";
+          }
+      }else{
+          echo "<script>
+       alert('Error en registro');
+       window.location = '../users.php';
+            </script>";
+    }
   }
 }
 
@@ -83,15 +94,25 @@ if (isset($_POST['saveUser']) && $names == '') {
 //////////////////////////////
 if (isset($_POST['updateUser'])) {
 
-$userId = $_POST['userId'];
-$dateUpdate = date('Y-m-d H:i:s');
+  $queryEmails = "SELECT * FROM users WHERE userEmail = '$email'";
+  $resultEmails = $newConn->ExecuteQuery($queryEmails);
+  $rowsEmails = mysqli_num_rows($resultEmails);
 
-$queryUser =  "UPDATE `users` 
-SET `userEmail`='$email',`password`='$password',`names`='$names',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
-`direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
-`description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
-`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate',`userType`='$userType' 
-WHERE id = $userId";
+  if($rowsEmails > 0){
+    echo "<script>
+      alert('El email ya esta registrado, intenta con otro por favor');
+      window.location = '../users.php';
+           </script>";
+  }else{
+  $userId = $_POST['userId'];
+  $dateUpdate = date('Y-m-d H:i:s');
+
+  $queryUser =  "UPDATE `users` 
+  SET `userEmail`='$email',`password`='$password',`names`='$names',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
+  `direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
+  `description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
+  `userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate',`userType`='$userType' 
+  WHERE id = $userId";
 
   $resultUser = $newConn->ExecuteQuery($queryUser);
   if($resultUser){
@@ -107,6 +128,7 @@ WHERE id = $userId";
    alert('Error al actualizar');
    window.location = '../users.php';
         </script>";
+    }
   }
 }
 ///////////////////////////////

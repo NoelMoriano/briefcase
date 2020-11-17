@@ -93,26 +93,15 @@ if (isset($_POST['saveUser']) && $names == '') {
 // UPDATE users
 //////////////////////////////
 if (isset($_POST['updateUser'])) {
+$userId = $_POST['userId'];
+$dateUpdate = date('Y-m-d H:i:s');
 
-  $queryEmails = "SELECT * FROM users WHERE userEmail = '$email'";
-  $resultEmails = $newConn->ExecuteQuery($queryEmails);
-  $rowsEmails = mysqli_num_rows($resultEmails);
-
-  if($rowsEmails > 0){
-    echo "<script>
-      alert('El email ya esta registrado, intenta con otro por favor');
-      window.location = '../users.php';
-           </script>";
-  }else{
-  $userId = $_POST['userId'];
-  $dateUpdate = date('Y-m-d H:i:s');
-
-  $queryUser =  "UPDATE `users` 
-  SET `userEmail`='$email',`password`='$password',`names`='$names',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
-  `direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
-  `description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
-  `userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate',`userType`='$userType' 
-  WHERE id = $userId";
+$queryUser =  "UPDATE `users` 
+SET `userEmail`='$email',`password`='$password',`names`='$names',`lastName`='$lastName',`age`='$age',`birthdayDate`='$birthdayDate',
+`direction`='$direction',`profession`='$profession',`interests`='$interests',`phone`='$phone',
+`description`='$description',`userFb`='$userFb',`userTwitter`='$userTwitter',
+`userLinkedin`='$userLinkedin',`updateAt`='$dateUpdate',`userType`='$userType' 
+WHERE id = $userId";
 
   $resultUser = $newConn->ExecuteQuery($queryUser);
   if($resultUser){
@@ -128,7 +117,6 @@ if (isset($_POST['updateUser'])) {
    alert('Error al actualizar');
    window.location = '../users.php';
         </script>";
-    }
   }
 }
 ///////////////////////////////

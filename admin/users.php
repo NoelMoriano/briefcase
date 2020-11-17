@@ -119,6 +119,7 @@ $newConn->createConnection();
                                                         <div>
                                                             <label for="">Nombres:</label>
                                                                 <input type="text"
+                                                                required
                                                             class="form-control input-form-small"
                                                             placeholder="Ingrese nombres"
                                                             name="names" value="<?=$userIdIsset ? $names : ''?>">
@@ -129,6 +130,7 @@ $newConn->createConnection();
                                                         <div>
                                                             <label for="">Apellidos:</label>
                                                             <input type="text"
+                                                            required
                                                             class="form-control input-form-small"
                                                             placeholder="Ingrese apellidos"
                                                             name="lastName" value="<?=$userIdIsset ? $lastName : ''?>">
@@ -142,8 +144,8 @@ $newConn->createConnection();
                                                         <label for="">Tipo usuario:</label>
                                                         <select class="form-control input-form-small" name="userType" required>
                                                             <option value="">Seleccione el rol</option>
-                                                            <option value="user" <?php if($userType == 'user'){echo("selected");}?>>User</option>
-                                                            <option value="admin" <?php if($userType == 'admin'){echo("selected");}?>>Admin</option>
+                                                            <option value="user" <?php if(isset($userType) && $userType == 'user'){echo("selected");}?>>User</option>
+                                                            <option value="admin" <?php if(isset($userType) && $userType == 'admin'){echo("selected");}?>>Admin</option>
                                                         </select>
                                                     </div>
                                             <?php
@@ -155,6 +157,7 @@ $newConn->createConnection();
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="">Email:</label>
                                                 <input type="email"
+                                                       required
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese email"
                                                        name="email" value="<?=$userIdIsset ? $userEmail : ''?>">
@@ -162,6 +165,7 @@ $newConn->createConnection();
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="">Contraseña:</label>
                                                 <input type="text"
+                                                       required
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese password"
                                                        name="password" value="<?=$userIdIsset ? $password : ''?>">
@@ -171,6 +175,7 @@ $newConn->createConnection();
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="">Edad:</label>
                                                 <input type="number"
+                                                       required
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su edad"
                                                        name="age" value="<?=$userIdIsset ? $age : ''?>">
@@ -178,6 +183,7 @@ $newConn->createConnection();
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="">Fecha cumpleaños:</label>
                                                 <input type="date"
+                                                       required
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese fecha de cumpleaños"
                                                        name="birthdayDate" value="<?=$userIdIsset ? $birthdayDate : ''?>">
@@ -185,6 +191,7 @@ $newConn->createConnection();
                                             <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="">Dirección:</label>
                                                 <input type="text"
+                                                       required
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su dirección"
                                                        name="direction" value="<?=$userIdIsset ? $direction : ''?>">
@@ -195,6 +202,7 @@ $newConn->createConnection();
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="">Profesion:</label>
                                                 <input type="text"
+                                                       required
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su profesion"
                                                        name="profession" value="<?=$userIdIsset ? $profession : ''?>">
@@ -204,6 +212,7 @@ $newConn->createConnection();
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese teléfono"
+                                                       required
                                                        name="phone" value="<?=$userIdIsset ? $phone : ''?>">
                                             </div>
                                         </div>
@@ -222,6 +231,7 @@ $newConn->createConnection();
                                                 <label for="">Descripción profesional</label>
                                               <textarea class="form-control"
                                                         style="color: #444"
+                                                        required
                                                         placeholder="Ingrese descripción"
                                                         name="description">
                                                         <?=$userIdIsset ? $description : ''?>
@@ -230,21 +240,21 @@ $newConn->createConnection();
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <label for="">Facebook:</label>
+                                            <label for="">Url Facebook:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su FB"
                                                        name="userFb" value="<?=$userIdIsset ? $userFb : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <label for="">Twitter:</label>
+                                            <label for="">Url Twitter:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su Twitter"
                                                        name="userTwitter" value="<?=$userIdIsset ? $userTwitter : ''?>">
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <label for="">Linkedin:</label>
+                                            <label for="">Url Linkedin:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su Linkedin"

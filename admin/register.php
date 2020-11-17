@@ -48,6 +48,7 @@
                                                                 <input type="text"
                                                             class="form-control input-form-small"
                                                             placeholder="Ingrese nombres"
+                                                            required
                                                             name="names">
                                                         </div>
                                                        
@@ -58,6 +59,7 @@
                                                             <input type="text"
                                                             class="form-control input-form-small"
                                                             placeholder="Ingrese apellidos"
+                                                            required
                                                             name="lastName">
                                                         </div> 
                                             </div>                                 
@@ -68,6 +70,7 @@
                                                 <input type="email"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese email"
+                                                       required
                                                        name="email">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -75,6 +78,7 @@
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese password"
+                                                       required
                                                        name="password" >
                                             </div>
                                         </div>
@@ -84,6 +88,7 @@
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su edad"
+                                                       required
                                                        name="age" >
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
@@ -91,6 +96,7 @@
                                                 <input type="date"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese fecha de cumpleaños"
+                                                       required
                                                        name="birthdayDate" >
                                             </div>
                                             <div class="col-sm-4 mb-3 mb-sm-0">
@@ -98,6 +104,7 @@
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su dirección"
+                                                       required
                                                        name="direction" >
                                             </div>
                                         </div>
@@ -108,6 +115,7 @@
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su profesion"
+                                                       required
                                                        name="profession" >
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -115,6 +123,7 @@
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese teléfono"
+                                                       required
                                                        name="phone" >
                                             </div>
                                         </div>

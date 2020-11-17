@@ -21,11 +21,13 @@ if(isset($_POST['btn-send-message-fo'])){
     }else{
         
     $subject = "Técnicos servitec";
-    //$to = "beto1perk@gmail.com,mariano260996@gmail.com";
+    $to = "mariano260996@gmail.com";
     $emailsSend = ["mariano260996@gmail.com",$emailToSend];
     
-    $to = "'$emailsSend[0]','$emailsSend[1]','beto1perk@gmail.com','nat26arhe@gmail.com'";
+    $to2 = "'$emailsSend[0]','$emailsSend[1]','beto1perk@gmail.com','nat26arhe@gmail.com'";
     
+    echo $to2;
+
     $message = "
     <html>
     <head>
@@ -72,7 +74,7 @@ if(isset($_POST['btn-send-message-fo'])){
             }
             </script>`; 
 
-    header("location:../../briefcase.php");
+    //header("location:../../briefcase.php");
 
     }
 }

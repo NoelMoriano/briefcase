@@ -68,7 +68,7 @@ function validateForm() {
 	let lastNameValue = document.querySelector("#input-lastNames-fixed").value;
 	let emailValue = document.querySelector("#input-email-fixed").value;
 	let phoneValue = document.querySelector("#input-phone-fixed").value;
-	let messageValue = document.querySelector("#message-user-fx").value;
+	let messageValue = document.querySelector("#message-user-fixed").value;
 
 	let stateMessage = document.querySelector("#state-message");
 

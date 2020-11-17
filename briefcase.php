@@ -1508,7 +1508,7 @@ $newConn->createConnection();
 													</div>
 													<div class="col-md-12">
 														<p><div id="warning-message" style="color:red;"></div></p>
-														<button type="submit" class="mybtn3 mybtn-bg" id="btn-send-message" name="userEmailToSend">
+														<button type="submit" class="mybtn3 mybtn-bg" id="btn-send-message" name="btn-send-message-fo">
 															<span>Enviar Mensaje</span>
 														</button>
 													</div>
@@ -1584,7 +1584,7 @@ $newConn->createConnection();
 					</div>
 					<div class="item-form-input column-12">
 					  <!-- <label for="validationCustom03 exampleFormControlTextarea1">Teléfono:</label> -->
-					  <input type="text" hidden  id="phone-number-user" value="<?=$phone?>">
+					  <input type="text" hidden  id="phone-number-user-fx" value="<?=$phone?>">
 					  <input type="number" min="0" id="input-phone-fixed" name="input-phone-fo" placeholder="TELÉFONO" required>
 					</div>
 					<div class="item-form-select column-12">
@@ -1604,7 +1604,7 @@ $newConn->createConnection();
 				  <span id="state-message"></span>
 				  <div class="form-item-row" style="width: 100%;">
 					  <div class="item-form-button column-12">
-						<button class="btn-customer-form-contact" name="btn-send-message-fixed" type="submit">Enviar</button>
+						<button class="btn-customer-form-contact" name="btn-send-message-fo">Enviar</button>
 					  </div>
 				  </div>
 				</span>

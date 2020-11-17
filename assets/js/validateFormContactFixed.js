@@ -7,7 +7,7 @@ let openFormMobile = document.querySelector(".item-open-form-mobile");
 let formContact = document.querySelector(".needs-validation-form");
 let iconFormContact = document.querySelector("#icon-form-contact");
 let alertSuccessMessage = document.querySelector("#alert-success-status-form-contact");
-let phoneNumberUserFixed = document.querySelector("#phone-number-user").value;
+let phoneNumberUserFixed = document.querySelector("#phone-number-user-fx").value;
 
 let messageValue = document.getElementById("mensaje-de-usuario").value;
 
@@ -117,7 +117,7 @@ let userData_ = getLocalStorage("userData");
 if (activeAlert_ && userData_) {
 	if (activeAlert_.isVisibleAlert) {
 		alertSuccessMessage.style.display = "inherit";
-		alertSuccessMessage.innerHTML = `${userData_.userName.toUpperCase()} tu mensaje se ah enviado exitosamente, enseguida nos contáctaremos`;
+		alertSuccessMessage.innerHTML = `${userData_.userName.toUpperCase()} tu mensaje se ah enviado exitosamente, enseguida lo contáctaremos`;
 	} else {
 		alertSuccessMessage.style.display = "none";
 	}

@@ -9,8 +9,6 @@ let iconFormContact = document.querySelector("#icon-form-contact");
 let alertSuccessMessage = document.querySelector("#alert-success-status-form-contact");
 let phoneNumberUserFixed = document.querySelector("#phone-number-user-fx").value;
 
-let messageValue = document.getElementById("mensaje-de-usuario").value;
-
 let activeFormOpen;
 
 //ADD EVENTS ITEMS
@@ -68,7 +66,7 @@ function validateForm() {
 	let lastNameValue = document.querySelector("#input-lastNames-fixed").value;
 	let emailValue = document.querySelector("#input-email-fixed").value;
 	let phoneValue = document.querySelector("#input-phone-fixed").value;
-	let messageValue = document.querySelector("#message-user-fixed").value;
+	let messageValue = document.querySelector("#mensaje-de-usuario").value;
 
 	let stateMessage = document.querySelector("#state-message");
 

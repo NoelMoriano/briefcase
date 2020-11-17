@@ -40,7 +40,7 @@ function validateFormContact() {
 		const email_ = sessionStorage.getItem("email");
 		const message_ = sessionStorage.getItem("message");
 
-		const refMessage = `https://api.whatsapp.com/send?phone=+51${phoneNumberUser}&text=*_MENSAJE DESDE WEB TÉCNICOS SERVITEC*%0A%0A*Nombres:*%0A${names_}%0A%0A*Apellidos:*%0A${lastNames_}%0A%0A*Télefono:*%0A${phone_}%0A%0A*Email:*%0A${email_}%0A%0A*Mensaje:*%0A${message_}`;
+		const refMessage = `https://api.whatsapp.com/send?phone=+51${phoneNumberUser}&text=*MENSAJE DESDE WEB TÉCNICOS SERVITEC*%0A%0A*Nombres:*%0A${names_}%0A%0A*Apellidos:*%0A${lastNames_}%0A%0A*Télefono:*%0A${phone_}%0A%0A*Email:*%0A${email_}%0A%0A*Mensaje:*%0A${message_}`;
 		window.open(refMessage);
 		sessionStorage.clear();
 		return true;

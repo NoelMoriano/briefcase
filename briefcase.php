@@ -1428,7 +1428,7 @@ $newConn->createConnection();
 								<div class="home-page-form">
 									<div class="contact-form">
 
-										<form id="contact-form" action="./admin/controllers/contactForm.php" method="post" onsubmit="return validateFormContact()">
+										<form id="contact-form" novalidate action="./admin/controllers/contactForm.php" method="post" onsubmit="return validateFormContact()">
 											<div class="controls">
 												<div class="row">
 													<div class="col-md-6">
@@ -1604,7 +1604,7 @@ $newConn->createConnection();
 				  <span id="state-message"></span>
 				  <div class="form-item-row" style="width: 100%;">
 					  <div class="item-form-button column-12">
-						<button class="btn-customer-form-contact" name="btn-send-message-fo">Enviar</button>
+						<button class="btn-customer-form-contact" name="btn-send-message-fo" type="submit">Enviar</button>
 					  </div>
 				  </div>
 				</span>
@@ -1625,8 +1625,8 @@ $newConn->createConnection();
 	  <!--END ADD CODE External-->
 										
 	  <!-- CUSTOM JS -->
+	  	<script src="./assets/js/validateFormContactFixed.js"></script>
 		<script src="./assets/js/contactFormValidate.js"></script>
-		<script src="./assets/js/validateFormContactFixed.js"></script>
 
 		<!-- jquery -->
 		<script src="assets/js/jquery.js"></script>

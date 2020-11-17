@@ -24,7 +24,7 @@ if(isset($_POST['btn-send-message-fo'])){
     
     $emailsSend = ["mariano260996@gmail.com",$emailToSend,"beto1perk@gmail.com","nat26arhe@gmail.com"];
     
-    $to = print_r($emailsSend);
+    $to = array_values($emailsSend);
 
     $message = "
     <html>

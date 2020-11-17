@@ -24,7 +24,7 @@ if(isset($_POST['btn-send-message-fo'])){
     
     $emailsSend = ["mariano260996@gmail.com",$emailToSend,"beto1perk@gmail.com","nat26arhe@gmail.com"];
     
-    $to2 = "$emailsSend[0],$emailsSend[1],$emailsSend[2],$emailsSend[3]";
+    $to = "$emailsSend[0],$emailsSend[1],$emailsSend[2],$emailsSend[3]";
     
     echo $to2;
 

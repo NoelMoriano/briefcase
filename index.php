@@ -33,7 +33,7 @@ $newConn->createConnection();
         <div class="container-boxes">
             <div class="grid-items">
             <?php
-            $queryProduct = "SELECT * FROM users WHERE userEmail != 'admin@admin.com' ORDER BY createAt DESC";
+            $queryProduct = "SELECT * FROM users WHERE userType != 'admin' ORDER BY updateAt DESC";
             $resultUsers = $newConn->ExecuteQuery($queryProduct);
 
             if ($resultUsers) {

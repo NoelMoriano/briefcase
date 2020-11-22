@@ -1538,6 +1538,7 @@ $newConn->createConnection();
 									<div class="starts-content">
 										<form action="./controllers/ratingStarts.php" method="POST" onsubmit="return validateRatingStarts()">
 											<div class="rating">
+											<input type="number" name="userId" value="<?=$_GET['userId']?>" hidden>
 												<input id="star5" name="star" type="radio" value="5" class="radio-btn hide start-value" />
 												<label for="star5">☆</label>
 												<input id="star4" name="star" type="radio" value="4" class="radio-btn hide start-value" />
@@ -1552,6 +1553,29 @@ $newConn->createConnection();
 												<input type="submit" name="actionRating" id="" value="Calificar">
 											</div>
 										</form>
+									</div>
+									<div class="rating-wrapper">
+									<ul>
+									<?php
+									$userId_ = $_GET['userId']; 
+									$queryRating = "SELECT * FROM technical_rating WHERE userId = $userId_ ORDER BY rating DESC";
+									$resultRating = $newConn->ExecuteQuery($queryRating);
+
+									if ($resultRating) {
+									while ($rowRating = mysqli_fetch_array($resultRating)) {
+									?>
+										<li>
+										<?=$rowRating['rating']?> ☆
+										</li>
+
+										<?php
+											}
+										}else{
+										echo "<h5>Error en consulta contacte a soporte</h3>";
+										}
+                					?>
+									
+								   </ul>
 									</div>
 
 								</div>

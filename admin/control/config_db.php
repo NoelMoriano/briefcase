@@ -3,5 +3,5 @@
 define("HOST","localhost");
 define("USER","root");
 define("PASSWORD","");
-define("DATABASE","briefcase_web");
+define("DATABASE","servitec_briefcase");
 ?>

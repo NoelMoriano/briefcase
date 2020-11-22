@@ -14,7 +14,7 @@
 .gallery-item-content .item-thumbnail .content-overlay .content .links a i,
 .single-blog-details .content ul li p i,
 .side-menu-wrapper .menu-toogle-icon i {
-	color: #4285f4 !important;
+	color: $color_terciary !important;
 }
 .resume-wrapper .resume-box .education-list .single-education .year,
 .resume-wrapper .resume-box .education-list .single-education::before,
@@ -22,30 +22,30 @@
 .categori-widget .cat-list li a .count,
 .idgallery .slidPrv4.slick-arrow,
 .idgallery .slidNext4.slick-arrow {
-	background: #4285f4;
+	background: $color_terciary;
 }
 .progress-bar,
 .resume-wrapper .resume-box .skill-list .single-skill .progress .progress-bar,
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .circle-progress .right,
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .circle-progress .rotate {
-	background-color: #4285f4 !important;
+	background-color: $color_terciary !important;
 }
 .resume-wrapper .resume-box .education-list .single-education .year::after {
-	border-top: 10px solid #4285f4;
+	border-top: 10px solid $color_terciary;
 }
 .resume-wrapper .resume-box .education-list .single-education {
-	border-left: 3px solid #4285f4;
+	border-left: 3px solid $color_terciary;
 }
 .single-review .stars i {
-	color: #ffcc00 !important;
+	color: $color_primary !important;
 }
 .single-blog-details .content blockquote {
-	border-left: 4px solid #4285f4;
+	border-left: 4px solid $color_terciary;
 }
 
 .loader-1 .loader-outter {
 	position: absolute;
-	border: 4px solid #4285f4;
+	border: 4px solid $color_terciary;
 	border-left-color: transparent;
 	border-bottom: 0;
 	width: 100%;
@@ -57,7 +57,7 @@
 
 .loader-1 .loader-inner {
 	position: absolute;
-	border: 4px solid #4285f4;
+	border: 4px solid $color_terciary;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;

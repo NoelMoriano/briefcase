@@ -14,10 +14,10 @@ $newConn->createConnection();
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="keyword" content="resume,cv,portfolio,vcard" />
-		<title>Servitec - CV/Resume/Portfolio</title>
+		<meta name="keyword" content="resume,cv,portfolio,vcard,servitec,tecnicos" />
+		<title>Servitec - Técnicos</title>
 		<!-- favicon -->
-		<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+		<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 		<!-- Plugin css -->
@@ -26,7 +26,6 @@ $newConn->createConnection();
 		<link rel="stylesheet" href="assets/css/flaticon.css" />
 		<!-- stylesheet -->
 		<link rel="stylesheet" href="assets/css/index.css" />
-		<link rel="stylesheet" href="assets/css/multicolor.css" />
 		<!-- responsive -->
 		<link rel="stylesheet" href="assets/css/responsive.css" />
 	</head>
@@ -1526,18 +1525,37 @@ $newConn->createConnection();
 								<!--Message status-->
 							</div>
 							
-							<!--<div class="col-lg-6">
+							<div class="col-lg-6">
 								<div class="google_map_wrapper">
-									<iframe
+									<!--<iframe
 										src="https://www.google.com/maps/embed?pb=chorrillos"
 										frameborder="0"
 										style="border: 0"
 										allowfullscreen=""
 										aria-hidden="false"
 										tabindex="0"
-									></iframe>
+									></iframe>-->
+									<div class="starts-content">
+										<form action="./controllers/ratingStarts.php" method="POST" onsubmit="return validateRatingStarts()">
+											<div class="rating">
+												<input id="star5" name="star" type="radio" value="5" class="radio-btn hide start-value" />
+												<label for="star5">☆</label>
+												<input id="star4" name="star" type="radio" value="4" class="radio-btn hide start-value" />
+												<label for="star4">☆</label>
+												<input id="star3" name="star" type="radio" value="3" class="radio-btn hide start-value" />
+												<label for="star3">☆</label>
+												<input id="star2" name="star" type="radio" value="2" class="radio-btn hide start-value" />
+												<label for="star2">☆</label>
+												<input id="star1" name="star" type="radio" value="1" class="radio-btn hide start-value" />
+												<label for="star1">☆</label>
+												<div class="clear"></div>
+												<input type="submit" name="actionRating" id="" value="Calificar">
+											</div>
+										</form>
+									</div>
+
 								</div>
-							</div>-->
+							</div>
 						</div>
 						<!--/.row-->
 					</div>
@@ -1616,17 +1634,22 @@ $newConn->createConnection();
 		<div>
 			<i id="icon-form-contact" class="fa fa-sort-up"></i> 
 		</div>
-		<div>Contáctanos</div>
+		<div>Contáctame</div>
 	</div>
 
 	<div class="alert alert-success" id="alert-success-status-form-contact" role="alert" style="display: none;">
 		  <!--Message status-->
 	</div>
 	  <!--END ADD CODE External-->
-										
+	
+	  <div class="footer-wrapper">
+            <p class="footer-text">© Copyright | Design <img src="./assets//images/icon/heart.svg" /> by Servitec</p>
+	  </div>
+		
 	  <!-- CUSTOM JS -->
 	  	<script src="./assets/js/validateFormContactFixed.js"></script>
 		<script src="./assets/js/contactFormValidate.js"></script>
+		<script src="./assets/js/validateRatingStarts.js"></script>
 
 		<!-- jquery -->
 		<script src="assets/js/jquery.js"></script>

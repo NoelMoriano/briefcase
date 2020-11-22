@@ -91,8 +91,8 @@ $fontSize: (
 		flex-direction: column;
 		justify-content: flex-start;
 		z-index: 999999;
-		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 92%);
-		clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 92%);
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
 		div {
 			transform: rotate(-90deg);
 			font-weight: 800;
@@ -112,6 +112,7 @@ $fontSize: (
 	display: flex;
 	position: fixed;
 	z-index: 16999999;
+	transition: all ease-in-out 0.3s;
 	@media (min-width: $tablet) {
 		width: auto;
 		right: 0;
@@ -132,7 +133,7 @@ $fontSize: (
 				background-color: #ffffff;
 				padding: 1rem 0 0 0;
 				//clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 95%);
-				border: 2px dashed #737ff7;
+				border: 2px dashed $color_secondary;
 			}
 		}
 
@@ -285,6 +286,7 @@ $fontSize: (
 
 	.item-open-form {
 		padding: 7px 0.7rem;
+		color: $color_dark;
 	}
 
 	.needs-validation-form {

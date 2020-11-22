@@ -33,7 +33,7 @@ body {
 	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
 	margin: 0;
-	color: #666;
+	color: $text_secondary;
 	overflow-x: hidden;
 	background-color: #fff;
 }
@@ -68,20 +68,20 @@ h3,
 h4,
 h5,
 h6 {
-	color: #555;
+	color: $text_primary;
 	font-family: "Poppins", sans-serif;
 }
 
 p {
 	font-size: 16px;
-	color: #666;
+	color: $text_secondary;
 	line-height: 1.625;
 	-webkit-hyphens: auto;
 	hyphens: auto;
 }
 
 a {
-	color: #555;
+	color: $text_primary;
 	text-decoration: none;
 }
 
@@ -91,7 +91,7 @@ a:focus,
 a:active {
 	text-decoration: none;
 	outline: none;
-	color: #555;
+	color: $text_primary;
 }
 
 a i {
@@ -174,7 +174,7 @@ select:focus {
 	border-radius: 4px;
 	cursor: pointer;
 	transition: all 0.3s ease-in;
-	color: #555;
+	color: $text_primary;
 	background-color: #eeeeee;
 	border: 0px;
 	box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9,
@@ -294,8 +294,8 @@ select:focus {
 }
 
 .mybtn-bg {
-	background: #7280ff;
-	border-color: #7280ff;
+	background: $color_primary;
+	border-color: $color_primary;
 	color: #fff;
 }
 
@@ -304,7 +304,7 @@ select:focus {
 }
 
 .mybtn-bg:hover span {
-	color: #7280ff;
+	color: $color_primary;
 }
 
 .mybtn-light {
@@ -313,7 +313,7 @@ select:focus {
 
 .mybtn-light:before,
 .mybtn-light:after {
-	background: #7280ff;
+	background: $color_primary;
 }
 
 .mybtn-light:hover span {
@@ -321,21 +321,21 @@ select:focus {
 }
 
 .mybtn-light span {
-	color: #7280ff;
+	color: $color_primary;
 }
 
 .mybtn-bord {
 	background: transparent;
-	border: 1px solid #7280ff;
+	border: 1px solid $color_primary;
 }
 
 .mybtn-bord:before,
 .mybtn-bord:after {
-	background: #7280ff;
+	background: $color_primary;
 }
 
 .mybtn-bord:hover {
-	border-color: #7280ff;
+	border-color: $color_primary;
 }
 
 .mybtn-bord:hover span {
@@ -355,7 +355,7 @@ select:focus {
 	font-size: 36px;
 	line-height: 46px;
 	font-weight: 700;
-	color: #555;
+	color: $text_primary;
 	display: inline-block;
 	position: relative;
 	text-transform: uppercase;
@@ -367,7 +367,7 @@ select:focus {
 	display: none;
 }
 .section-heading .title .color {
-	color: #7280ff;
+	color: $color_primary;
 }
 .section-heading .title .bg-text {
 	position: absolute;
@@ -430,19 +430,19 @@ select:focus {
 	border: 1px solid red;
 }
 .input-field.error::-webkit-input-placeholder {
-	color: #7280ff;
+	color: $color_primary;
 }
 .input-field.error:-moz-placeholder {
-	color: #7280ff;
+	color: $color_primary;
 }
 .input-field.error::-moz-placeholder {
-	color: #7280ff;
+	color: $color_primary;
 }
 .input-field.error:-ms-input-placeholder {
-	color: #7280ff;
+	color: $color_primary;
 }
 .input-field.error:focus {
-	border-color: #7280ff;
+	border-color: $color_primary;
 }
 
 .navbar-light {
@@ -493,7 +493,7 @@ select:focus {
 
 .loader-1 .loader-outter {
 	position: absolute;
-	border: 4px solid #555;
+	border: 4px solid $color_primary;
 	border-left-color: transparent;
 	border-bottom: 0;
 	width: 100%;
@@ -504,7 +504,7 @@ select:focus {
 
 .loader-1 .loader-inner {
 	position: absolute;
-	border: 4px solid #555;
+	border: 4px solid $color_primary;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
@@ -544,14 +544,14 @@ select:focus {
 	text-align: center;
 	border-radius: 50%;
 	color: #fff;
-	background: #7280ff;
+	background: $color_primary;
 	cursor: pointer;
 	transform: rotate(-90deg);
 	bottom: 30px;
 	right: 30px;
 	z-index: 999;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-	@media(max-width: 1000px){
+	@media (max-width: 1000px) {
 		bottom: 65px;
 	}
 }
@@ -559,7 +559,7 @@ select:focus {
 /* Breadcrumb Area Start */
 .breadcrumb-area {
 	padding: 177px 0px 117px;
-	background: #7280ff;
+	background: $color_primary;
 	position: relative;
 	overflow: hidden;
 }
@@ -600,7 +600,7 @@ select:focus {
 	line-height: 60px;
 	text-align: center;
 	font-size: 20px;
-	background: #7280ff;
+	background: $color_primary;
 	border-radius: 50%;
 	position: relative;
 	z-index: 1;
@@ -616,7 +616,7 @@ select:focus {
 	display: block;
 	width: 70px;
 	height: 70px;
-	background: #7280ff;
+	background: $color_primary;
 	border-radius: 50%;
 	animation: pulse-border 1500ms ease-out infinite;
 	z-index: -1;
@@ -648,7 +648,7 @@ select:focus {
 	position: fixed;
 	right: 20px;
 	top: 20px;
-	background: #7280ff;
+	background: $color_primary;
 	z-index: 8;
 	display: none;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
@@ -730,7 +730,7 @@ select:focus {
 	transform: rotate(58deg);
 	top: -135%;
 	left: -80%;
-	background: #7280ff;
+	background: $color_primary;
 	z-index: -1;
 }
 .side-menu .heading-area::before {
@@ -741,20 +741,20 @@ select:focus {
 	transform: rotate(-58deg);
 	top: -135%;
 	right: -80%;
-	background: #7280ff;
+	background: $color_primary;
 	z-index: -1;
 }
 .side-menu .heading-area img {
 	width: 130px;
 	height: 130px;
 	border-radius: 50%;
-	border: 5px solid #7280ff;
+	border: 5px solid $color_primary;
 	box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.075);
 }
 .side-menu .heading-area .name {
 	font-size: 18px;
 	font-weight: 600;
-	color: #555;
+	color: $text_primary;
 	margin-top: 13px;
 	font-family: "Poppins", sans-serif;
 }
@@ -763,7 +763,7 @@ select:focus {
 	margin-bottom: 15px;
 }
 .side-menu #mainmenu-area li a {
-	color: #333;
+	color: $text_secondary;
 	line-height: 40px;
 	font-size: 14px;
 	font-weight: 600;
@@ -780,11 +780,11 @@ select:focus {
 	left: 20px;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #7280ff;
+	color: $color_primary;
 }
 .side-menu #mainmenu-area li.current a,
 .side-menu #mainmenu-area li:hover a {
-	color: #7280ff;
+	color: $color_primary;
 }
 .side-menu .copyright-text {
 	position: absolute;
@@ -794,11 +794,11 @@ select:focus {
 .side-menu .copyright-text p {
 	font-size: 14px;
 	text-align: center;
-	color: #666;
+	color: $text_secondary;
 }
 .side-menu .copyright-text a {
 	font-weight: 600;
-	color: #666;
+	color: $text_secondary;
 }
 
 /* Main Menu Area End */
@@ -836,7 +836,7 @@ select:focus {
 	border-radius: 50%;
 	object-fit: cover;
 	display: inline-block;
-	border: 5px solid #7280ff;
+	border: 5px solid $color_primary;
 	margin-bottom: 30px;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
 }
@@ -874,8 +874,8 @@ select:focus {
 	color: #fff !important;
 }
 .home-section .home-content .social-info ul li a:hover {
-	background: #7280ff;
-	border: 1px solid #7280ff;
+	background: $color_primary;
+	border: 1px solid $color_primary;
 }
 .home-section .home-content .about-links {
 	margin-top: 30px;
@@ -925,13 +925,13 @@ select:focus {
 }
 .about-section .about .about-content .personal-info ul li span {
 	font-size: 16px;
-	color: #666;
+	color: $text_secondary;
 }
 .about-section .about .about-content .personal-info ul li span a {
-	color: #666;
+	color: $text_secondary;
 }
 .about-section .about .about-content .personal-info ul li span label {
-	color: #555;
+	color: $text_primary;
 	font-weight: 600;
 	min-width: 100px;
 }
@@ -952,7 +952,7 @@ select:focus {
 	height: 300%;
 	left: -70%;
 	top: -100%;
-	background: #7280ff;
+	background: $color_primary;
 	transform: rotate(45deg);
 }
 .about-section .about .about-image img {
@@ -1013,7 +1013,7 @@ select:focus {
 	font-weight: 600;
 	margin-bottom: 3px;
 	display: inline-block;
-	color: #555;
+	color: $text_primary;
 	font-family: "Poppins", sans-serif;
 }
 .single-counter .counter-wrapper .counter {
@@ -1129,7 +1129,7 @@ select:focus {
 }
 .resume-wrapper .resume-box .education-list .single-education .year {
 	background: #929292;
-	color: #ffff;
+	color: $color_light;
 	text-transform: uppercase;
 	font-size: 14px;
 	display: inline-block;
@@ -1200,7 +1200,7 @@ select:focus {
 	margin-top: 10px;
 }
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .ciecle-progress text {
-	fill: #333;
+	fill: $text_secondary;
 }
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .ciecle-progress .circle1 {
 	stroke: rgba(0, 0, 0, 0.1);
@@ -1329,13 +1329,13 @@ select:focus {
 	cursor: pointer;
 	margin: 0px 5px;
 	transition: all 0.3s ease-in;
-	color: #555;
+	color: $text_primary;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-	border: 1px solid #7280ff;
+	border: 1px solid $color_primary;
 }
 .project-gallery .project-gallery-filter .project-gallery-menu .filter.active,
 .project-gallery .project-gallery-filter .project-gallery-menu .filter:hover {
-	background: #7280ff;
+	background: $color_primary;
 	color: #fff;
 }
 .project-gallery .project-gallery-item {
@@ -1549,7 +1549,7 @@ select:focus {
 	transition: all 0.3s ease-in;
 	position: relative;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-	background: #7280ff;
+	background: $color_primary;
 }
 .pricing2 .price-box .price-rate i {
 	position: absolute;
@@ -1683,10 +1683,54 @@ select:focus {
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-}
-.contact .google_map_wrapper iframe {
-	width: 100%;
-	height: 353px;
+
+	.starts-content {
+		text-align: center;
+
+		.hide {
+			display: none;
+		}
+
+		.clear {
+			float: none;
+			clear: both;
+		}
+
+		.rating {
+			width: 90px;
+			unicode-bidi: bidi-override;
+			direction: rtl;
+			text-align: center;
+			position: relative;
+		}
+
+		.rating > label {
+			float: right;
+			display: inline;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			width: 1.1em;
+			cursor: pointer;
+			color: #000;
+		}
+
+		.rating > label:hover,
+		.rating > label:hover ~ label,
+		.rating > input.radio-btn:checked ~ label {
+			color: transparent;
+		}
+
+		.rating > label:hover:before,
+		.rating > label:hover ~ label:before,
+		.rating > input.radio-btn:checked ~ label:before,
+		.rating > input.radio-btn:checked ~ label:before {
+			content: "\2605";
+			position: absolute;
+			left: 0;
+			color: #ffd700;
+		}
+	}
 }
 
 .contact-form .mybtn3 {
@@ -1747,7 +1791,7 @@ textarea.form-control {
 	margin-bottom: 22px;
 	font-weight: normal;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-	background: #7280ff;
+	background: $color_primary;
 }
 .single-info .info-icon i {
 	color: #fff;
@@ -1828,7 +1872,7 @@ textarea.form-control {
 }
 
 .portfolio-details .info span i {
-	color: #4285f4;
+	color: $color_secondary;
 	margin-right: 7px;
 }
 
@@ -1841,11 +1885,10 @@ textarea.form-control {
 }
 
 .portfolio-area.related-projects .pf-item .info {
-	background: #ffffff none repeat scroll 0 0;
+	background: $color_light none repeat scroll 0 0;
 	border: 1px solid #e7e7e7;
 	box-shadow: inherit;
 	display: inline-block;
-	float: left;
 	padding: 30px;
 	text-align: left;
 	width: 100%;
@@ -1916,7 +1959,7 @@ textarea.form-control {
 }
 
 .portfolio-details .info li a {
-	color: #4285f4;
+	color: $color_secondary;
 }
 
 .slider-img.slick-slider {
@@ -1929,7 +1972,7 @@ textarea.form-control {
 	left: 0px;
 	top: 50%;
 	transform: translateY(-50%);
-	background: #555;
+	background: $text_primary;
 	color: #fff !important;
 	width: 30px;
 	height: 30px;
@@ -1946,7 +1989,7 @@ textarea.form-control {
 	right: 0px;
 	top: 50%;
 	transform: translateY(-50%);
-	background: #555;
+	background: $text_primary;
 	color: #fff !important;
 	width: 30px;
 	height: 30px;
@@ -1989,7 +2032,7 @@ textarea.form-control {
 	margin-bottom: 0px;
 	font-weight: 400;
 	line-height: 40px;
-	color: #555;
+	color: $text_primary;
 	transition: 0.3s ease-in;
 }
 
@@ -2034,14 +2077,14 @@ textarea.form-control {
 	font-weight: 600;
 	background: none;
 	border: 0px;
-	color: #555;
+	color: $text_primary;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease-in;
 }
 .pagination .page-item .page-link.active,
 .pagination .page-item .page-link:hover {
-	background: #7280ff;
-	border: 1px solid #7280ff;
+	background: $color_primary;
+	border: 1px solid $color_primary;
 	color: #fff;
 }
 
@@ -2078,7 +2121,7 @@ textarea.form-control {
 	font-size: 16px;
 	font-weight: 600;
 	margin-bottom: 0px;
-	color: #555;
+	color: $text_primary;
 	transition: all 0.3s ease-in;
 }
 .categori-widget .cat-list li a .count {
@@ -2306,7 +2349,7 @@ textarea.form-control {
 	display: inline-block;
 	font-size: 14px;
 	font-weight: 600;
-	background: #7280ff;
+	background: $color_primary;
 	color: #fff;
 }
 .comment-area .comment-box-area li .comment-box .right {
@@ -2353,7 +2396,7 @@ textarea.form-control {
 	cursor: pointer;
 }
 .comment-area .comment-box-area li .replay-form .replay-form-close:hover {
-	background: #7280ff;
+	background: $color_primary;
 	border-color: transparent;
 	color: #fff;
 }
@@ -2404,4 +2447,19 @@ textarea.form-control {
 #warning-message {
 	color: red !important;
 	font-size: 0.8rem !important;
+}
+
+.footer-wrapper {
+	width: 100%;
+	padding: 1rem 0;
+	text-align: center;
+	.footer-text {
+		font-size: 0.7rem;
+		font-weight: 600;
+		img {
+			width: 15px;
+			height: auto;
+			margin: 0 5px;
+		}
+	}
 }

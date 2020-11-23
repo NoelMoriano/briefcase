@@ -36,8 +36,8 @@ itemVisibleForm.addEventListener("click", function () {
 });
 
 //LOAD CONFIG
-function onLoadFunction() {
-	let activeFormContent_ = getLocalStorage("activeFormContent");
+//function onLoadFunction() {
+/*let activeFormContent_ = getLocalStorage("activeFormContent");
 
 	activeFormContent_ == null &&
 		setLocalStorage("activeFormContent", {isVisibleFormContact: true});
@@ -55,9 +55,9 @@ function onLoadFunction() {
 			isVisibleItem(itemVisibleForm, "none");
 		}
 	}
-}
+}*/
 
-document.body.addEventListener("load", onLoadFunction());
+//document.body.addEventListener("load", onLoadFunction());
 
 //VALIDATE CONTENT FORM
 function validateForm() {
@@ -130,12 +130,11 @@ if (activeAlert_ && userData_) {
 }
 
 //LISTENER STATE LOCAL STORAGE******************************************>>>
-/* if(getLocalStorage("activeFormContent").isVisibleFormContact){
-        isVisibleItem(formContainerContact,"flex");
-    }else{
-        isVisibleItem(formContainerContact,"none"); 
-    } */
-//<<<********************************************************************End
+if (getLocalStorage("activeFormContent").isVisibleFormContact) {
+	isVisibleItem(formContainerContact, "flex");
+} else {
+	isVisibleItem(formContainerContact, "none");
+}
 
 //FUNCTIONS LOCAL STORAGE
 function setLocalStorage(key, value) {

@@ -1,4 +1,4 @@
-let startValue = document.querySelector(".star-value").value;
+/* let startValue = document.querySelector(".star-value").value;
 
 function validateRatingStars() {
 	if (startValue) {
@@ -7,3 +7,4 @@ function validateRatingStars() {
 		return false;
 	}
 }
+ */

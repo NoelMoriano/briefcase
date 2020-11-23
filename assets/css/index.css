@@ -494,7 +494,7 @@
 
 @media (max-width: 1000px) {
   #container-general-team h1 {
-    widows: 95%;
+    width: 95%;
   }
 }
 

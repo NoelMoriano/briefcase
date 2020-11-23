@@ -30,9 +30,9 @@ $newConn->createConnection();
 		<link rel="stylesheet" href="assets/css/responsive.css" />
 	</head>
 	<?php
-	$userId = $_GET["userId"];
+	$userIdGet = $_GET["userId"];
 
-        $queryProduct = "SELECT * FROM users WHERE id = $userId";
+        $queryProduct = "SELECT * FROM users WHERE id = $userIdGet";
 		$resultUsers = $newConn->ExecuteQuery($queryProduct);
 		$numRows = mysqli_num_rows($resultUsers);
          if($numRows > 0){
@@ -118,7 +118,7 @@ $newConn->createConnection();
 					</li>-->
 					<li>
 						<a href="briefcase.php#resume" class="wow fadeInUp" data-wow-delay="0.4s"
-							><i class="fas fa-file-alt"></i>Resumen</a
+							><i class="fas fa-file-alt"></i>Currículum</a
 						>
 					</li>
 					<!--<li>
@@ -197,7 +197,7 @@ $newConn->createConnection();
 											</ul>
 										</div>
 										<div class="about-links wow fadeInUp" data-wow-delay="0.6s">
-											<a href="briefcase.php?userId=<?=$userId?>#contact" class="mybtn3 mybtn-bg">
+											<a href="briefcase.php?userId=<?=$userIdGet?>#contact" class="mybtn3 mybtn-bg">
 												<span>Contáctame</span></a
 											>
 											<!--<a
@@ -462,7 +462,7 @@ $newConn->createConnection();
 									<?php
 									 if(isset($_GET["userId"]) && $_GET["userId"] !== null ){
 
-										$queryEducation = "SELECT * FROM educations WHERE userId = $userId";
+										$queryEducation = "SELECT * FROM educations WHERE userId = $userIdGet";
 										$resultEducations = $newConn->ExecuteQuery($queryEducation);
 										
 										if ($resultEducations) {
@@ -492,7 +492,7 @@ $newConn->createConnection();
 									</div>
 									<div class="education-list">
 									<?php
-                                        $query = "SELECT * FROM experiences WHERE userId = $userId";
+                                        $query = "SELECT * FROM experiences WHERE userId = $userIdGet";
                                         $result = $newConn->ExecuteQuery($query);
                                          if ($result) {
                                              while ($rowExperience = mysqli_fetch_array($result)) {
@@ -521,14 +521,14 @@ $newConn->createConnection();
 									</div>
 									<div class="skill-list">
 									<?php
-                                        $query = "SELECT * FROM technical_skills WHERE userId = $userId";
+                                        $query = "SELECT * FROM technical_skills WHERE userId = $userIdGet";
                                         $result = $newConn->ExecuteQuery($query);
                                          if ($result) {
                                              while ($rowSkill = mysqli_fetch_array($result)) {
                                     ?>
 										<div class="single-skill wow fadeInUp">
 											<div class="heading">
-												<h4 class="name"><?=$rowSkill['ability']?></h4>
+												<h4 class="name"><?=ucfirst($rowSkill['ability'])?></h4>
 												<h5 class="value"><?=$rowSkill['percentage']?>%</h5>
 											</div>
 											<div class="progress">
@@ -548,50 +548,45 @@ $newConn->createConnection();
                                         echo "<h5>Error en consulta contacte a soporte</h3>";
                                         }
                                      ?>
-					
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-6">
-								<!--<div class="resume-box">
+								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Habilidades linguísticas</h4>
 									</div>
 									<div class="skill-list">
+									<?php
+                                        $query = "SELECT * FROM languages WHERE userId = $userIdGet";
+                                        $result = $newConn->ExecuteQuery($query);
+                                         if ($result) {
+                                             while ($rowLanguage = mysqli_fetch_array($result)) {
+                                    ?>
 										<div class="single-skill wow fadeInUp">
 											<div class="heading">
-												<h4 class="name">Español</h4>
-												<h5 class="value">75%</h5>
+												<h4 class="name"><?=ucfirst($rowLanguage['language'])?></h4>
+												<h5 class="value"><?=$rowLanguage['percentage']?>%</h5>
 											</div>
 											<div class="progress">
 												<div
 													class="progress-bar progress-bar-striped progress-bar-animated"
 													role="progressbar"
-													aria-valuenow="75"
+													aria-valuenow="<?=$rowLanguage['percentage']?>"
 													aria-valuemin="0"
 													aria-valuemax="100"
-													style="width: 75%"
+													style="width: <?=$rowLanguage['percentage']?>%"
 												></div>
 											</div>
 										</div>
-										<div class="single-skill wow fadeInUp">
-											<div class="heading">
-												<h4 class="name">Ingles</h4>
-												<h5 class="value">75%</h5>
-											</div>
-											<div class="progress">
-												<div
-													class="progress-bar progress-bar-striped progress-bar-animated"
-													role="progressbar"
-													aria-valuenow="95"
-													aria-valuemin="0"
-													aria-valuemax="100"
-													style="width: 95%"
-												></div>
-											</div>
-										</div>
+										<?php
+                                        }
+                                        }else{
+                                        echo "<h5>Error en consulta contacte a soporte</h3>";
+                                        }
+                                     ?>
 									</div>
-								</div>-->
+								</div>
 							</div>
 							<!--<div class="col-lg-6">
 								<div class="resume-box">
@@ -1504,7 +1499,7 @@ $newConn->createConnection();
 									<div class="starts-content">
 										<form action="./controllers/ratingStars.php" method="POST" onsubmit="return validateRatingStars()">
 											<div class="rating">
-											<input type="number" name="userId" value="<?=$_GET['userId']?>" hidden>
+											<input type="number" name="userId" value="$_GET['userId']?>" hidden>
 												<input id="star5" name="star" type="radio" value="5" class="radio-btn hide star-value" />
 												<label for="star5">☆</label>
 												<input id="star4" name="star" type="radio" value="4" class="radio-btn hide star-value" />
@@ -1523,8 +1518,8 @@ $newConn->createConnection();
 									<div class="rating-wrapper">
 									<ul>
 									<?php
-									/* $userId_ = $_GET['userId']; 
-									$queryRating = "SELECT * FROM technical_rating WHERE userId = $userId_ ORDER BY rating DESC";
+									/*
+									$queryRating = "SELECT * FROM technical_rating WHERE userId = $userIdGet ORDER BY rating DESC";
 									$resultRating = $newConn->ExecuteQuery($queryRating);
 
 									if ($resultRating) {

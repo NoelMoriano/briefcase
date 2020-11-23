@@ -59,7 +59,7 @@
 	<li class="nav-item">
 		<a class="nav-link" href="experiences.php">
 			<i class="fas fa-fw fa-chart-area"></i>
-			<span>Experiencias</span></a
+			<span>Experiencia</span></a
 		>
 	</li>
 
@@ -67,6 +67,13 @@
 		<a class="nav-link" href="technical-skills.php">
 			<i class="fas fa-fw fa-chart-area"></i>
 			<span>Habilidades Técnicas</span></a
+		>
+	</li>
+
+	<li class="nav-item">
+		<a class="nav-link" href="languages.php">
+			<i class="fas fa-fw fa-chart-area"></i>
+			<span>Lenguajes</span></a
 		>
 	</li>
 

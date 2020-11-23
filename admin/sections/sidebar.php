@@ -63,6 +63,13 @@
 		>
 	</li>
 
+	<li class="nav-item">
+		<a class="nav-link" href="technical-skills.php">
+			<i class="fas fa-fw fa-chart-area"></i>
+			<span>Habilidades Técnicas</span></a
+		>
+	</li>
+
 	<!--<li class="nav-item">
 		<a class="nav-link" href="educations.php">
 			<i class="fas fa-fw fa-chart-area"></i>

@@ -1091,7 +1091,7 @@ select:focus {
 	border-left: 2px solid rgba(0, 0, 0, 0.1);
 }
 .resume-wrapper .resume-box .education-list .single-education {
-	border-left: 3px solid #929292;
+	border-left: 3px solid $color_primary;
 	margin-bottom: 30px;
 	padding-left: 30px;
 	position: relative;
@@ -1104,7 +1104,7 @@ select:focus {
 	left: -30px;
 	top: 50%;
 	transform: translateY(-50%);
-	background: #929292;
+	background: $color_primary;
 }
 .resume-wrapper .resume-box .education-list .single-education::after {
 	position: absolute;
@@ -1115,7 +1115,7 @@ select:focus {
 	border-radius: 50%;
 	top: 50%;
 	transform: translateY(-50%);
-	background: #929292;
+	background: $color_primary;
 }
 .resume-wrapper .resume-box .education-list .single-education:last-child {
 	margin-bottom: 0px;
@@ -1128,7 +1128,7 @@ select:focus {
 	margin-bottom: 0px;
 }
 .resume-wrapper .resume-box .education-list .single-education .year {
-	background: #929292;
+	background: $color_primary;
 	color: $color_light;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -1145,7 +1145,7 @@ select:focus {
 	left: 10px;
 	width: 0;
 	height: 0;
-	border-top: 10px solid #929292;
+	border-top: 10px solid $color_primary;
 	border-right: 10px solid transparent;
 }
 .resume-wrapper .resume-box .education-list .single-education .university-name {
@@ -1179,7 +1179,7 @@ select:focus {
 	font-weight: 600;
 }
 .resume-wrapper .resume-box .skill-list .single-skill .progress .progress-bar {
-	background-color: #929292 !important;
+	background-color: $color_primary !important;
 }
 .resume-wrapper .resume-box .skill-list2 {
 	display: flex;
@@ -1206,7 +1206,7 @@ select:focus {
 	stroke: rgba(0, 0, 0, 0.1);
 }
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .ciecle-progress .circle2 {
-	stroke: #929292;
+	stroke: $color_primary;
 }
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .circle-progress {
 	position: relative;
@@ -1240,7 +1240,7 @@ select:focus {
 }
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .circle-progress .rotate {
 	clip: rect(0 50px 100px 0);
-	background-color: #929292 !important;
+	background-color: $color_primary !important;
 }
 .resume-wrapper .resume-box .skill-list2 .single-skill2 .circle-progress .left {
 	clip: rect(0 50px 100px 0);
@@ -1251,7 +1251,7 @@ select:focus {
 	clip: rect(0 50px 100px 0);
 	transform: rotate(180deg);
 	opacity: 0;
-	background-color: #929292 !important;
+	background-color: $color_primary !important;
 }
 .resume-wrapper .resume-box .knowledge-list {
 	margin-top: 25px;
@@ -1273,7 +1273,7 @@ select:focus {
 	font-weight: 900;
 	content: "";
 	left: 0px;
-	color: #929292;
+	color: $color_primary;
 }
 
 /* Resume Area End*/

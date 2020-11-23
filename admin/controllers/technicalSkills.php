@@ -1,11 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['userEmail'])) {
+  header("Location:../admin/login.php");
+}
+
 require("../control/classConnectionMySQL.php");
 
 //pathName
 //echo dirname (__FILE__);
 date_default_timezone_set("America/Bogota");
 setlocale(LC_ALL,"es_ES");
-
 // Creamos una nueva instancion
 $newConn = new connectionMySQL();
 
@@ -17,26 +21,23 @@ $newConn->createConnection();
 // DATOS POST
 //////////////////////////////
 
-$employerName = $_POST['employerName'];
-$position = $_POST['position'];
-$startYear = $_POST['startYear'];
-$endYear= $_POST['endYear'];
+$ability = $_POST['ability'];
+$percentage = $_POST['percentage'];
 
-$userIdGlobal = $_POST['userId'];
+$userIdSession = $_SESSION['userId'];
 
 //////////////////////////////
 // INSERTAR 
 //////////////////////////////
-if (isset($_POST['saveExperience']) && $userIdGlobal == '') {
+if (isset($_POST['saveAbility']) && $userIdSession == '') {
     echo "<script>
      alert('Todos los campos son importantes');
-     window.location = '../experiences.php';
+     window.location = '../technical-skills.php';
           </script>";
 
-}elseif (isset($_POST['saveExperience'])) {
-
-  $query =  "INSERT INTO `experiences`(`employerName`,`position`,`startYear`, `endYear`,`userId`) 
-  VALUES ('$employerName','$position','$startYear' ,'$endYear','$userIdGlobal')";
+}elseif (isset($_POST['saveAbility'])){
+  $query =  "INSERT INTO `technical_skills`(`ability`,`percentage`,`userId`) 
+  VALUES ('$ability','$percentage','$userIdSession')";
 
     $result = $newConn->ExecuteQuery($query);
     if($result){
@@ -44,13 +45,13 @@ if (isset($_POST['saveExperience']) && $userIdGlobal == '') {
         if($rowCount > 0){
             echo "<script>
             alert('Registro Guardado Existosamente');
-            window.location = '../experiences.php';
+            window.location = '../technical-skills.php';
           </script>";
         }
     }else{
         echo "<script>
-     alert('Error en registro');
-     window.location = '../experiences.php';
+     alert('Error en registro, intentelo mas tarde');
+     window.location = '../technical-skills.php';
           </script>";
   }
 }
@@ -59,14 +60,13 @@ if (isset($_POST['saveExperience']) && $userIdGlobal == '') {
 //////////////////////////////
 // UPDATE 
 //////////////////////////////
-if (isset($_POST['updateExperience']) && $_POST['experienceId'] !== '') {
+if (isset($_POST['updateAbility']) && $_POST['abilityTecId'] !== '') {
 
-$experienceId = $_POST['experienceId'];
+$abilityTecId = $_POST['abilityTecId'];
 $dateUpdate = date('Y-m-d H:i:s');
 
-$query =  "UPDATE `experiences` 
-SET `employerName`='$employerName',`position`='$position',`startYear`='$startYear',`endYear`='$endYear' ,`updateAt`='$dateUpdate'
-WHERE id = $experienceId";
+$query =  "UPDATE `technical_skills` 
+SET `ability`='$ability',`percentage`='$percentage',`updateAt`='$dateUpdate' WHERE id = $abilityTecId";
 
   $result = $newConn->ExecuteQuery($query);
   if($result){
@@ -74,36 +74,35 @@ WHERE id = $experienceId";
       if($rowCount > 0){
           echo "<script>
           alert('Actualizado Existosamente');
-          window.location = '../experiences.php';
+          window.location = '../technical-skills.php';
         </script>";
       }
   }else{
       echo "<script>
-   alert('Error al actualizar');
-   window.location = '../experiences.php';
+   alert('Error al actualizar, intentelo mas tarde');
+   window.location = '../technical-skills.php';
         </script>";
   }
 }
 ///////////////////////////////
 // ELIMINAR
 ///////////////////////////////
-  if (isset($_GET['experienceId'])) {
-  $experienceId = $_GET['experienceId'];
-  $query = "DELETE FROM experiences WHERE id = '$experienceId'";
+  if (isset($_GET['abilityTecId'])) {
+
+  $abilityTecId = $_GET['abilityTecId'];
+
+  $query = "DELETE FROM technical_skills WHERE id = '$abilityTecId'";
   $result = $newConn->ExecuteQuery($query);
+
   if($result){
-      $rowCount=$newConn->GetCountAffectedRows();
-      if($rowCount>0){
           echo "<script>
      alert('Eliminado exitosamente');
-     window.location = '../experiences.php';
+     window.location = '../technical-skills.php';
           </script>";
-      }
-  }
-  else{
+  }else{
           echo "<script>
-     alert('Fallo la Eliminación');
-     window.location = '../experiences.php';
+     alert('Fallo la eliminación, intentelo mas tarde');
+     window.location = '../technical-skills.php';
           </script>";
   }
 

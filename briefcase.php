@@ -513,81 +513,47 @@ $newConn->createConnection();
 									</div>
 								</div>
 							</div> 
-						<!-- 	<div class="col-lg-6">
+
+						 	<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Habilidades técnicos</h4>
 									</div>
 									<div class="skill-list">
+									<?php
+                                        $query = "SELECT * FROM technical_skills WHERE userId = $userId";
+                                        $result = $newConn->ExecuteQuery($query);
+                                         if ($result) {
+                                             while ($rowSkill = mysqli_fetch_array($result)) {
+                                    ?>
 										<div class="single-skill wow fadeInUp">
 											<div class="heading">
-												<h4 class="name">Reparación laptops</h4>
-												<h5 class="value">75%</h5>
+												<h4 class="name"><?=$rowSkill['ability']?></h4>
+												<h5 class="value"><?=$rowSkill['percentage']?>%</h5>
 											</div>
 											<div class="progress">
 												<div
 													class="progress-bar progress-bar-striped progress-bar-animated"
 													role="progressbar"
-													aria-valuenow="85"
+													aria-valuenow="<?=$rowSkill['percentage']?>"
 													aria-valuemin="0"
 													aria-valuemax="100"
-													style="width: 85%"
+													style="width: <?=$rowSkill['percentage']?>%"
 												></div>
 											</div>
 										</div>
-										<div class="single-skill wow fadeInUp">
-											<div class="heading">
-												<h4 class="name">Reparación celulares</h4>
-												<h5 class="value">75%</h5>
-											</div>
-											<div class="progress">
-												<div
-													class="progress-bar progress-bar-striped progress-bar-animated"
-													role="progressbar"
-													aria-valuenow="95"
-													aria-valuemin="0"
-													aria-valuemax="100"
-													style="width: 95%"
-												></div>
-											</div>
-										</div>
-										<div class="single-skill wow fadeInUp">
-											<div class="heading">
-												<h4 class="name">Reparación impresoras</h4>
-												<h5 class="value">75%</h5>
-											</div>
-											<div class="progress">
-												<div
-													class="progress-bar progress-bar-striped progress-bar-animated"
-													role="progressbar"
-													aria-valuenow="65"
-													aria-valuemin="0"
-													aria-valuemax="100"
-													style="width: 65%"
-												></div>
-											</div>
-										</div>
-										<div class="single-skill wow fadeInUp">
-											<div class="heading">
-												<h4 class="name">Reparación tablets</h4>
-												<h5 class="value">75%</h5>
-											</div>
-											<div class="progress">
-												<div
-													class="progress-bar progress-bar-striped progress-bar-animated"
-													role="progressbar"
-													aria-valuenow="75"
-													aria-valuemin="0"
-													aria-valuemax="100"
-													style="width: 75%"
-												></div>
-											</div>
-										</div>
+										<?php
+                                        }
+                                        }else{
+                                        echo "<h5>Error en consulta contacte a soporte</h3>";
+                                        }
+                                     ?>
+					
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-6">
-								<div class="resume-box">
+								<!--<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Habilidades linguísticas</h4>
 									</div>
@@ -625,9 +591,9 @@ $newConn->createConnection();
 											</div>
 										</div>
 									</div>
-								</div>
-							</div> -->
-							<!-- <div class="col-lg-6">
+								</div>-->
+							</div>
+							<!--<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Professional Skills</h4>
@@ -681,7 +647,7 @@ $newConn->createConnection();
 										</div>
 									</div>
 								</div>
-							</div> -->
+							</div>-->
 						</div>
 					</div>
 				</div>
@@ -1525,29 +1491,29 @@ $newConn->createConnection();
 								<!--Message status-->
 							</div>
 							
-							<div class="col-lg-6">
+							<!-- <div class="col-lg-6">
 								<div class="google_map_wrapper">
-									<!--<iframe
+									<iframe
 										src="https://www.google.com/maps/embed?pb=chorrillos"
 										frameborder="0"
 										style="border: 0"
 										allowfullscreen=""
 										aria-hidden="false"
 										tabindex="0"
-									></iframe>-->
+									></iframe>
 									<div class="starts-content">
-										<form action="./controllers/ratingStarts.php" method="POST" onsubmit="return validateRatingStarts()">
+										<form action="./controllers/ratingStars.php" method="POST" onsubmit="return validateRatingStars()">
 											<div class="rating">
 											<input type="number" name="userId" value="<?=$_GET['userId']?>" hidden>
-												<input id="star5" name="star" type="radio" value="5" class="radio-btn hide start-value" />
+												<input id="star5" name="star" type="radio" value="5" class="radio-btn hide star-value" />
 												<label for="star5">☆</label>
-												<input id="star4" name="star" type="radio" value="4" class="radio-btn hide start-value" />
+												<input id="star4" name="star" type="radio" value="4" class="radio-btn hide star-value" />
 												<label for="star4">☆</label>
-												<input id="star3" name="star" type="radio" value="3" class="radio-btn hide start-value" />
+												<input id="star3" name="star" type="radio" value="3" class="radio-btn hide star-value" />
 												<label for="star3">☆</label>
-												<input id="star2" name="star" type="radio" value="2" class="radio-btn hide start-value" />
+												<input id="star2" name="star" type="radio" value="2" class="radio-btn hide star-value" />
 												<label for="star2">☆</label>
-												<input id="star1" name="star" type="radio" value="1" class="radio-btn hide start-value" />
+												<input id="star1" name="star" type="radio" value="1" class="radio-btn hide star-value" />
 												<label for="star1">☆</label>
 												<div class="clear"></div>
 												<input type="submit" name="actionRating" id="" value="Calificar">
@@ -1557,7 +1523,7 @@ $newConn->createConnection();
 									<div class="rating-wrapper">
 									<ul>
 									<?php
-									$userId_ = $_GET['userId']; 
+									/* $userId_ = $_GET['userId']; 
 									$queryRating = "SELECT * FROM technical_rating WHERE userId = $userId_ ORDER BY rating DESC";
 									$resultRating = $newConn->ExecuteQuery($queryRating);
 
@@ -1572,14 +1538,14 @@ $newConn->createConnection();
 											}
 										}else{
 										echo "<h5>Error en consulta contacte a soporte</h3>";
-										}
+										} */
                 					?>
 									
 								   </ul>
 									</div>
 
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<!--/.row-->
 					</div>
@@ -1673,7 +1639,7 @@ $newConn->createConnection();
 	  <!-- CUSTOM JS -->
 	  	<script src="./assets/js/validateFormContactFixed.js"></script>
 		<script src="./assets/js/contactFormValidate.js"></script>
-		<script src="./assets/js/validateRatingStarts.js"></script>
+		<script src="./assets/js/validateRatingStars.js"></script>
 
 		<!-- jquery -->
 		<script src="assets/js/jquery.js"></script>

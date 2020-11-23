@@ -446,8 +446,8 @@ $newConn->createConnection();
 							<div class="col-lg-12">
 								<div class="section-heading wow fadeInUp" data-wow-delay="0.2s">
 									<h2 class="title">
-										Mi <span class="color">CURRÍCULUM</span>
-										<span class="bg-text">CURRÍCULUM</span>
+										<span class="color">TÉCNICO SERVITEC</span>
+										<span class="bg-text">TÉCNICO</span>
 									</h2>
 								</div>
 							</div>

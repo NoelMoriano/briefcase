@@ -84,16 +84,17 @@ $newConn->createConnection();
 			</div>
 			<div class="side-menu">
 				<div class="heading-area">
-					<a href="briefcase.php" class="profile-photo">
-						<img
-							src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
-							alt="<?=$names?>"
-							class="wow zoomIn"
-							data-wow-delay="0.2s"
-							style="object-fit: cover;"
-						/>
-					</a>
-					<div class="name wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)?></div>
+					<div class="wrapper-img-header">
+							<a href="briefcase.php" class="profile-photo">
+								<img
+									src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
+									alt="<?=$names?>"
+									class="wow zoomIn"
+									data-wow-delay="0.2s"
+								/>
+							</a>
+					</div>
+						<div class="name wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)?></div>
 				</div>
 				<ul id="mainmenu-area">
 					<li>
@@ -150,13 +151,14 @@ $newConn->createConnection();
 							<div class="col-lg-6">
 								<div class="home-content">
 									<div class="home-image">
+										<div class="wrapper-img-profile">
 										<img
-											src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
-											alt=""
-											class="wow zoomIn"
-											data-wow-delay="0.2s"
-											style="object-fit: cover;"
-										/>
+												src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
+												alt=""
+												class="wow zoomIn"
+												data-wow-delay="0.2s"
+											/>
+										</div>
 									</div>
 									<div class="home-main-content">
 										<h4 class="heading wow fadeInUp" data-wow-delay="0.3s"><?=ucfirst($names)." ".ucfirst($lastName)?></h4>

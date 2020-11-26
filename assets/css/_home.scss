@@ -72,16 +72,40 @@
 					object-fit: cover;
 					margin: auto;
 				}
-				.name {
-					font-size: 18px;
-					text-align: center;
-					margin: 10px 0;
-					color: $color_dark;
+				.content-name {
 					width: 100%;
-					height: 65px;
-					display: flex;
-					justify-content: center;
-					align-items: center;
+					min-height: 40px;
+					height: auto;
+					margin: 12px 0;
+					text-align: center;
+					.name {
+						font-size: 18px;
+						text-align: center;
+						color: $color_dark;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+				}
+				.content-elements {
+					display: grid;
+					grid-template-columns: 50% 1fr;
+					margin: 0.7rem 0.2rem;
+					.item-left {
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
+						.profesion {
+							font-weight: 400;
+							font-size: 15px;
+							margin: 0;
+						}
+					}
+					.item-right {
+						display: flex;
+						justify-content: flex-end;
+						align-items: center;
+					}
 				}
 				.btn {
 					text-align: center;

@@ -446,7 +446,7 @@ $newConn->createConnection();
 							<div class="col-lg-12">
 								<div class="section-heading wow fadeInUp" data-wow-delay="0.2s">
 									<h2 class="title">
-										<span class="color">TÉCNICO SERVITEC</span>
+									TÉCNICO <span class="color">SERVITEC</span>
 										<span class="bg-text">TÉCNICO</span>
 									</h2>
 								</div>
@@ -588,61 +588,181 @@ $newConn->createConnection();
 									</div>
 								</div>
 							</div>
-							<!--<div class="col-lg-6">
+							<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
 										<h4 class="title">Professional Skills</h4>
 									</div>
+
 									<div class="skill-list2">
+									<?php
+                                        $query = "SELECT * FROM professional_skills WHERE userId = $userIdGet";
+                                        $result = $newConn->ExecuteQuery($query);
+                                         if ($result) {
+                                             while ($rowSkill = mysqli_fetch_array($result)) {
+                                    ?>
 										<div class="single-skill2 wow fadeInUp">
-											<div class="circle-progress" data-percent="80"></div>
-											<h4 class="name">Web Design</h4>
+											<div class="circle-progress" data-percent="<?=$rowSkill['percentage']?>"></div>
+											<h4 class="name"><?=ucfirst($rowSkill['ability'])?></h4>
 										</div>
-										<div class="single-skill2 wow fadeInUp">
-											<div class="circle-progress" data-percent="90"></div>
-											<h4 class="name">Web Devlopment</h4>
-										</div>
-										<div class="single-skill2 wow fadeInUp">
-											<div class="circle-progress" data-percent="70"></div>
-											<h4 class="name">Graphic Design</h4>
-										</div>
-										<div class="single-skill2 wow fadeInUp">
-											<div class="circle-progress" data-percent="85"></div>
-											<h4 class="name">Auto CAD</h4>
-										</div>
+										<?php
+                                        	}
+                                        }else{
+                                        	echo "<h5>Error en consulta contacte a soporte</h3>";
+                                        }
+                                     ?>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
-										<h4 class="title">Knowledge</h4>
+										<h4 class="title">Clasificación</h4>
 									</div>
 									<div class="knowledge-list wow fadeInUp">
-										<div class="single-knowledge">
-											<p>Search engine marketing</p>
+										<div class="stars-content">
+											<h6>Califique al técnico por sus servicios,  donde 1 <i class="fa fa-star color-star"></i>  es malo y 5 <i class="fa fa-star color-star"></i> es excelente</h6>
+											<form action="./controllers/ratingStars.php" method="POST" onsubmit="return validateRatingStars()">
+												<div class="rating">
+													<input type="number" name="userId" value="<?=$userIdGet?>" hidden>
+													<input id="star5" name="star" type="radio" value="5" class="radio-btn hide star-value" onchange="this.form.submit()" />
+													<label for="star5">☆</label>
+													<input id="star4" name="star" type="radio" value="4" class="radio-btn hide star-value" onchange="this.form.submit()" />
+													<label for="star4">☆</label>
+													<input id="star3" name="star" type="radio" value="3" class="radio-btn hide star-value" onchange="this.form.submit()" />
+													<label for="star3">☆</label>
+													<input id="star2" name="star" type="radio" value="2" class="radio-btn hide star-value" onchange="this.form.submit()" />
+													<label for="star2">☆</label>
+													<input id="star1" name="star" type="radio" value="1" class="radio-btn hide star-value" onchange="this.form.submit()" />
+													<label for="star1">☆</label>
+													<div class="clear"></div>
+												</div>
+											</form>
 										</div>
-										<div class="single-knowledge">
-											<p>iOS and android apps</p>
-										</div>
-										<div class="single-knowledge">
-											<p>Spreadsheets (Excel, Google Spreadsheets, etc.)</p>
-										</div>
-										<div class="single-knowledge">
-											<p>Email Communication</p>
-										</div>
-										<div class="single-knowledge">
-											<p>Presentation software (PowerPoint, Keynote)</p>
-										</div>
-										<div class="single-knowledge">
-											<p>Office suites (Microsoft Office, G Suite)</p>
-										</div>
-										<div class="single-knowledge">
-											<p>Operating systems (Windows and MacOS)</p>
+										<hr/>
+										<div class="skill-list content-results-rating">
+
+											<?php
+												$query = "SELECT * FROM technical_rating WHERE userId = $userIdGet";
+												$result = $newConn->ExecuteQuery($query);
+												if ($result) {
+													while ($rowRating = mysqli_fetch_array($result)) {
+											?>
+												<div class="item-list-rating single-skill wow fadeInUp">
+													<div class="item-left">
+														5 <i class="fa fa-star"></i>	
+													</div>
+													<div class="progress">
+														<div
+															class="progress-bar progress-bar-striped progress-bar-animated"
+															role="progressbar"
+															aria-valuenow="<?=$rowRating['5Stars']?>"
+															aria-valuemin="0"
+															aria-valuemax="100"
+															style="width: <?=$rowRating['5Stars']?>%"
+														>
+															<h6 class="count-star"><?=$rowRating['5Stars']?></h6>
+														</div>
+													</div>
+													<div class="item-right">
+														<span>Excelente</span> 
+													</div>
+												</div>
+
+												<div class="item-list-rating single-skill wow fadeInUp">
+													<div class="item-left">
+														4 <i class="fa fa-star"></i>	
+													</div>
+													<div class="progress">
+														<div
+															class="progress-bar progress-bar-striped progress-bar-animated"
+															role="progressbar"
+															aria-valuenow="<?=$rowRating['4Stars']?>"
+															aria-valuemin="0"
+															aria-valuemax="100"
+															style="width: <?=$rowRating['4Stars']?>%"
+														>
+														<h6 class="count-star"><?=$rowRating['4Stars']?></h6>
+													</div>
+													</div>
+													<div class="item-right">
+														<span>Muy bueno</span>
+													</div>
+												</div>
+
+												<div class="item-list-rating single-skill wow fadeInUp">
+													<div class="item-left">
+														3 <i class="fa fa-star"></i>	
+													</div>
+													<div class="progress">
+														<div
+															class="progress-bar progress-bar-striped progress-bar-animated"
+															role="progressbar"
+															aria-valuenow="<?=$rowRating['3Stars']?>"
+															aria-valuemin="0"
+															aria-valuemax="100"
+															style="width: <?=$rowRating['3Stars']?>%"
+														>
+														<h6 class="count-star"><?=$rowRating['3Stars']?></h6>
+													</div>
+													</div>
+													<div class="item-right">
+														<span>Bueno</span>
+													</div>
+												</div>
+
+												<div class="item-list-rating single-skill wow fadeInUp">
+													<div class="item-left">
+														2 <i class="fa fa-star"></i>	
+													</div>
+													<div class="progress">
+														<div
+															class="progress-bar progress-bar-striped progress-bar-animated"
+															role="progressbar"
+															aria-valuenow="<?=$rowRating['2Stars']?>"
+															aria-valuemin="0"
+															aria-valuemax="100"
+															style="width: <?=$rowRating['2Stars']?>%"
+														>
+														<h6 class="count-star"><?=$rowRating['2Stars']?></h6>
+													</div>
+													</div>
+													<div class="item-right">
+														<span>Regular</span>
+													</div>
+												</div>
+
+												<div class="item-list-rating single-skill wow fadeInUp">
+													<div class="item-left">
+														1 <i class="fa fa-star"></i>	
+													</div>
+													<div class="progress">
+														<div
+															class="progress-bar progress-bar-striped progress-bar-animated"
+															role="progressbar"
+															aria-valuenow="<?=$rowRating['1Stars']?>"
+															aria-valuemin="0"
+															aria-valuemax="100"
+															style="width: <?=$rowRating['1Stars']?>%"
+														>
+														<h6 class="count-star"><?=$rowRating['1Stars']?></h6>
+													</div>
+													</div>
+													<div class="item-right">
+														<span>Malo</span>
+													</div>
+												</div>
+												<?php
+													}
+												}else{
+													echo "<h5>Error en consulta contacte a soporte</h3>";
+												}
+											?>
+
 										</div>
 									</div>
 								</div>
-							</div>-->
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1422,6 +1542,7 @@ $newConn->createConnection();
 													<div class="col-md-12">
 													<div class="form-group">
 														<input type="email" name="userEmailToSend" hidden value="<?=$userEmail?>">
+														<input type="number" name="userId" value="<?=$userIdGet?>" hidden>
 															<input
 																id="input-email"
 																type="email"
@@ -1515,29 +1636,6 @@ $newConn->createConnection();
 											</div>
 										</form>
 									</div>
-									<div class="rating-wrapper">
-									<ul>
-									<?php
-									/*
-									$queryRating = "SELECT * FROM technical_rating WHERE userId = $userIdGet ORDER BY rating DESC";
-									$resultRating = $newConn->ExecuteQuery($queryRating);
-
-									if ($resultRating) {
-									while ($rowRating = mysqli_fetch_array($resultRating)) {
-									?>
-										<li>
-										<?=$rowRating['rating']?> ☆
-										</li>
-
-										<?php
-											}
-										}else{
-										echo "<h5>Error en consulta contacte a soporte</h3>";
-										} */
-                					?>
-									
-								   </ul>
-									</div>
 
 								</div>
 							</div> -->
@@ -1583,6 +1681,7 @@ $newConn->createConnection();
 					<div class="item-form-input column-12">
 					  <!-- <label for="validationCustom04 exampleFormControlTextarea1">Email:</label> -->
 					  <input type="email" name="userEmailToSend" hidden value="<?=$userEmail?>">
+					  <input type="number" name="userId" value="<?=$userIdGet?>" hidden>
 					  <input type="email" min="0" id="input-email-fixed" name="input-email-fo" placeholder="EMAIL" required>
 					</div>
 					<div class="item-form-input column-12">

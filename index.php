@@ -64,7 +64,17 @@ $newConn->createConnection();
                     <img class="img-user" src="./admin/uploads/users/<?=$rowUser['userPhoto'] 
                         ? $rowUser['userPhoto'] 
                         : 'user-nofound.png'?>"  alt="<?=$rowUser["names"]?>">
-                    <p class="name">  <?=ucfirst($rowUser["names"]." ".$rowUser["lastName"])?></p>
+                    <div class="content-name">
+                        <h3 class="name">  <?=ucfirst($rowUser["names"]." ".$rowUser["lastName"])?></h3>
+                    </div>
+                    <div class="content-elements">
+                        <div class="item-left">
+                            <h5 class="profesion"><?=ucfirst($rowUser["profession"])?></h5>
+                        </div>
+                        <div class="item-right">
+                                Servitec
+                        </div>
+                    </div>
                     <a class="btn about-links wow fadeIn" href="briefcase.php?userId=<?=$rowUser['id']?>">
                      <span>Ver más</span></a>
                 </div>

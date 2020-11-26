@@ -26,7 +26,7 @@ $userIdGlobal = $_SESSION['userId'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Panel - Habilidades técnicas</title>
+    <title>Panel - Habilidades profesionales</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,7 +61,7 @@ $userIdGlobal = $_SESSION['userId'];
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Habilidades técnicas</h1>
+                <h1 class="h3 mb-4 text-gray-800">Habilidades profesionales</h1>
 
                 <!-- Start Category -->
                 <div class="card shadow mb-4">
@@ -71,19 +71,19 @@ $userIdGlobal = $_SESSION['userId'];
                     <div class="card-body">
                     
                     <?php
-                        $abilityTecIdIsset = isset($_GET["abilityTecId"]);
+                        $abilityProIdIsset = isset($_GET["abilityProId"]);
 
-                        if(isset($_GET["abilityTecId"]) && $_GET["abilityTecId"] !== null ){
+                        if(isset($_GET["abilityProId"]) && $_GET["abilityProId"] !== null ){
 
-                            $abilityTecId = $_GET["abilityTecId"];
-                            $query = "SELECT * FROM technical_skills WHERE id = $abilityTecId";
+                            $abilityProId = $_GET["abilityProId"];
+                            $query = "SELECT * FROM professional_skills WHERE id = $abilityProId";
                             $result = $newConn->ExecuteQuery($query);
 
                             if ($result) {
                                 while ($rowAbility = mysqli_fetch_array($result)) {
-                                    $abilityTecId = $rowAbility['id'] ? $rowAbility['id'] : '';
-                                    $ability = $rowAbility['ability'] ? $rowAbility['ability'] : '';
-                                    $percentage = $rowAbility['percentage'] ? $rowAbility['percentage'] : '';
+                                    $abilityProId = $rowAbility['id'];
+                                    $ability = $rowAbility['ability'];
+                                    $percentage = $rowAbility['percentage'];
                                 }
                             }else{
                                 echo "<h5>Error en consulta contacte a soporte</h3>";
@@ -95,20 +95,20 @@ $userIdGlobal = $_SESSION['userId'];
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="p-1">
-                                    <form class="category" action="controllers/technicalSkills.php" method="post" enctype="multipart/form-data">                                 
+                                    <form class="category" action="controllers/professionalSkills.php" method="post" enctype="multipart/form-data">                                 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="">Habilidad técnica:</label>
+                                            <label for="">Habilidad profesional:</label>
                                                 <input type="text"
                                                        class="form-control input-form-small"
                                                        placeholder="Ingrese su habilidad"
                                                        required
-                                                       name="ability" value="<?=$abilityTecIdIsset ? $ability : ''?>">
+                                                       name="ability" value="<?=$abilityProIdIsset ? $ability : ''?>">
                                                 <input type="number"
                                                        class="form-control input-form-small"
                                                        hidden
-                                                       name="abilityTecId" 
-                                                       value="<?=$abilityTecIdIsset ? $abilityTecId : ''?>">
+                                                       name="abilityProId" 
+                                                       value="<?=$abilityProIdIsset ? $abilityProId : ''?>">
                                                        
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -118,7 +118,7 @@ $userIdGlobal = $_SESSION['userId'];
                                                        placeholder="Ingrese % de conocimiento"
                                                        max="100"
                                                        required
-                                                       name="percentage" value="<?=$abilityTecIdIsset ? $percentage : ''?>">
+                                                       name="percentage" value="<?=$abilityProIdIsset ? $percentage : ''?>">
                                             </div>
                                         </div>
                                         <!--
@@ -140,9 +140,9 @@ $userIdGlobal = $_SESSION['userId'];
                                           </div>
                                         </div>-->
                                         <input type="submit" 
-                                        class="<?=$abilityTecIdIsset ? 'btn btn-category btn-block btn-small btn-success' : 'btn btn-category btn-block btn-small btn-primary'?>" 
-                                        name="<?=$abilityTecIdIsset ? 'updateAbility' : 'saveAbility'?>" 
-                                        value="<?=$abilityTecIdIsset ? 'Actualizar' : 'Guardar'?>"/>
+                                        class="<?=$abilityProIdIsset ? 'btn btn-category btn-block btn-small btn-success' : 'btn btn-category btn-block btn-small btn-primary'?>" 
+                                        name="<?=$abilityProIdIsset ? 'updateAbility' : 'saveAbility'?>" 
+                                        value="<?=$abilityProIdIsset ? 'Actualizar' : 'Guardar'?>"/>
                                     </form>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@ $userIdGlobal = $_SESSION['userId'];
                             <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista de H.Técnicos</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de H.Profesionales</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -178,7 +178,7 @@ $userIdGlobal = $_SESSION['userId'];
                                     <tbody>
 
                                     <?php
-                                        $query = "SELECT * FROM technical_skills WHERE userId = '$userIdGlobal'";
+                                        $query = "SELECT * FROM professional_skills WHERE userId = '$userIdGlobal'";
                                         $result = $newConn->ExecuteQuery($query);
                                          if ($result) {
                                              while ($rowAbility = mysqli_fetch_array($result)) {
@@ -188,7 +188,7 @@ $userIdGlobal = $_SESSION['userId'];
                                         <td><?=$rowAbility["percentage"]?></td>
                                         <td><?=$rowAbility["createAt"]?></td>
                                         <td>
-                                        <a href="technical-skills.php?abilityTecId=<?=$rowAbility["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                        <a href="professional-skills.php?abilityProId=<?=$rowAbility["id"]?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
 
                                         <button" data-toggle="modal" data-target="#exampleModal<?=$rowAbility["id"]?>" class="btn btn-danger btn-small"><i class="fa fa-trash"></i></button>
 
@@ -206,7 +206,7 @@ $userIdGlobal = $_SESSION['userId'];
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <a href="controllers/technicalSkills.php?abilityTecId=<?=$rowAbility["id"]?>" type="button" class="btn btn-danger">Si</a>
+                                                <a href="controllers/professionalSkills.php?abilityProId=<?=$rowAbility["id"]?>" type="button" class="btn btn-danger">Si</a>
                                             </div>
                                             </div>
                                         </div>
@@ -219,15 +219,12 @@ $userIdGlobal = $_SESSION['userId'];
                                         echo "<h5>Error en consulta contacte a soporte</h3>";
                                         }
                                      ?>
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
 
                     </div>
                 </div>

@@ -1180,6 +1180,14 @@ select:focus {
 }
 .resume-wrapper .resume-box .skill-list .single-skill .progress .progress-bar {
 	background-color: $color_primary !important;
+	position: relative;
+	.count-star {
+		position: absolute;
+		top: 1px;
+		right: 0;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
 }
 .resume-wrapper .resume-box .skill-list2 {
 	display: flex;
@@ -1255,7 +1263,93 @@ select:focus {
 }
 .resume-wrapper .resume-box .knowledge-list {
 	margin-top: 25px;
+	.stars-content {
+		text-align: center;
+
+		.color-star {
+			color: #ffd700;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.clear {
+			float: none;
+			clear: both;
+		}
+
+		.rating {
+			width: 100%;
+			unicode-bidi: bidi-override;
+			direction: rtl;
+			text-align: center;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 1rem 0;
+		}
+
+		.rating > label {
+			float: right;
+			display: inline;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			width: 2.1em;
+			cursor: pointer;
+			color: #000;
+			font-size: 1.2rem;
+		}
+
+		.rating > label:hover,
+		.rating > label:hover ~ label,
+		.rating > input.radio-btn:checked ~ label {
+			color: transparent;
+		}
+
+		.rating > label:hover:before,
+		.rating > label:hover ~ label:before,
+		.rating > input.radio-btn:checked ~ label:before,
+		.rating > input.radio-btn:checked ~ label:before {
+			content: "\2605";
+			position: absolute;
+			left: 0;
+			color: #ffd700;
+		}
+	}
 }
+
+.content-results-rating {
+	.item-list-rating {
+		display: grid;
+		grid-template-columns: 10% 1fr 25%;
+		.item-left {
+			display: flex;
+			align-items: flex-start;
+			font-weight: 600;
+			i {
+				color: #ffd700;
+			}
+		}
+		.item-right {
+			padding: 0 5px;
+			display: flex;
+			align-items: flex-start;
+			span {
+				font-size: 0.8rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 600;
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
 .resume-wrapper .resume-box .knowledge-list .single-knowledge {
 	margin-bottom: 18px;
 }
@@ -1683,54 +1777,6 @@ select:focus {
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-
-	.starts-content {
-		text-align: center;
-
-		.hide {
-			display: none;
-		}
-
-		.clear {
-			float: none;
-			clear: both;
-		}
-
-		.rating {
-			width: 90px;
-			unicode-bidi: bidi-override;
-			direction: rtl;
-			text-align: center;
-			position: relative;
-		}
-
-		.rating > label {
-			float: right;
-			display: inline;
-			padding: 0;
-			margin: 0;
-			position: relative;
-			width: 1.1em;
-			cursor: pointer;
-			color: #000;
-		}
-
-		.rating > label:hover,
-		.rating > label:hover ~ label,
-		.rating > input.radio-btn:checked ~ label {
-			color: transparent;
-		}
-
-		.rating > label:hover:before,
-		.rating > label:hover ~ label:before,
-		.rating > input.radio-btn:checked ~ label:before,
-		.rating > input.radio-btn:checked ~ label:before {
-			content: "\2605";
-			position: absolute;
-			left: 0;
-			color: #ffd700;
-		}
-	}
 }
 
 .contact-form .mybtn3 {

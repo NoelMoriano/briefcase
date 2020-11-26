@@ -71,6 +71,13 @@
 	</li>
 
 	<li class="nav-item">
+		<a class="nav-link" href="professional-skills.php">
+			<i class="fas fa-fw fa-chart-area"></i>
+			<span>Habilidades Profesionales</span></a
+		>
+	</li>
+
+	<li class="nav-item">
 		<a class="nav-link" href="languages.php">
 			<i class="fas fa-fw fa-chart-area"></i>
 			<span>Lenguajes</span></a

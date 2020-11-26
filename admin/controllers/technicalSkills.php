@@ -29,31 +29,32 @@ $userIdSession = $_SESSION['userId'];
 //////////////////////////////
 // INSERTAR 
 //////////////////////////////
-if (isset($_POST['saveAbility']) && $userIdSession == '') {
-    echo "<script>
-     alert('Todos los campos son importantes');
-     window.location = '../technical-skills.php';
-          </script>";
-
-}elseif (isset($_POST['saveAbility'])){
-  $query =  "INSERT INTO `technical_skills`(`ability`,`percentage`,`userId`) 
-  VALUES ('$ability','$percentage','$userIdSession')";
-
-    $result = $newConn->ExecuteQuery($query);
-    if($result){
-        $rowCount =  $newConn->GetCountAffectedRows();
-        if($rowCount > 0){
+if (isset($_POST['saveAbility'])) {
+        if(empty($userIdSession)){
             echo "<script>
-            alert('Registro Guardado Existosamente');
+            alert('Todos los campos son importantes');
             window.location = '../technical-skills.php';
-          </script>";
+                 </script>";
+          }else{
+            $query =  "INSERT INTO `technical_skills`(`ability`,`percentage`,`userId`) 
+            VALUES ('$ability','$percentage','$userIdSession')";
+          
+              $result = $newConn->ExecuteQuery($query);
+              if($result){
+                  $rowCount =  $newConn->GetCountAffectedRows();
+                  if($rowCount > 0){
+                      echo "<script>
+                      alert('Registro Guardado Existosamente');
+                      window.location = '../technical-skills.php';
+                    </script>";
+                  }
+              }else{
+                  echo "<script>
+               alert('Error en registro, intentelo mas tarde');
+               window.location = '../technical-skills.php';
+                    </script>";
+            }
         }
-    }else{
-        echo "<script>
-     alert('Error en registro, intentelo mas tarde');
-     window.location = '../technical-skills.php';
-          </script>";
-  }
 }
 
 
@@ -105,7 +106,6 @@ SET `ability`='$ability',`percentage`='$percentage',`updateAt`='$dateUpdate' WHE
      window.location = '../technical-skills.php';
           </script>";
   }
-
 }
 
 // Cerramos la Conexion a la BD

@@ -586,19 +586,62 @@
   margin: auto;
 }
 
-#container-general-team .container-boxes .grid-items .box-item .name {
+#container-general-team .container-boxes .grid-items .box-item .content-name {
+  width: 100%;
+  min-height: 40px;
+  height: auto;
+  margin: 12px 0;
+  text-align: center;
+}
+
+#container-general-team .container-boxes .grid-items .box-item .content-name .name {
   font-size: 18px;
   text-align: center;
-  margin: 10px 0;
   color: #000000;
-  width: 100%;
-  height: 65px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#container-general-team .container-boxes .grid-items .box-item .content-elements {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 1fr;
+      grid-template-columns: 50% 1fr;
+  margin: 0.7rem 0.2rem;
+}
+
+#container-general-team .container-boxes .grid-items .box-item .content-elements .item-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#container-general-team .container-boxes .grid-items .box-item .content-elements .item-left .profesion {
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+}
+
+#container-general-team .container-boxes .grid-items .box-item .content-elements .item-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2046,6 +2089,15 @@ select:focus {
 
 .resume-wrapper .resume-box .skill-list .single-skill .progress .progress-bar {
   background-color: #ffd500 !important;
+  position: relative;
+}
+
+.resume-wrapper .resume-box .skill-list .single-skill .progress .progress-bar .count-star {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .resume-wrapper .resume-box .skill-list2 {
@@ -2141,6 +2193,116 @@ select:focus {
 
 .resume-wrapper .resume-box .knowledge-list {
   margin-top: 25px;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content {
+  text-align: center;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .color-star {
+  color: #ffd700;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .hide {
+  display: none;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .clear {
+  float: none;
+  clear: both;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating {
+  width: 100%;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > label {
+  float: right;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 2.1em;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > label:hover,
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > label:hover ~ label,
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > input.radio-btn:checked ~ label {
+  color: transparent;
+}
+
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > label:hover:before,
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > label:hover ~ label:before,
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > input.radio-btn:checked ~ label:before,
+.resume-wrapper .resume-box .knowledge-list .stars-content .rating > input.radio-btn:checked ~ label:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #ffd700;
+}
+
+.content-results-rating .item-list-rating {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 1fr 25%;
+      grid-template-columns: 10% 1fr 25%;
+}
+
+.content-results-rating .item-list-rating .item-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 600;
+}
+
+.content-results-rating .item-list-rating .item-left i {
+  color: #ffd700;
+}
+
+.content-results-rating .item-list-rating .item-right {
+  padding: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.content-results-rating .item-list-rating .item-right span {
+  font-size: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 
 .resume-wrapper .resume-box .knowledge-list .single-knowledge {
@@ -2637,54 +2799,6 @@ select:focus {
   border-radius: 10px;
   -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
           box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
-}
-
-.contact .google_map_wrapper .starts-content {
-  text-align: center;
-}
-
-.contact .google_map_wrapper .starts-content .hide {
-  display: none;
-}
-
-.contact .google_map_wrapper .starts-content .clear {
-  float: none;
-  clear: both;
-}
-
-.contact .google_map_wrapper .starts-content .rating {
-  width: 90px;
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  text-align: center;
-  position: relative;
-}
-
-.contact .google_map_wrapper .starts-content .rating > label {
-  float: right;
-  display: inline;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  width: 1.1em;
-  cursor: pointer;
-  color: #000;
-}
-
-.contact .google_map_wrapper .starts-content .rating > label:hover,
-.contact .google_map_wrapper .starts-content .rating > label:hover ~ label,
-.contact .google_map_wrapper .starts-content .rating > input.radio-btn:checked ~ label {
-  color: transparent;
-}
-
-.contact .google_map_wrapper .starts-content .rating > label:hover:before,
-.contact .google_map_wrapper .starts-content .rating > label:hover ~ label:before,
-.contact .google_map_wrapper .starts-content .rating > input.radio-btn:checked ~ label:before,
-.contact .google_map_wrapper .starts-content .rating > input.radio-btn:checked ~ label:before {
-  content: "\2605";
-  position: absolute;
-  left: 0;
-  color: #ffd700;
 }
 
 .contact-form .mybtn3 {

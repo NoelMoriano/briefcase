@@ -1,5 +1,6 @@
 <?php
 
+$userId = "";
 $nameValue = "";
 $lastNameValue = "";
 $phoneValue = "";
@@ -8,6 +9,7 @@ $messageValue =  "";
     
 if(isset($_POST['btn-send-message-fo'])){
     
+    $userId = $_POST['userId'];
     $nameValue = $_POST['input-name-fo'];
     $lastNameValue = $_POST['input-lastName-fo'];
     $phoneValue = $_POST['input-phone-fo'];
@@ -72,7 +74,7 @@ if(isset($_POST['btn-send-message-fo'])){
             }
             </script>`; 
 
-    header("location:../../briefcase.php");
+    header("location:../../briefcase.php?userId=$userId");
 
     }
 }

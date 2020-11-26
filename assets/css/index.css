@@ -1551,13 +1551,43 @@ select:focus {
   z-index: -1;
 }
 
-.side-menu .heading-area img {
-  width: 130px;
-  height: 130px;
+.side-menu .heading-area {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.side-menu .heading-area .wrapper-img-header {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
   border: 5px solid #ffd500;
-  -webkit-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.075);
-          box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.075);
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+          box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+  background: #ffff;
+  overflow: hidden;
+}
+
+.side-menu .heading-area .wrapper-img-header img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .side-menu .heading-area .name {
@@ -1656,17 +1686,39 @@ select:focus {
   z-index: 6;
 }
 
-.home-section .home-content .home-image img {
-  width: 160px;
-  height: 160px;
+.home-section .home-content .home-image {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home-section .home-content .home-image .wrapper-img-profile {
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
   display: inline-block;
+  -o-object-fit: contain;
+     object-fit: contain;
   border: 5px solid #ffd500;
   margin-bottom: 30px;
   -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
           box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+  background: #ffff;
+  overflow: hidden;
+}
+
+.home-section .home-content .home-image .wrapper-img-profile img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .home-section .home-content .heading {
@@ -1867,8 +1919,8 @@ select:focus {
   margin-bottom: 16px;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  -webkit-box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
-          box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+  -webkit-box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+          box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
   -webkit-transition: -webkit-box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   transition: -webkit-box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   transition: box-shadow 0.3s cubic-bezier(0.79, 0.21, 0.06, 0.81);

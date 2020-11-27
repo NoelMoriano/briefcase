@@ -1624,38 +1624,20 @@ $newConn->createConnection();
 								<!--Message status-->
 							</div>
 							
-							<!-- <div class="col-lg-6">
+							<div class="col-lg-6">
 								<div class="google_map_wrapper">
 									<iframe
-										src="https://www.google.com/maps/embed?pb=chorrillos"
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.155545995812!2d-77.02149238506928!3d-12.169811447515361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b7788f5f5189%3A0x70a366f7a0e80cd0!2sServitec!5e0!3m2!1sen!2spe!4v1606490603262!5m2!1sen!2spe"
 										frameborder="0"
 										style="border: 0"
 										allowfullscreen=""
 										aria-hidden="false"
 										tabindex="0"
-									></iframe>
-									<div class="starts-content">
-										<form action="./controllers/ratingStars.php" method="POST" onsubmit="return validateRatingStars()">
-											<div class="rating">
-											<input type="number" name="userId" value="$_GET['userId']?>" hidden>
-												<input id="star5" name="star" type="radio" value="5" class="radio-btn hide star-value" />
-												<label for="star5">☆</label>
-												<input id="star4" name="star" type="radio" value="4" class="radio-btn hide star-value" />
-												<label for="star4">☆</label>
-												<input id="star3" name="star" type="radio" value="3" class="radio-btn hide star-value" />
-												<label for="star3">☆</label>
-												<input id="star2" name="star" type="radio" value="2" class="radio-btn hide star-value" />
-												<label for="star2">☆</label>
-												<input id="star1" name="star" type="radio" value="1" class="radio-btn hide star-value" />
-												<label for="star1">☆</label>
-												<div class="clear"></div>
-												<input type="submit" name="actionRating" id="" value="Calificar">
-											</div>
-										</form>
-									</div>
-
+										width="100%"
+										height="430px"
+									></iframe>		
 								</div>
-							</div> -->
+							</div> 
 						</div>
 						<!--/.row-->
 					</div>

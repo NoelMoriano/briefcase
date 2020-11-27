@@ -1,9 +1,4 @@
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+/* 
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -8937,7 +8932,7 @@ a:focus {
       height: calc(20rem - 43px) !important; } }
 
 .bg-login-image {
- /* background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");*/
+ background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
   background-position: center;
   background-size: cover; }
 
@@ -9231,3 +9226,4 @@ footer.sticky-footer {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%; }
+ */

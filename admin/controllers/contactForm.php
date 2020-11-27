@@ -34,22 +34,22 @@ if(isset($_POST['btn-send-message-fo'])){
         <title>Email-Técnicos Servitec</title>
     </head>
     <body>
-    <p>Este <strong>mensaje de consulta</strong> fue enviado desde  http://www.tecnicos.servitecperu.com/</p>
+    <p><strong>Mensaje enviado desde </strong> http://www.tecnicos.servitecperu.com/</p>
     <table style='margin:0!important'>
         <tr>
-        <td style='margin:0!important;border:1px solid #444;background:#F9FF00;color:#000;padding:8px;'><b>Nombres y Apellidos:</b></td>
+        <td style='margin:0!important;border:1px solid #444;background:#ffd500;color:#000;padding:8px;'><b>Nombres y Apellidos:</b></td>
         <td style='margin:0!important;border:1px solid #444;padding:8px;'>".$nameValue." ".$lastNameValue."</td>
         </tr>
         <tr>
-        <td style='margin:0!important;border:1px solid #444;background:#F9FF00;color:#000;padding:8px;'><b>Email:</b></td>
+        <td style='margin:0!important;border:1px solid #444;background:#ffd500;color:#000;padding:8px;'><b>Email:</b></td>
         <td style='margin:0!important;border:1px solid #444;padding:8px;'>".$emailValue."</td>
         </tr>
         <tr>
-        <td style='margin:0!important;border:1px solid #444;background:#F9FF00;color:#000;padding:8px;'><b>Cell:</b></td>
+        <td style='margin:0!important;border:1px solid #444;background:#ffd500;color:#000;padding:8px;'><b>Cell:</b></td>
         <td style='margin:0!important;border:1px solid #444;padding:8px;'>".$phoneValue."</td>
         </tr>
         <tr>
-        <td style='margin:0!important;border:1px solid #444;background:#F9FF00;color:#000;padding:8px;'><b>Mensaje:</b></td>
+        <td style='margin:0!important;border:1px solid #444;background:#ffd500;color:#000;padding:8px;'><b>Mensaje:</b></td>
         <td style='margin:0!important;border:1px solid #444;padding:8px;'>".$messageValue."</td>
         </tr>
     </table>

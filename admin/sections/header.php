@@ -59,7 +59,8 @@
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                   <?=ucfirst($_SESSION['userNames'])?>
                 </span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <!--<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">-->
+                <img class="img-profile rounded-circle" src="../assets/images/favicon.ico" alt="Tecnicos servitec">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -73,7 +74,7 @@
                 </a>-->
                 <a class="dropdown-item" href="../admin/userImages.php">
                   <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Mis Photos
+                  Fotos
                 </a>
                 <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalDestroySession">
@@ -100,8 +101,7 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su
-                        sesión actual.
+                    <div class="modal-body">Seleccione "Cerrar sesión" si esta seguro.
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>

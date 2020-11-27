@@ -25,14 +25,15 @@ $newConn->createConnection();
     <meta name="author" content="">
 
     <title>Panel - users</title>
-
+    <!-- favicon -->
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon" />
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./scss/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -59,12 +60,12 @@ $newConn->createConnection();
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">User</h1>
+                <h1 class="h3 mb-4 text-gray-800">Usuarios</h1>
 
                 <!-- Start Category -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Ingreso de datos</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Registro</h6>
                     </div>
                     <div class="card-body">
                     

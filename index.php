@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Product">
 
 
 <?php
@@ -12,8 +12,23 @@ $newConn = new connectionMySQL();
 $newConn->createConnection();
 ?>
 
-	<head>
-		<meta charset="UTF-8" />
+	<head name="Técnicos servitec" content="Plataforma donde nuestros clientes pueden encontrar a nuestros técnicos para una mayor confianza al recibir nuestros servicios." >
+        <meta charset="UTF-8" />
+
+        <meta name="description" content="Plataforma donde nuestros clientes pueden encontrar a nuestros técnicos para una mayor confianza al recibir nuestros servicios." />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link rel="canonical" href="http://tecnicos.servitecperu.com/" />
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Técnicos servitec" />
+        <meta property="og:description" content="Plataforma donde nuestros clientes pueden encontrar a nuestros técnicos para una mayor confianza al recibir nuestros servicios." />
+        <meta property="og:url" content="http://tecnicos.servitecperu.com/" />
+        <meta property="og:site_name" content="Tetraval" />
+        <meta property="article:modified_time" content="2020-08-20T22:26:05+00:00" />
+        <meta property="og:image" content="http://tecnicos.servitecperu.com/assets/images/favicon.ico" />
+        <meta property="og:image:width" content="2481" />
+        <meta property="og:image:height" content="2481" />
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./assets/css/index.css" />
 		<title>Técnicos - Servitec</title>
@@ -30,7 +45,7 @@ $newConn->createConnection();
 		<!-- stylesheet -->
 		<link rel="stylesheet" href="assets/css/index.css" />
 		<!-- responsive -->
-		<link rel="stylesheet" href="assets/css/responsive.css" />
+        <link rel="stylesheet" href="assets/css/responsive.css" />
 	</head>
 	<body>
     

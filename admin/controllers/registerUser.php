@@ -1,7 +1,5 @@
 <?php
-require("../control/constant.php");
 require("../control/classConnectionMySQL.php");
-require("../control/detectPlatform.php");
 
 //pathName
 //echo dirname (__FILE__);

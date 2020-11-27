@@ -1,7 +1,5 @@
 <?php
-require("../control/constant.php");
 require("../control/classConnectionMySQL.php");
-require("../control/detectPlatform.php");
 
 //pathName
 //echo dirname (__FILE__);
@@ -81,7 +79,7 @@ if (isset($_POST['saveUser']) && $names == '') {
           }
       }else{
           echo "<script>
-       alert('Error en registro');
+       alert('Error en registro, intentelo mas tarde');
        window.location = '../users.php';
             </script>";
     }
@@ -114,7 +112,7 @@ WHERE id = $userId";
       }
   }else{
       echo "<script>
-   alert('Error al actualizar');
+   alert('Error al actualizar, intentelo mas tarde');
    window.location = '../users.php';
         </script>";
   }
@@ -123,7 +121,7 @@ WHERE id = $userId";
 // ELIMINAR
 ///////////////////////////////
   if (isset($_GET['idUser'])) {
-    $idUser = $_GET['idUser'];
+  $idUser = $_GET['idUser'];
   $query = "DELETE FROM users WHERE id = '$idUser'";
   $result = $newConn->ExecuteQuery($query);
   if($result){
@@ -133,11 +131,16 @@ WHERE id = $userId";
      alert('Eliminado exitosamente');
      window.location = '../users.php';
           </script>";
+      }else{
+        echo "<script>
+     alert('Error al eliminar, intentelo mas tarde');
+     window.location = '../users.php';
+          </script>";
       }
   }
   else{
           echo "<script>
-     alert('Eliminado exitosamente');
+     alert('Error al eliminar, intentelo mas tarde');
      window.location = '../users.php';
           </script>";
   }

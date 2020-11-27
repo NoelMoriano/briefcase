@@ -16,6 +16,21 @@ $newConn->createConnection();
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keyword" content="resume,cv,portfolio,vcard,servitec,tecnicos" />
 		<title>Servitec - Técnicos</title>
+
+		<meta name="description" content="Plataforma donde nuestros clientes pueden encontrar a nuestros técnicos para una mayor confianza al recibir nuestros servicios." />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link rel="canonical" href="http://tecnicos.servitecperu.com/" />
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Técnicos servitec" />
+        <meta property="og:description" content="Plataforma donde nuestros clientes pueden encontrar a nuestros técnicos para una mayor confianza al recibir nuestros servicios." />
+        <meta property="og:url" content="http://tecnicos.servitecperu.com/" />
+        <meta property="og:site_name" content="Tetraval" />
+        <meta property="article:modified_time" content="2020-08-20T22:26:05+00:00" />
+        <meta property="og:image" content="http://tecnicos.servitecperu.com/assets/images/favicon.ico" />
+        <meta property="og:image:width" content="2481" />
+		<meta property="og:image:height" content="2481" />
+		
 		<!-- favicon -->
 		<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
 		<!-- bootstrap -->
@@ -85,7 +100,7 @@ $newConn->createConnection();
 			<div class="side-menu">
 				<div class="heading-area">
 					<div class="wrapper-img-header">
-							<a href="briefcase.php" class="profile-photo">
+							<a href="briefcase.php?userId=<?=$userIdGet?>" class="profile-photo">
 								<img
 									src="./admin/uploads/users/<?=$userPhoto ? $userPhoto : 'user-nofound.png'?>"
 									alt="<?=$names?>"
@@ -593,7 +608,7 @@ $newConn->createConnection();
 							<div class="col-lg-6">
 								<div class="resume-box">
 									<div class="resume-title">
-										<h4 class="title">Professional Skills</h4>
+										<h4 class="title">Habilidades profesionales</h4>
 									</div>
 
 									<div class="skill-list2">
@@ -623,7 +638,7 @@ $newConn->createConnection();
 									</div>
 									<div class="knowledge-list wow fadeInUp">
 										<div class="stars-content">
-											<h6>Califique al técnico por sus servicios,  donde 1 <i class="fa fa-star color-star"></i>  es malo y 5 <i class="fa fa-star color-star"></i> es excelente</h6>
+											<h6>Califique el servicio del técnico,  donde 1 <i class="fa fa-star color-star"></i>  es malo y 5 <i class="fa fa-star color-star"></i> es excelente</h6>
 											<form action="./controllers/ratingStars.php" method="POST" onsubmit="return validateRatingStars()">
 												<div class="rating">
 													<input type="number" name="userId" value="<?=$userIdGet?>" hidden>

@@ -5,6 +5,20 @@
   }
  ?>
 <!DOCTYPE html>
+<html lang="en">
+
+<?php
+require("control/classConnectionMySQL.php");
+
+// Creamos una nueva instancion
+$newConn = new connectionMySQL();
+
+// Creamos una nueva conexion
+$newConn->createConnection();
+
+$userIdGlobal = $_SESSION['userId'];
+?>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -15,14 +29,15 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Panel - Dashboard</title>
-
+  <title>Panel control</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon" />
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="./scss/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -50,41 +65,57 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <h1 class="h3 mb-0 text-gray-800">Panel</h1>
+            <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
           </div>
 
           <!-- Content Row -->
           <div class="row">
-
+          <?php
+                        if(isset($userIdGlobal) && $userIdGlobal !== null ){
+                            $query = "SELECT count(*) totalAdmins FROM users WHERE userType='admin'";
+                            $result = $newConn->ExecuteQuery($query);
+                            $totalAdmins = mysqli_fetch_array($result);
+                        }else{
+                          echo "<h5>Error en consulta contacte a soporte</h3>";
+                        }
+          ?>                  
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total admins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$totalAdmins["totalAdmins"]?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
+                    <?php
+                        if(isset($userIdGlobal) && $userIdGlobal !== null ){
+                            $query = "SELECT count(*) totalUsers FROM users WHERE userType='user'";
+                            $result = $newConn->ExecuteQuery($query);
+                            $totalUsers = mysqli_fetch_array($result);
+                        }else{
+                          echo "<h5>Error en consulta contacte a soporte</h3>";
+                        }
+                    ?>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total técnicos</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$totalUsers["totalUsers"]?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -92,7 +123,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+           <!-- <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -118,7 +149,7 @@
             </div>
 
             <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <!--<div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -133,7 +164,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
 
           <!-- Content Row -->
 
